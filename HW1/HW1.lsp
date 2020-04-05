@@ -43,12 +43,10 @@
 
 ;; 7. non-empty list of leaves LEAVES -> left-biased binary tree
 (defun LIST2BTREE (LEAVES)
-  (if (not (listp LEAVES)) (list LEAVES)
-    (if (null (rest LEAVES)) LEAVES
-      (let (subtrees (SPLIT-LIST LEAVES))
-        (cond ((null (first subtrees)) NIL)
-              ((null (second subtrees)) (LIST2BTREE (first subtrees)))
-              (t (list (LIST2BTREE (first subtrees)) (LIST2BTREE (second subtrees)))))))))
+  (if (null (second LEAVES)) (first LEAVES)
+    (if (null (third LEAVES)) LEAVES
+      (let ((SUBTREES (SPLIT-LIST LEAVES)))
+      (list (LIST2BTREE (first subtrees)) (LIST2BTREE (second subtrees)))))))
 
 ;; 8. binary tree TREE -> list of atoms
 (defun BTREE2LIST (TREE))
