@@ -1,52 +1,52 @@
 ;; 1. nummber N, ordered tree TREE -> N in TREE ? t : NIL
 (defun TREE-CONTAINS (N TREE)
-  (cond ((null TREE) NIL)
-        ((or (not (listp TREE)) (null (rest TREE))) (= N TREE))
-        (t (cond ((= N (second TREE)) t)
-                 ((< N (second TREE)) (TREE-CONTAINS N (first TREE)))
-                 ((> N (second TREE)) (TREE-CONTAINS N (third TREE)))))))
+  (cond ((NULL TREE) NIL)
+        ((OR (NOT (LISTP TREE)) (NULL (REST TREE))) (= N TREE))
+        (t (cond ((= N (second TREE)) T)
+                 ((< N (SECOND TREE)) (TREE-CONTAINS N (FIRST TREE)))
+                 ((> N (SECOND TREE)) (TREE-CONTAINS N (THIRD TREE)))))))
 
 ;; 2. ordered tree TREE -> minimum value in TREE
 (defun TREE-MIN (TREE)
-  (if (not (listp TREE)) TREE
-    (TREE-MIN (first TREE))))
+  (if (NOT (LISTP TREE)) TREE
+    (TREE-MIN (FIRST TREE))))
 
 
 ;; 3. ordered tree TREE -> TREE in prefix form
 (defun TREE-ORDER (TREE)
-  (if (not (listp TREE)) (list TREE)
-    (cons (first (TREE-ORDER (second TREE)))
-          (append (TREE-ORDER (first TREE)) (TREE-ORDER (third TREE))))))
+  (if (NOT (LISTP TREE)) (LISTP TREE)
+    (cons (FIRST (TREE-ORDER (SECOND TREE)))
+          (APPEND (TREE-ORDER (FIRST TREE)) (TREE-ORDER (THIRD TREE))))))
 
 ;; 4. list L, non-negative integers START & LEN -> sublist of L from index START of length LEN
 (defun SUB-LIST (L START LEN)
-  (if (or (= LEN 0) (null L)) NIL
-    (if (> START 0) (SUB-LIST (rest L) (- START 1) LEN)
-      (cons (first L) (SUB-LIST (rest L) START (- LEN 1))))))
+  (if (OR (= LEN 0) (NULL L)) NIL
+    (if (> START 0) (SUB-LIST (REST L) (- START 1) LEN)
+      (CONS (FIRST L) (SUB-LIST (REST L) START (- LEN 1))))))
 
 ;; 5. list L -> lists L1 & L2 | L1 + L2 = L && L1.length - L2.length < 2
 (defun SPLIT-LIST (L)
-  (let* ((len (length L))
-         (shorter_length (if (oddp len) (/ (- len 1) 2) (/ len 2)))
-         (longer_length (- len shorter_length))
-         (left_sublist (SUB-LIST L 0 longer_length))
-         (right_sublist (SUB-LIST L longer_length shorter_length)))
-         (list left_sublist right_sublist)))
+  (let* ((LEN (LENGTH L))
+         (SHORTER_LENGTH (if (ODDP LEN) (/ (- LEN 1) 2) (/ LEN 2)))
+         (LONGER_LENGTH (- LEN SHORTER_LENGTH))
+         (LEFT_SUBLIST (SUB-LIST L 0 LONGER_LENGTH))
+         (RIGHT_SUBLIST (SUB-LIST L LONGER_LENGTH SHORTER_LENGTH)))
+         (LIST LEFT_SUBLIST RIGHT_SUBLIST)))
 
 ;; 6. binary tree TREE -> height of TREE
 (defun BTREE-HEIGHT (TREE)
-  (if (or (null TREE) (not (listp TREE))) 0
-      (let* ((L_height (if (null (rest TREE)) 0 (BTREE-HEIGHT (first TREE))))
-             (R_height (if (null (rest TREE)) 0 (BTREE-HEIGHT (second TREE)))))
-             (if (> L_height R_height) (+ 1 L-height) (+ 1 R_height)))))
+  (if (OR (NULL TREE) (NOT (LISTP TREE))) 0
+      (let* ((L_HEIGHT (if (NULL (REST TREE)) 0 (BTREE-HEIGHT (FIRST TREE))))
+             (R_HEIGHT (if (NULL (REST TREE)) 0 (BTREE-HEIGHT (SECOND TREE)))))
+             (if (> L_HEIGHT R_HEIGHT) (+ 1 L_HEIGHT) (+ 1 R_HEIGHT)))))
 
 
 ;; 7. non-empty list of leaves LEAVES -> left-biased binary tree
 (defun LIST2BTREE (LEAVES)
-  (if (null (second LEAVES)) (first LEAVES)
-    (if (null (third LEAVES)) LEAVES
+  (if (NULL (SECOND LEAVES)) (FIRST LEAVES)
+    (if (NULL (THIRD LEAVES)) LEAVES
       (let ((SUBTREES (SPLIT-LIST LEAVES)))
-      (list (LIST2BTREE (first subtrees)) (LIST2BTREE (second subtrees)))))))
+      (LIST (LIST2BTREE (FIRST SUBTREES)) (LIST2BTREE (SECOND SUBTREES)))))))
 
 ;; 8. binary tree TREE -> list of atoms
 (defun BTREE2LIST (TREE))
