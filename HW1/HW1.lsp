@@ -28,8 +28,10 @@
 (defun SPLIT-LIST (L)
   (let* ((len (length L))
          (shorter_length (if (oddp len) (/ (- len 1) 2) (/ len 2)))
-         (longer_length (- len shorter_length)))
-    (list (SUB-LIST L 0 longer_length) (SUB-LIST L longer_length shorter_length))))
+         (longer_length (- len shorter_length))
+         (left_sublist (SUB-LIST L 0 longer_length))
+         (right_sublist (SUB-LIST L longer_length shorter_length)))
+         (list left_sublist right_sublist)))
 
 ;; 6. binary tree TREE -> height of TREE
 (defun BTREE-HEIGHT (TREE)
@@ -40,10 +42,17 @@
 
 
 ;; 7. non-empty list of leaves LEAVES -> left-biased binary tree
-(defun LIST2BTREE (LEAVES) NIL)
+(defun LIST2BTREE (LEAVES)
+  (if (not (listp LEAVES)) (list LEAVES)
+    (if (null (rest LEAVES)) LEAVES
+      (let (subtrees (SPLIT-LIST LEAVES))
+        (cond ((null (first subtrees)) NIL)
+              ((null (second subtrees)) (LIST2BTREE (first subtrees)))
+              (t (list (LIST2BTREE (first subtrees)) (LIST2BTREE (second subtrees)))))))))
 
 ;; 8. binary tree TREE -> list of atoms
 (defun BTREE2LIST (TREE))
 
 ;; 9. expressions E1 & E2 of atoms -> whether expressions are equal
 (defun IS-SAME (E1 E2) NIL)
+;; split all sublists into binary trees, then flatten into a list; compare by element
