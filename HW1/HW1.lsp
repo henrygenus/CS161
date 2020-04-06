@@ -1,3 +1,49 @@
+; Henry Genus
+; 304965058
+;
+; SOLUTIONS:
+; 1.
+; BASE CASE: empty tree -> false | single element tree -> false | value = root -> true
+; ALGORITHM: compare passed value to root; if less, recursively call on left, if more on right
+;
+; 2.
+; BASE CASE: single value tree -> value
+; ALGORITHM: recursive call on first element, since values are sorted increasingly
+;
+; 3.
+; BASE CASE: single value TREE -> list TREE
+; ALGORITHM: recursive call on each of the three elements; return (2nd 1st 3rd)
+;
+; 4.
+; BASE CASE: length 0 or empty list -> NIL
+; ALGORITHM: start = 0 ? return first::(recursive call on rest w/ len--) : recursive call on rest w/ start--
+;
+; 5.
+; BASE CASE: list is NIL -> NIL | list is atom -> list
+; ALGORITHM: return ((recursive call on left half) (recursive call on right half))
+;
+; 6.
+; BASE CASE: empty or single element tree -> 0
+; ALGORITHM: return 1 + (the greater of a recursive call on the left subtree and one on the right)
+;
+; 7.
+; BASE CASE: single element list or null second element -> first element | two element LIST -> LIST
+; ALGORITHM: call SPLIT-TREE and return ((recursive call on first) (recursive call on second))
+;
+; 8.
+; BASE CASE: single element -> list of element
+; ALGORITHM: return (append (recursive call on first) (recursive call on second))
+;
+; 9.
+; BASE CASE: NIL lists -> T | first elements of different types -> false | single lists -> direct comparison
+; ALGORITHM: return (AND (recursive call on first) (recursive call on rest))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;; IMPLEMENTATIONS ;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 ; 1.
 ; INPUT: number N, ordered tree TREE
 ; OUTPUT: N in TREE ? t : NIL
