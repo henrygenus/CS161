@@ -1,0 +1,8 @@
+(defun RUN-TEST ()
+  (let ((bresult (bfs '((A (B)) C (D))))
+        (dresult (dfs '((A (B)) C (D))))
+        (dfresult (dfid '((A (B)) C (D)) 3)))
+    (cond ((not (equal bresult '(C A D B))) bresult)
+          ((not (equal dresult '(D C B A))) dresult)
+          ((not (equal dfresult '(C A C D A B C D))) dfresult)
+          (t t))))
