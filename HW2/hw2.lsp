@@ -29,7 +29,7 @@
 ; list.  Otherwise, it calls itself with a decremented depth and appends
 ; that to a recursive call on the rest of the list
 (defun dldfs (L depth)
-  (cond ((or (= depth 0) (null L)) NIL)
+  (cond ((or (<= depth 0) (null L)) NIL)
         ((atom (first L)) (append (list (first L)) (dldfs (rest L) depth)))
         (t (append (dldfs (first L) (- depth 1)) (dldfs (rest L) depth)))))
 
@@ -39,7 +39,7 @@
 ; appends a DLDFS call with the passed depth to the back of a recursive call
 ; with a decremented depth.
 (defun dfid (L depth)
-  (if (= depth 0) NIL
+  (if (<= depth 0) NIL
     (append (dfid L (- depth 1)) (dldfs L depth) )))
 
 
@@ -78,7 +78,8 @@
 ; returns a list of each state that can be reached by applying legal operators
 ; to the current state.  It does this via hard-coded calls to next-state
 (defun succ-fn (s)
-  (append (next-state s 2 0) (next-state s 0 2) (next-state s 1 1) (next-state s 1 0) (next-state s 0 1)))
+  (append (next-state s 2 0) (next-state s 0 2) (next-state s 1 1)
+          (next-state s 1 0) (next-state s 0 1)))
 
 ; ON-PATH checks whether the current state is on the stack of states visited by
 ; this depth-first search. It takes two arguments: the current state (s) and the
@@ -96,11 +97,9 @@
 ; MULT-DFS does a depth-first search on each element of states in
 ; turn. If any of those searches reaches the final state, MULT-DFS returns the
 ; complete path from the initial state to the goal state. Otherwise, it returns
-; NIL. It does this by first checking if there are no moved, in which case it
-; returns NIL.  It then checks if the first move would repeat states, in which
-; case it calls itself on the rest of STATES. It calls the below DFS to expand
-; and generate and search the state, and if this fails it calls itself on the
-; rest of the list.
+; NIL. It does this by first checking if there are no movea, in which case it
+; returns NIL.  It calls the below DFS to expand and generate and search the
+; state, and if this fails it calls itself on the rest of the list.
 (defun mult-dfs (states path)
   (cond ((null states) NIL)
         ((on-path (first states) path) (mult-dfs (rest states) path))
@@ -120,21 +119,3 @@
 ; on the states with the passed PATH.
 (defun mc-dfs (s path)
   (if (final-state s) (cons s path) (mult-dfs (succ-fn s) (cons s path))))
-
-
-
-; Function execution examples
-
-; Applying this operator would result in an invalid state, with more cannibals
-; than missionaries on the east side of the river.
-; (next-state '(3 3 t) 1 0) -> NIL
-
-; Applying this operator would result in one cannibal and zero missionaries on
-; the west side of the river, which is a legal operator. (NOTE that next-state
-; returns a LIST of successor states, even when there is only one successor)
-; (next-state '(3 3 t) 0 1) -> ((0 1 NIL))
-
-; succ-fn returns all of the legal states that can result from applying
-; operators to the current state.
-; (succ-fn '(3 3 t)) -> ((0 1 NIL) (1 1 NIL) (0 2 NIL))
-; (succ-fn '(1 1 t)) -> ((3 2 NIL) (3 3 NIL))
