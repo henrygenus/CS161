@@ -118,4 +118,6 @@
 ; search path.  It expands and generates the state, then calls the above DFS
 ; on the states with the passed PATH.
 (defun mc-dfs (s path)
-  (if (final-state s) (cons s path) (mult-dfs (succ-fn s) (cons s path))))
+  (cond ((final-state s) (cons s path))
+        ((on-path s path) NIL)
+        (t (mult-dfs (succ-fn s) (cons s path)))))
