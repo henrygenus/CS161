@@ -1,4 +1,4 @@
-(defun RUN-TEST ()
+(defun RUN-SEARCH-TEST ()
   (let ((bresult (bfs '((A (B)) C (D))))
         (dresult (dfs '((A (B)) C (D))))
         (dfresult (dfid '((A (B)) C (D)) 3)))
@@ -6,3 +6,11 @@
           ((not (equal dresult '(D C B A))) dresult)
           ((not (equal dfresult '(C A C D A B C D))) dfresult)
           (t t))))
+
+; these should all be equivelant
+(defun MISS-CANN ()
+  (let ((r-one (mc-dfs '(3 3 T) NIL))
+        (r-two (mc-dfs '(0 3 T)
+                       '((3 1 NIL) (2 2 T) (2 2 NIL) (3 1 T) (0 3 NIL) (3 2 T) (0 2 NIL) (3 3 T))))
+        (r-three (mc-dfs '(3 2 T) '((0 2 NIL) (3 3 T)))))
+    (and (equal r-one r-two) (equal r-two r-three))))
