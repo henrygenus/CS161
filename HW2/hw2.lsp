@@ -1,59 +1,53 @@
 ; simple search functions:
 
+; BFS takes a single argument, a list representing a tree where a leaf is
+; represented as an atom and a non-leaf is represented by a list of its
+; child nodes.  If the list is empty, it returns an empty list.  It inspects
+; the head; if it is an atom, append it to the front of a recursive call on
+; the rest of the list.  If not, move it to the back of the list (appending
+; it will unwrap it by one level, so it approaches the base case). By iterating
+; as such, each level in the tree is represented by one pair of parentheses,
+; so we traverse left-to-right by level
 (defun bfs (L)
   (cond ((null L) NIL)
         ((atom (first L)) (append (list (first L)) (bfs (rest L))))
         (t (bfs (append (rest L) (first L))))))
 
+; DFS functions much like BFS, except that an atom is appended to the front
+; of the return value of the recursive call, and that when we move a sublist
+; to the back of the list, we make a recursive call on that as well.  By
+; doing so, we dive into the right first, and traverse depths right-to-left
 (defun dfs (L)
     (cond ((null L) NIL)
         ((atom (first L)) (append (dfs (rest L)) (list (first L))))
         (t (append (dfs (rest L)) (dfs (first L))))))
 
+; DLDFS takes two arguments: a list of the same format as above and a maximum
+; depth to search is a depth-limited depth first search.  If the depth is zero,
+; or if the list is empty, it returns an empty list. If the first item is an
+; atom, it appends that to the front of a recursive call on the rest of the
+; list.  Otherwise, it calls itself with a decremented depth and appends
+; that to a recursive call on the rest of the list
 (defun dldfs (L depth)
   (cond ((or (= depth 0) (null L)) NIL)
-        ((atom (first L)) (append (list (first L)) (dldfs (rest L) depth )))
-        (t (append (dldfs (first L) (- depth 1)) (dldfs (rest L) depth )))))
+        ((atom (first L)) (append (list (first L)) (dldfs (rest L) depth)))
+        (t (append (dldfs (first L) (- depth 1)) (dldfs (rest L) depth)))))
 
+; DFID takes two arguments: a list of the format above and a maximum depth
+; to iterate toward when searching.  It is a depth first iterative deepening
+; search that returns an empty list if the depth is zero, and otherwise
+; appends a DLDFS call with the passed depth to the back of a recursive call
+; with a decremented depth.
 (defun dfid (L depth)
   (if (= depth 0) NIL
     (append (dfid L (- depth 1)) (dldfs L depth) )))
 
 
-; These functions implement a depth-first solver for the missionary-cannibal
-; problem. In this problem, three missionaries and three cannibals are trying to
-; go from the east side of a river to the west side. They have a single boat
-; that can carry two people at a time from one side of the river to the
-; other. There must be at least one person in the boat to cross the river. There
-; can never be more cannibals on one side of the river than missionaries. If
-; there are, the cannibals eat the missionaries.
-
-; In this implementation, a state is represented by a single list
-; (missionaries cannibals side). side represents which side the boat is
-; currently on, and is T if it is on the east side and NIL if on the west
-; side. missionaries and cannibals represent the number of missionaries and
-; cannibals on the same side as the boat. Thus, the initial state for this
-; problem is (3 3 T) (three missionaries, three cannibals, and the boat are all
-; on the east side of the river) and the goal state is (3 3 NIL).
-
-; The main entry point for this solver is the function MC-DFS, which is called
-; with the initial state to search from and the path to this state. It returns
-; the complete path from the initial state to the goal state: this path is a
-; list of intermediate problem states. The first element of the path is the
-; initial state and the last element is the goal state. Each intermediate state
-; is the state that results from applying the appropriate operator to the
-; preceding state. If there is no solution, MC-DFS returns NIL.
-
-; To call MC-DFS to solve the original problem, one would call (MC-DFS '(3 3 T)
-; NIL) -- however, it would be possible to call MC-DFS with a different initial
-; state or with an initial path.
-
-; Examples of calls to some of the helper functions can be found after the code.
-
-
+; MISSIONARY AND CANNIBAL PROBLEM SOLUTION BELOW
 
 ; FINAL-STATE takes a single argument s, the current state, and returns T if it
-; is the goal state (3 3 NIL) and NIL otherwise.
+; is the goal state (3 3 NIL) and NIL otherwise. It does this by direct
+; comparison to the hard-coded final state
 (defun final-state (s)
   (equal s '(3 3 NIL)))
 
@@ -65,10 +59,10 @@
 ; river. If applying this operator results in an invalid state (because there
 ; are more cannibals than missionaries on either side of the river, or because
 ; it would move more missionaries or cannibals than are on this side of the
-; river) it returns NIL.
-;
-; NOTE that next-state returns a list containing the successor state (which is
-; itself a list); the return should look something like ((1 1 T)).
+; river) it returns NIL.  It does this by computing the cannibals and
+; missionaries that would be left on either side by the passed move, and then
+; checking directly whether (a) there are enough of both group for the move
+; (b) there will be enough missionaries to offset the cannibals on either side.
 (defun next-state (s m c)
   (let* ((this-side-m (- (first s) m))
         (this-side-c (- (second s) c))
@@ -82,14 +76,15 @@
 ; SUCC-FN returns all of the possible legal successor states to the current
 ; state. It takes a single argument (s), which encodes the current state, and
 ; returns a list of each state that can be reached by applying legal operators
-; to the current state.
+; to the current state.  It does this via hard-coded calls to next-state
 (defun succ-fn (s)
   (append (next-state s 2 0) (next-state s 0 2) (next-state s 1 1) (next-state s 1 0) (next-state s 0 1)))
 
 ; ON-PATH checks whether the current state is on the stack of states visited by
 ; this depth-first search. It takes two arguments: the current state (s) and the
 ; stack of states visited by MC-DFS (states). It returns T if s is a member of
-; states and NIL otherwise.
+; states and NIL otherwise.  It does this by comparing to the first state in
+; STATES, then recursively calling on the rest of STATES
 (defun on-path (s states)
   (cond ((null states) NIL)
          ((equal s (first states)) t)
@@ -101,8 +96,11 @@
 ; MULT-DFS does a depth-first search on each element of states in
 ; turn. If any of those searches reaches the final state, MULT-DFS returns the
 ; complete path from the initial state to the goal state. Otherwise, it returns
-; NIL.
-; Note that the path should be ordered as: (S_n ... S_2 S_1 S_0)
+; NIL. It does this by first checking if there are no moved, in which case it
+; returns NIL.  It then checks if the first move would repeat states, in which
+; case it calls itself on the rest of STATES. It calls the below DFS to expand
+; and generate and search the state, and if this fails it calls itself on the
+; rest of the list.
 (defun mult-dfs (states path)
   (cond ((null states) NIL)
         ((on-path (first states) path) (mult-dfs (rest states) path))
@@ -118,7 +116,8 @@
 ; from the initial state to the goal state, if any, or NIL otherwise. MC-DFS is
 ; responsible for checking if S is already the goal state, as well as for
 ; ensuring that the depth-first search does not revisit a node already on the
-; search path.
+; search path.  It expands and generates the state, then calls the above DFS
+; on the states with the passed PATH.
 (defun mc-dfs (s path)
   (if (final-state s) (cons s path) (mult-dfs (succ-fn s) (cons s path))))
 
