@@ -1,5 +1,3 @@
-; simple search functions:
-
 ; BFS takes a single argument, a list representing a tree where a leaf is
 ; represented as an atom and a non-leaf is represented by a list of its
 ; child nodes.  If the list is empty, it returns an empty list.  It inspects
@@ -102,7 +100,6 @@
 ; state, and if this fails it calls itself on the rest of the list.
 (defun mult-dfs (states path)
   (cond ((null states) NIL)
-        ((on-path (first states) path) (mult-dfs (rest states) path))
         (t (let ((result (mc-dfs (first states) path)))
              (if (null result)
                  (mult-dfs (rest states) path)
