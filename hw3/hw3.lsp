@@ -1,40 +1,9 @@
 ;
 ; CS161 Hw3: Sokoban
 ;
-; *********************
-;    READ THIS FIRST
-; *********************
-;
-; All functions that you need to modify are marked with 'EXERCISE' in their header comments.
-; Do not modify a-star.lsp.
-; This file also contains many helper functions. You may call any of them in your functions.
-;
-; *Warning*: The provided A* code only supports the maximum cost of 4999 for any node.
-; That is f(n)=g(n)+h(n) < 5000. So, be careful when you write your heuristic functions.
-; Do not make them return anything too large.
-;
-; For Allegro Common Lisp users: The free version of Allegro puts a limit on memory.
-; So, it may crash on some hard sokoban problems and there is no easy fix (unless you buy
-; Allegro).
-; Of course, other versions of Lisp may also crash if the problem is too hard, but the amount
-; of memory available will be relatively more relaxed.
-; Improving the quality of the heuristic will mitigate this problem, as it will allow A* to
-; solve hard problems with fewer node expansions.
-;
-; In either case, this limitation should not significantly affect your grade.
-;
-; Remember that most functions are not graded on efficiency (only correctness).
-; Efficiency can only influence your heuristic performance in the competition (which will
-; affect your score).
-;
-;
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; General utility functions
-; They are not necessary for this homework.
-; Use/modify them for your own convenience.
-;
 
 ;
 ; For reloading modified code.
@@ -168,102 +137,112 @@
 	);end cond
   );end
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;; BEGIN MY CODE ;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ; PERSONAL HELPER FUNCTIONS:
 
-; COUNT-BOARD: use COUNT to count each row
+(defun set-pt (s pt v) (set-square s (first pt) (second pt) v))
+(defun get-pt (s pt) (get-square s (first pt) (second pt)))
+
 (defun count-board (test board)
   (if (null board) 0
-    (+ (count-if #'test (first board)) (count-board #'test (rest board)))))
+    (+ (count-if test (first board)) (count-board test (rest board)))))
 
-; OR-TEST: return t if any of the functions in list TESTS are true for ITEM
 (defun or-tests (test1 test2 item)
   (if (null tests) NIL
   (or (test1 item) (test2 item))))
 
 (defun get-square (s r c)
-  (cond ((or (>= (length s) r) (< r 0)) Wall)
-        ((or (>= (length (first s)) c) (< c 0)) Wall)
+  (cond ((or (<= (length s) r) (< r 0)) Wall)
+        ((or (<= (length (first s)) c) (< c 0)) Wall)
         (t (first (nthcdr c (first (nthcdr r s)))))))
 
+(defun insert (row index element)
+  (let ((prefix (butlast row (- (length row) index)))
+        (suffix (nthcdr (+ index 1) row)))
+    (append prefix (cons element suffix))))
+
 (defun set-square (s r c v)
-  (if (= r 0)
-      (let (row (append (butlast (- (length (first s)) c)) v (nthcdr (+ c 1))))
-        (append row (rest s)))
-    (append (first s) set-square (s (- r 1) c v))))
+  (if (not (= r 0)) (cons (first s) (set-square (rest s) (- r 1) c v))
+    (cons (insert (first s) c v) (rest s))))
 
 (defun add-point (pt1 pt2)
   (let ((r (+ (first pt1) (first pt2)))
-        (c (+ (second  pt1) (seconds pt2))))
+        (c (+ (second  pt1) (second pt2))))
     (list r c)))
 
 ; EXERCISE: Modify this function to return true (t)
 ; if and only if s is a goal state of the game
 ; (neither any boxes nor the keeper is on a non-goal square)
 ;
-; Currently, it always returns NIL. If A* is called with
-; this function as the goal testing function, A* will never
-; terminate until the whole search space is exhausted.
-;
 (defun goal-test (s)
-  (let (counter (lambda v) (or-tests #'isBox #'isKeeper))
-    (= (count-board #'counter s) 0)));end defun
+  (and (= (count-board #'isBox s) 0) (= (count-board #'isKeeper s) 0)))
 
 ; EXERCISE: Modify this function to return the list of
-; sucessor states of s.
-;
-; This is the top-level next-states (successor) function.
-; Some skeleton code is provided below.
-; You may delete them totally, depending on your approach.
-;
-; If you want to use it, you will need to set 'result' to be
-; the set of states after moving the keeper in each of the 4 directions.
-; A pseudo-code for this is:
-;
-; ...
-; (result (list (try-move s UP) (try-move s DOWN) (try-move s LEFT) (try-move s RIGHT)))
-; ...
-;
-; You will need to define the function try-move and decide how to represent UP,DOWN,LEFT,RIGHT.
-; Any NIL result returned from try-move can be removed by cleanUpList.
-;
+; successor states of s.
 ;
 
-(defun set-pt (s pt v) (set-square s (first pt) (second pt) v))
+; defun empty: keep -> blank; keep* -> *
+(defun empty (s space val)
+  (cond ((isKeeper val) (set-pt s space Blank))
+        ((isKeeperStar val) (set-pt s space Star))))
 
-(defun isOpen (v) (or (isBlank v) (isGoal v)))
+(defun step-to-blank (s dest src src-val)
+  (empty (set-pt s dest Keeper) src src-val))
 
-(defun try-step (s to from)
-  (let ((to-r (first to))
-        (to-c (second to))
-        (from-r (first from))
-        (from-c (second from))))
-  (if (not (isOpen to-r to-c)) NIL
-    (set-pt (set-pt from Blank) to Keeper)))
+(defun step-to-star (s dest src src-val)
+  (empty (set-pt s dest KeeperStar) src src-val))
 
-(defun try-push (s box-to box-from keeper-from)
-  (if (not (isOpen (get-square (first box-to) (second box-to)))) NIL
-      (let* ((moved-box (set-pt s box-to Box))
-             (moved-keeper (set-pt moved-box box-from Keeper)))
-        new-board (set-pt moved-keeper keeper-from Blank))))
+(defun try-step (s dest dest-val src src-val)
+   (cond ((or (< (first dest) 0) (>= (first dest) (length  s))) NIL)
+         ((or (< (second dest) 0) (>= (second dest) (length (first s)))) NIL)
+         ((isBlank dest-val) (step-to-blank s dest src src-val))
+         ((isStar dest-val) (step-to-star s dest src src-val))
+         (t NIL)))
 
-(defun try-move (s pos d)
-  (let* ((destination (add-point pos d))
-         (square (get-square (first destination) (second destination))))
-    (cond ((isOpen square) (try-step s destination keeper-position))
-          ((isBox square) (try-push s (add-point destination d) destination pos))
-          (t NIL))))
+(defun push-to (s dest dest-val)
+  (cond ((isStar dest-val) (set-pt s dest BoxStar))
+        ((isBlank dest-val) (set-pt s dest Box))))
+
+(defun push-box (s dest mid src dest-val src-val)
+  (step-to-blank (push-to s dest dest-val) mid src src-val))
+
+(defun push-boxStar (s dest mid src dest-val src-val)
+  (step-to-star (push-to s dest dest-val) mid src src-val))
+
+(defun try-push (s dest mid src dest-val mid-val src-val)
+  (cond ((or (< (first dest) 0) (>= (first dest) (length  s))) NIL)
+        ((or (< (second dest) 0) (>= (second dest) (length (first s)))) NIL)
+        ((not (or (isBlank dest-val) (isStar dest-val))) NIL)
+        ((isBox mid-val) (push-box s dest mid src dest-val src-val))
+        ((isBoxStar mid-val) (push-boxStar s dest mid src dest-val src-val))
+        (t NIL)))
+
+(defun try-move (s src d)
+  (let* ((dest (add-point src d))
+         (dest-val (get-pt s dest))
+         (src-val (get-pt s src))
+         (step-attmt (try-step s dest dest-val src src-val)))
+    (if (not (null step-attmt)) step-attmt
+         (let* ((final (add-point dest d))
+                (final-val (get-pt s final))
+                (push-attmt (try-push s final dest src final-val dest-val src-val)))
+           (if (not (null push-attmt)) push-attmt
+             NIL)))))
 
 (defun next-states (s)
   (let* ((pos (getKeeperPosition s 0))
-	 (r (car pos))
-	 (c (cadr pos))
+	 (c (car pos))
+	 (r (cadr pos))
 	 (rc-pos (list r c)))
     (let ((move-up (try-move s rc-pos '(-1 0)))
+          (move-right (try-move s rc-pos '(0 1)))
           (move-down (try-move s rc-pos '(1 0)))
-          (move-left (try-move s rc-pos '(0 -1)))
-          (move-right (try-move s rc-pos '(0 1))))
-      (cleanUpList (list move-up move-down move-left move-right)))))
+          (move-left (try-move s rc-pos '(0 -1))))
+      (cleanUpList (list move-up move-right move-down move-left)))))
 
 ; EXERCISE: Modify this function to compute the trivial
 ; admissible heuristic.
@@ -273,18 +252,44 @@
 ; EXERCISE: Modify this function to compute the
 ; number of misplaced boxes in s.
 ;
-(defun h1 (s)
-  (count-board s Box))
+(defun h1 (s) (count-board #'isBox s))
 
-; EXERCISE: Change the name of this function to h<UID> where
-; <UID> is your actual student ID number. Then, modify this
-; function to compute an admissible heuristic value of s.
+; EXERCISE:  Then, modify this function to compute an admissible heuristic value of s.
 ;
 ; This function will be entered in the competition.
 ; Objective: make A* solve problems as fast as possible.
 ; The Lisp 'time' function can be used to measure the
 ; running time of a function call.
 ;
+
+(defun distance (pt1 pt2)
+  (let ((dx (abs (- (first pt1) (first pt2))))
+        (dy (abs (- (second pt1) (second pt2)))))
+    (+ dx dy)))
+
+(defun get-distances (pt l)
+  (cond ((null l) NIL)
+        (t (cons (distance (first l) pt) get-distances pt (rest l)))))
+
+(defun max-distance (pt point-list)
+  (max (get-distances pt point-list)))
+
+(defun get-max-distances (list1 list2)
+  (cond ((null list1) NIL)
+        (t (let (distances (get-max-distances (rest list1) list2))
+             (cons (get-distances (first list1) list2) distances)))))
+
+(defun min-max-distance (stars movables)
+  (min get-max-distance stars movables))
+
+                                                                     
+; need get-pts-that-satisfy (predicate s)                            
+                                                                     
+; ALGORITHM IDEAS:
+; get (stars, boxes+keepers);
+; max distance between any box and goal
+; max min distance between box and goal
+; USAGE: (max n1 n2 ... nn)
 (defun h304965058 (s)
   0)
 
@@ -446,11 +451,9 @@
 	    (0 0 0 0 1 1 1 1 1 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-#|
- | Utility functions for printing states and moves.
- | You do not need to understand any of the functions below this point.
- |#
+;
+; Utility functions for printing states and moves.
+;
 
 ;
 ; Helper function of prettyMoves
