@@ -263,74 +263,40 @@
 ;
 
 ; MAX DISTANCE TO A GOAL
-;computing distances
 ;
 (defun distance (pt1 pt2)
   (let ((dx (abs (- (first pt1) (first pt2))))
         (dy (abs (- (second pt1) (second pt2)))))
     (+ dx dy)))
 
-(defun get-distances (pt l)
-  (cond ((null l) NIL)
-        (t (cons (distance (first l) pt) (get-distances pt (rest l))))))
-
-(defun min-distance (pt point-list)
-  (let (distances (get-distances pt point-list))
-    (if (null distances) 0
-      (apply 'min distances))))
-
-(defun get-max-distances (list1 list2)
-  (cond ((null list1) NIL)
-        (t (let ((this-distances (max-distance (first list1) list2))
-                 (rest-distances (get-max-distances (rest list1) list2)))
-             (cons this-distances rest-distances)))))
-
-(defun max-min-distance (movables stars)
-  (let (distances (get-max-distances movables stars))
-    (if (null distances) 0
-      (apply 'max distances))))
-
-; getting points
-;
-(defun isMovable (v) (or (isBox v) (isKeeper v)))
+(defun get-max-distance (pt l)
+  (if (null l) 0
+    (max (distance pt (first l)) (get-max-distance pt (rest l)))))
 
 (defun merge-pair-lists (list1 list2)
-  (list (append (first list1) (first list2))
-        (append (second list1) (second list2))
-        (cleanUpList (cons (third list1) (third list2)))))
+  (list (cleanUpList (append (first list1) (first list2)))
+        (append (second list1) (second list2))))
 
 ; get col num satisfying all preds
 (defun filter-row (row row-num &optional(col-num 0))
   (if (null row) NIL
     (let ((factors (filter-row (rest row) row-num (+ col-num 1))))
-      (cond ((isBox (first row))
-             (list (cons (list row-num col-num) (first factors))
-                   (second factors)
-                   (third factors)))
+      (cond ((or (isKeeper (first row)) (isKeeperStar (first row)))
+             (list (list row-num col-num) (second factors)))
             ((isStar (first row))
-             (list (first factors)
-                   (cons (list row-num col-num) (second factors))
-                   (third factors)))
-            ((isKeeper (first row))
-             (list (first factors)
-                   (second factors)
-                   (list row-num col-num)))
+             (list (first factors) (cons (list row-num col-num) (second factors))))
             (t factors)))))
 
-                                             
-; SLOW                                       
-                                             
 (defun filter-state (s &optional (row-num 0))
   (cond ((null s) NIL)
         (t (merge-pair-lists (filter-row (first s) row-num)
                  (filter-state (rest s) (+ row-num 1))))))
 ;;;;;;;;;;;;;;;
 (defun h304965058 (s)
-  (let* ((factors (filter-state s))
-         (actors (append (third factors) (first factors)))
-         (stars (second factors)))
-    (cond ((null stars) 0)
-          (t (min-max-distance actors stars)))))
+  (let ((factors (filter-state s)))
+    (let ((keeper (first factors))
+          (stars (second factors)))
+    (get-max-distance keeper stars))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
