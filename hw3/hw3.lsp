@@ -314,7 +314,7 @@
     (get-sum-min-distance (rest list1) list2
                           (+ (get-min-distance (first list1) list2) acc))))
 
-;;;;;;;;;;;;;;;;
+;;;;
 (defun distance (pt1 pt2)
   (let ((dx (abs (- (first pt1) (first pt2))))
         (dy (abs (- (second pt1) (second pt2)))))
@@ -362,11 +362,11 @@
          (t (+ 1 (first-unmatched (rest matched))))))
 
 (defun find-match (element list2 index-distance)
-  (if (or (= (second (first index-distance)) -1)
-          (< (distance element (first list2)) (second (first index-distance))))
-      0
-    (+ 1 (find-match element (rest list2) (rest index-distance )))))
+  (cond ((= (second (first index-distance)) -1) 0)
+        ((< (distance element (first list2)) (second (first index-distance))) 0)
+        (t (+ 1 (find-match element (rest list2) (rest index-distance ))))))
 
+; currently -- sometimes not finding matches at all since not (-1 -1) replace?
 (defun do-match-by-distance (list1 list2 matched index-dist)
     (let ((current-index (first-unmatched matched)))
       (if (= current-index (length list1)) index-dist
@@ -395,14 +395,17 @@
         (index-dist (initialize-pairs list1)))
     (sum-dist (do-match-by-distance list1 list2 matched index-dist))))
 
+(defun get-keeper-not-star (s)
+  (let* ((c-r (getKeeperPosition s 0))
+         (pos (list (second c-r) (first c-r))))
+    (if (isKeeperStar (get-pt s pos)) NIL pos)))
+
 (defun h304965058 (s)
-  (let ((stars (get-stars s))
-        (boxes (get-boxes s))
-        (pos (getKeeperPosition s 0)))
-    (if (null boxes) 0
-      (let* ((keeperPos (cleanUpList (list (second pos) (first pos))))
-             (actors (cons keeperPos boxes)))
-        (match-by-distance actors stars)))))
+  (let ((boxes (get-boxes s))
+        (stars (get-stars s))
+        (keeperPos (get-keeper-not-star s)))
+    (if (and (null boxes) (null keeperPos)) 0
+      (match-by-distance (cons keeperPos boxes) stars))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
