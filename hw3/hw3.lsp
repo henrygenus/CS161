@@ -144,28 +144,41 @@
 
 ; PERSONAL HELPER FUNCTIONS:
 
-(defun set-pt (s pt v) (set-square s (first pt) (second pt) v))
-(defun get-pt (s pt) (get-square s (first pt) (second pt)))
-
-(defun count-board (seq board)
-  (if (null board) 0
-    (+ (count seq (first board)) (count-board seq (rest board)))))
-
+; return the value at location ROW, COL in state S
+;
 (defun get-square (s r c)
   (cond ((or (<= (length s) r) (< r 0)) Wall)
         ((or (<= (length (first s)) c) (< c 0)) Wall)
         (t (first (nthcdr c (first (nthcdr r s)))))))
 
+; set the value at location ROW, COL in state S to V and return the new state
+;
+(defun set-square (s r c v)
+  (if (not (= r 0)) (cons (first s) (set-square (rest s) (- r 1) c v))
+    (cons (insert (first s) c v) (rest s))))
+
+; use a point (row, col) rather than the two seperate parameters
+; to call get-square and set-square
+;
+(defun set-pt (s pt v) (set-square s (first pt) (second pt) v))
+(defun get-pt (s pt) (get-square s (first pt) (second pt)))
+
+; given a sequence SEQ and board BOARD, return # of items in board and seq
+;
+(defun count-board (seq board)
+  (if (null board) 0
+    (+ (count seq (first board)) (count-board seq (rest board)))))
+
+; insert ELEMENT at location INDEX inside of list ROW
+;
 (defun insert (row index element)
   (if (< index 0) row
     (let ((prefix (butlast row (- (length row) index)))
           (suffix (nthcdr (+ index 1) row)))
       (append prefix (cons element suffix)))))
 
-(defun set-square (s r c v)
-  (if (not (= r 0)) (cons (first s) (set-square (rest s) (- r 1) c v))
-    (cons (insert (first s) c v) (rest s))))
-
+; add the x and y values of two points
+;
 (defun add-point (pt1 pt2)
   (let ((r (+ (first pt1) (first pt2)))
         (c (+ (second  pt1) (second pt2))))
@@ -182,17 +195,30 @@
 ; successor states of s.
 ;
 
-; defun empty: keep -> blank; keep* -> *
+; given state S, space SPACE, and the value in the space VAL
+; map: keeper -> blank; keeperStar -> star
+;
 (defun empty (s space val)
   (cond ((isKeeper val) (set-pt s space Blank))
         ((isKeeperStar val) (set-pt s space Star))))
 
+; performs the setting necessary to step a keeper onto a blank space by
+; setting space DEST to keeper & call EMPTY with S, SPACE, SRC-VAL
+;
 (defun step-to-blank (s dest src src-val)
   (empty (set-pt s dest Keeper) src src-val))
 
+; performs the setting necessary to step a keeper onto a star space by
+; setting space DEST to keeperStar & call EMPTY with S, SPACE, SRC-VAL
+;
 (defun step-to-star (s dest src src-val)
   (empty (set-pt s dest KeeperStar) src src-val))
 
+; attempts to step piece of SRC to DEST by
+; bound checking on the destination square DEST
+; checking if DEST-VAL is blank, & calling STEP-TO-BLANK if true
+; checking if DEST-VAL is a star, & calling STEP-TO-STAR if true
+;
 (defun try-step (s dest dest-val src src-val)
    (cond ((or (< (first dest) 0) (>= (first dest) (length  s))) NIL)
          ((or (< (second dest) 0) (>= (second dest) (length (first s)))) NIL)
@@ -200,16 +226,28 @@
          ((isStar dest-val) (step-to-star s dest src src-val))
          (t NIL)))
 
+; performs setting necessary to place a box onto space DEST by mapping dest-val
+; star -> boxStar | blank -> box
+;
 (defun push-to (s dest dest-val)
   (cond ((isStar dest-val) (set-pt s dest BoxStar))
         ((isBlank dest-val) (set-pt s dest Box))))
 
+; does the three sets necessary for a keeper @ SRC to push a box at MID to DEST
+; given the corresponding values DEST-VAL & SRC-VAL
+;
 (defun push-box (s dest mid src dest-val src-val)
   (step-to-blank (push-to s dest dest-val) mid src src-val))
 
+; does the three sets necessary for a keeper @ SRC to push a boxStar at MID to DEST
+; given the corresponding values DEST-VAL & SRC-VAL
+;
 (defun push-boxStar (s dest mid src dest-val src-val)
   (step-to-star (push-to s dest dest-val) mid src src-val))
 
+; checks validity of the destination space & value then performs sets necessary
+; to push a box or boxStar and step the keeper
+;
 (defun try-push (s dest mid src dest-val mid-val src-val)
   (cond ((or (< (first dest) 0) (>= (first dest) (length  s))) NIL)
         ((or (< (second dest) 0) (>= (second dest) (length (first s)))) NIL)
@@ -218,6 +256,8 @@
         ((isBoxStar mid-val) (push-boxStar s dest mid src dest-val src-val))
         (t NIL)))
 
+; attempts to push or step depending on the value of the space in the direction D
+;
 (defun try-move (s src d)
   (let* ((dest (add-point src d))
          (dest-val (get-pt s dest))
@@ -230,6 +270,9 @@
            (if (not (null push-attmt)) push-attmt
              NIL)))))
 
+; attempts to move in each of the four directions, returning a list of the next state
+; provided by moving in said direction
+;
 (defun next-states (s)
   (let* ((pos (getKeeperPosition s 0))
 	 (c (car pos))
@@ -248,6 +291,7 @@
 
 ; EXERCISE: Modify this function to compute the
 ; number of misplaced boxes in s.
+; This is heuristic, since each box must move at least once to enter a star
 ;
 (defun h1 (s) (count-board box s))
 
@@ -259,6 +303,141 @@
 ; running time of a function call.
 ;
 
+; given a point PT and list L of points, return the max distance between pt
+; and any point in L
+;
+(defun get-min-distance (pt l &optional (acc 0))
+  (cond ((or (null l) (null pt)) acc)
+        ((= 0 acc) (get-min-distance pt (rest l) (distance pt (first l))))
+        (t (get-min-distance pt (rest l) (min acc (distance pt (first l)))))))
+
+; get the manhattan distance between the points PT1 & PT2
+;
+
+(defun distance (pt1 pt2)
+  (let ((dx (abs (- (first pt1) (first pt2))))
+        (dy (abs (- (second pt1) (second pt2)))))
+    (+ dx dy)))
+
+; return (ROW-NUM, COL-NUM) points for all the stars in row ROW
+;
+(defun get-stars-in-row (row row-num &optional(col-num 0))
+  (cond ((null row) NIL)
+        ((not (isStar (first row))) (get-stars-in-row (rest row) row-num (+ col-num 1)))
+        (t (cons (list row-num col-num)
+                 (get-stars-in-row (rest row) row-num (+ col-num 1))))))
+
+; return (row, col) points for all the stars in the state
+;
+(defun get-stars (s &optional (row-num 0))
+  (cond ((null s) NIL)
+        (t (let ((this-stars (get-stars-in-row (first s) row-num))
+                 (rest-stars (get-stars (rest s) (+ row-num 1))))
+             (append this-stars rest-stars)))))
+
+; return (ROW-NUM, COL-NUM) points for all the boxes in row ROW
+;
+(defun get-boxes-in-row (row row-num &optional(col-num 0))
+  (cond ((null row) NIL)
+        ((not (isBox (first row))) (get-boxes-in-row (rest row) row-num (+ col-num 1)))
+        (t (cons (list row-num col-num)
+                 (get-boxes-in-row (rest row) row-num (+ col-num 1))))))
+
+; return (row, col) points for all the boxes in the state
+;
+(defun get-boxes (s &optional (row-num 0))
+  (cond ((null s) NIL)
+        (t (let ((this-boxes (get-boxes-in-row (first s) row-num))
+                 (rest-boxes (get-boxes (rest s) (+ row-num 1))))
+             (append this-boxes rest-boxes)))))
+
+; given a boolean match list, return the first false value in the list
+;
+(defun first-unmatched (matched)
+  (cond ((null matched) 0)
+         ((= (first matched) 0) 0)
+         (t (+ 1 (first-unmatched (rest matched))))))
+
+; given a point ELEMENT, list of points LIST2, and list INDEX-DISTANCE where
+; the pair at index i represents (index of the item it is matched with, distance to pt)
+; for the item with index i in LIST2
+;
+(defun find-match (element list2 index-distance)
+  (cond ((= (second (first index-distance)) -1) 0)
+        ((< (distance element (first list2)) (second (first index-distance))) 0)
+        (t (+ 1 (find-match element (rest list2) (rest index-distance ))))))
+
+; finds a solution to the stable matching problem given lists LIST1 & LIST2 where
+; preference is represented by shorter distance with MATCHED & INDEX-DIST as above
+;
+(defun match-by-distance (list1 list2 matched index-dist)
+    (let ((current-index (first-unmatched matched)))
+      (if (= current-index (length list1)) index-dist
+        (let* ((current-item (nth current-index list1))
+               (match-index (find-match current-item list2 index-dist))
+               (match-item (nth match-index list2))
+               (match-pair (nth match-index index-dist))
+               (remove-match (insert matched (first match-pair) 0))
+               (new-matched (insert remove-match current-index 1))
+               (delta (distance current-item match-item))
+               (new-pairs (insert index-dist match-index (list current-index delta))))
+          (match-by-distance list1 list2 new-matched new-pairs)))))
+
+; return the sum of the second portion of each element of a list of pairs L
+;
+(defun sum-dist (l &optional (acc 0))
+  (cond ((null l) acc)
+        (t (sum-dist (rest l) (+ acc (second (first l)))))))
+
+; initializes a bool list of length = (length L) to all false
+;
+(defun initialize-list (l)
+  (if (null l) NIL (cons 0 (initialize-list (rest l)))))
+
+; intializes a list of points to (-1, -1) x list of length (length L)
+; (we use (-1, -1) to represent unmatched points in the second list)
+;
+(defun initialize-pairs (l)
+  (if (null l) NIL (cons '(-1 -1) (initialize-pairs (rest l)))))
+
+; calls the distance matching fcn on lists LIST1 & LIST2, return the sum
+; of the distances between the pair matching (the minimal sum of the
+; distance between items in LIST1 & LIST2)
+;
+(defun min-sum-distances (keeper list1 list2)
+  (if (null list1) 0
+    (let ((matched (initialize-list list1))
+          (index-dist (initialize-pairs list2)))
+      (sum-dist (match-by-distance list1 list2 matched index-dist)))))
+
+; get the location of the keeper in state S, returning nil if keeper is keeperStar
+; flips the (col, row) point provided by getKeeperPosition to (row, col)
+(defun get-keeper-not-star (s)
+  (let* ((c-r (getKeeperPosition s 0))
+         (pos (list (second c-r) (first c-r))))
+    (if (isKeeperStar (get-pt s pos)) NIL pos)))
+
+;; HEURISTIC ATTEMPT
+
+; three stage heuristic based on the state
+; 1. there are boxes and a keeper off of stars
+;       return  minimal sum of distance between stable matching of stars & boxes
+;       + minimal distance from keeper to nearest unmatched star
+; 3. the keeper is not on a star but all boxes are
+;       return the distance between the keeper and the closest star
+; 4. else return 0
+;
+(defun h304965058 (s)
+  (let ((boxes (get-boxes s))
+        (stars (get-stars s))
+        (keeperPos (getKeeperPosition s 0))
+        (keeperNotStar (get-keeper-not-star s)))
+    (let ((dBoxes (min-sum-distances keeperNotStar boxes stars))
+          (dKeeper (get-min-distance (list (second keeperPos) (first keeperPos)) boxes)))
+      (+ dBoxes dKeeper))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; GRAVEYARD
 
 (defun MAX-STAR-DISTANCE (s)
   (let ((keeperPos (getKeeperPosition s 0))
@@ -304,128 +483,12 @@
     (get-sum-min-distance (rest list1) list2
                           (+ (get-min-distance (first list1) list2) acc))))
 
-
 (defun MIN-STAR-DISTANCE (s)
   (let ((keeperPos (get-keeper-not-star s))
         (stars (get-stars s)))
     (if (null keeperPos) 0
       (get-min-distance keeperPos stars))))
-
-(defun get-min-distance (pt l &optional (acc 0))
-  (cond ((null l) acc)
-        ((= 0 acc) (get-min-distance pt (rest l) (distance pt (first l))))
-        (t (get-min-distance pt (rest l) (min acc (distance pt (first l)))))))
-
-(defun distance (pt1 pt2)
-  (let ((dx (abs (- (first pt1) (first pt2))))
-        (dy (abs (- (second pt1) (second pt2)))))
-    (+ dx dy)))
-
-
-(defun get-stars-in-row (row row-num &optional(col-num 0))
-  (cond ((null row) NIL)
-        ((not (isStar (first row))) (get-stars-in-row (rest row) row-num (+ col-num 1)))
-        (t (cons (list row-num col-num)
-                 (get-stars-in-row (rest row) row-num (+ col-num 1))))))
-
-(defun get-stars (s &optional (row-num 0))
-  (cond ((null s) NIL)
-        (t (let ((this-stars (get-stars-in-row (first s) row-num))
-                 (rest-stars (get-stars (rest s) (+ row-num 1))))
-             (append this-stars rest-stars)))))
-
-(defun get-boxes-in-row (row row-num &optional(col-num 0))
-  (cond ((null row) NIL)
-        ((not (isBox (first row))) (get-boxes-in-row (rest row) row-num (+ col-num 1)))
-        (t (cons (list row-num col-num)
-                 (get-boxes-in-row (rest row) row-num (+ col-num 1))))))
-
-(defun get-boxes (s &optional (row-num 0))
-  (cond ((null s) NIL)
-        (t (let ((this-boxes (get-boxes-in-row (first s) row-num))
-                 (rest-boxes (get-boxes (rest s) (+ row-num 1))))
-             (append this-boxes rest-boxes)))))
-
-; heuristic ideas
-
-; match boxes+keeper with star (matching problem)
-; add up distances
-;
-; keep pairs list and index-distance list
-; first without pair is active
-; first where distance < distance in list is new match
-;       replace match with self and match in self list with -1
-
-
-(defun first-unmatched (matched)
-  (cond ((null matched) 0)
-         ((= (first matched) 0) 0)
-         (t (+ 1 (first-unmatched (rest matched))))))
-
-(defun find-match (element list2 index-distance)
-  (cond ((= (second (first index-distance)) -1) 0)
-        ((< (distance element (first list2)) (second (first index-distance))) 0)
-        (t (+ 1 (find-match element (rest list2) (rest index-distance ))))))
-
-(defun do-match-by-distance (list1 list2 matched index-dist)
-    (let ((current-index (first-unmatched matched)))
-      (if (= current-index (length list1)) index-dist
-        (let* ((current-item (nth current-index list1))
-               (match-index (find-match current-item list2 index-dist))
-               (match-item (nth match-index list2))
-               (match-pair (nth match-index index-dist))
-               (remove-match (insert matched (first match-pair) 0))
-               (new-matched (insert remove-match current-index 1))
-               (delta (distance current-item match-item))
-               (new-pairs (insert index-dist match-index (list current-index delta))))
-          (do-match-by-distance list1 list2 new-matched new-pairs)))))
-
-(defun sum-dist (l &optional (acc 0))
-  (cond ((null l) acc)
-        (t (sum-dist (rest l) (+ acc (second (first l)))))))
-
-(defun initialize-list (l)
-  (if (null l) NIL (cons 0 (initialize-list (rest l)))))
-
-(defun initialize-pairs (l)
-  (if (null l) NIL (cons '(-1 -1) (initialize-pairs (rest l)))))
-
-(defun match-by-distance (list1 list2)
-  (let ((matched (initialize-list list2))
-        (index-dist (initialize-pairs list1)))
-    (sum-dist (do-match-by-distance list1 list2 matched index-dist))))
-
-(defun get-keeper-not-star (s)
-  (let* ((c-r (getKeeperPosition s 0))
-         (pos (list (second c-r) (first c-r))))
-    (if (isKeeperStar (get-pt s pos)) NIL pos)))
-
-(defun h304965058 (s)
-  (let ((boxes (get-boxes s))
-        (stars (get-stars s))
-        (keeperPos (get-keeper-not-star s)))
-    (cond ((not (null boxes)) (match-by-distance boxes stars))
-          ((not (null keeperPos)) (get-min-distance keeperPos stars))
-          (t 0))))
-
-(defun h2(s)
-  (let ((boxes (get-boxes s))
-        (stars (get-stars s))
-        (pos (get-keeper-not-star s)))
-    (cond ((and (not (null boxes)) (not (null pos)))
-           (let ((distB (match-by-distance boxes stars))
-                 (distK (get-min-distance pos boxes)))
-           (+ distB distK)))
-          ((not (null boxes)) (match-by-distance boxes stars))
-          ((not (null pos)) (get-min-distance pos stars))
-          (t 0))))
-
-
-(defun h3 (s)
-  (cond ((= 0 (count-board box s)) (min-star-distance s))
-        (t (match-by-distance (get-boxes s) (get-stars s)))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #|
  | Some predefined problems.
