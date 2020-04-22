@@ -360,9 +360,9 @@
 ;
 (defun find-match (priority index-distance)
   (let ((priority-pair (first priority)))
-    (if (> (second priority-pair) (second (nth (first priority-pair) index-distance)))
-        priority-pair
-      (find-match (rest priority) index-distance))))
+    (cond ((= (first (nth (first priority-pair) index-distance)) -1) priority-pair)
+          ((< (second priority-pair) (second (nth (first priority-pair) index-distance))) priority-pair)
+          (t (find-match (rest priority) index-distance)))))
 
 ; finds a solution to the stable matching problem given lists LIST1 & LIST2 where
 ; preference is represented by shorter distance with MATCHED & INDEX-DIST as above
@@ -376,19 +376,12 @@
                 (new-matched (insert (insert matched (first (nth match-index index-dist)) 0) current-index 1)))
             (match-by-distance new-matched priority new-pairs))))))
 
-; return the sum of the second portion of each element of a list of pairs L
-;
-(defun sum-dist (l &optional (acc 0))
-  (cond ((null l) acc)
-        ((= (second (first l)) -1) (sum-dist (rest l) acc))
-        (t (sum-dist (rest l) (+ acc (second (first l)))))))
-
 ; merge sort implementation which uses a comparison of the second element
 ;
 (defun combine (list1 list2 &optional (suffix NIL))
   (cond ((and (null list1) (null list2)) suffix)
-        ((null list1) (append list2 suffix))
-        ((null list2) (append list1 suffix))
+        ((null list1) (append (reverse list2) suffix))
+        ((null list2) (append (reverse list1) suffix))
         ((> (second (first list1)) (second (first list2)))
          (combine (rest list1) list2 (cons (first list1) suffix)))
         (t (combine list1 (rest list2) (cons (first list2) suffix)))))
@@ -430,6 +423,13 @@
         (t (let ((previous-priorities (append prev (list (initialize-priority (first list1) list2)))))
              (initialize-priorities (rest list1) list2 previous-priorities)))))
 
+; return the sum of the second portion of each element of a list of pairs L
+;
+(defun sum-dist (l &optional (acc 0))
+  (cond ((null l) acc)
+        ((= (second (first l)) -1) (sum-dist (rest l) acc))
+        (t (sum-dist (rest l) (+ acc (second (first l)))))))
+
 ; calls the distance matching fcn on lists LIST1 & LIST2, return the sum
 ; of the distances between the pair matching (the minimal sum of the
 ; distance between items in LIST1 & LIST2)
@@ -442,7 +442,7 @@
       (sum-dist (match-by-distance matched priorities index-dist)))))
 
 ; helper fcn for get-keeper-not-star
-(defun get-keeper-in-row (row col)
+(defun get-keeper-in-row (row &optional (col 0))
   (cond ((or (null row) (isKeeper (first row))) col)
         ((isKeeperStar (first row)) -1)
         (t (get-keeper-in-row (rest row) (+ col 1)))))
@@ -452,9 +452,9 @@
 ;
 (defun get-keeper-not-star (s &optional (row-num 0))
   (if (null s) NIL
-    (let ((keeperCol (get-keeper-in-row (first s) row-num)))
+    (let ((keeperCol (get-keeper-in-row (first s))))
       (cond ((= -1 keeperCol) NIL)
-            ((= (length (first s)) keeperCol) (get-keeper-not-star (rest s) (+ row-num 1)))
+            ((= (length (first s)) keeperCol) (get-keeper-not-star (rest s)(+ 1 row-num)))
             (t (list row-num keeperCol))))))
 
 
@@ -472,8 +472,8 @@
         (keeperPos (get-keeper-not-star s)))
     (cond ((and (not (null keeperPos)) (not (null boxes)))
            (let ((dBoxes (min-sum-distances boxes stars))
-                 (dKeeper (get-min-distance keeperPos boxes)))
-             (+ dKeeper dBoxes)))
+                 (dKeeper (min-sum-distances boxes)))
+             dBoxes))
           ((not (null boxes)) (min-sum-distances boxes stars))
           ((not (null keeperPos)) (get-min-distance keeperPos stars))
           (t 0))))
