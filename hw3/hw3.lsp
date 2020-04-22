@@ -165,9 +165,9 @@
 
 ; given a sequence SEQ and board BOARD, return # of items in board and seq
 ;
-(defun count-board (seq board)
-  (if (null board) 0
-    (+ (count seq (first board)) (count-board seq (rest board)))))
+(defun count-board (seq board &optional (sum 0))
+  (if (null board) sum
+    (+ (count-board seq (rest board)) (count seq (first board)))))
 
 ; insert ELEMENT at location INDEX inside of list ROW
 ;
@@ -362,31 +362,29 @@
 ; the pair at index i represents (index of the item it is matched with, distance to pt)
 ; for the item with index i in LIST2
 ;
-(defun find-match (element list2 index-distance)
-  (cond ((= (second (first index-distance)) -1) 0)
-        ((< (distance element (first list2)) (second (first index-distance))) 0)
-        (t (+ 1 (find-match element (rest list2) (rest index-distance ))))))
+(defun find-match (priority index-distance)
+  (let* ((priority-pair (first priority)))
+    (if (> (second priority-pair) (second (nth (first priority-pair) index-distance)))
+        priority-pair
+      (find-match (rest priority) index-distance))))
 
 ; finds a solution to the stable matching problem given lists LIST1 & LIST2 where
 ; preference is represented by shorter distance with MATCHED & INDEX-DIST as above
 ;
-(defun match-by-distance (list1 list2 matched index-dist)
+(defun match-by-distance (matched priority index-dist)
     (let ((current-index (first-unmatched matched)))
-      (if (= current-index (length list1)) index-dist
-        (let* ((current-item (nth current-index list1))
-               (match-index (find-match current-item list2 index-dist))
-               (match-item (nth match-index list2))
-               (match-pair (nth match-index index-dist))
-               (remove-match (insert matched (first match-pair) 0))
-               (new-matched (insert remove-match current-index 1))
-               (delta (distance current-item match-item))
-               (new-pairs (insert index-dist match-index (list current-index delta))))
-          (match-by-distance list1 list2 new-matched new-pairs)))))
+      (if (= current-index (length matched)) index-dist
+        (let* ((match-index-dist (find-match (nth current-index priority) index-dist))
+               (match-index (first match-index-dist)))
+          (let ((new-pairs (insert index-dist match-index (list current-index (second match-index-dist))))
+                (new-matched (insert (insert matched (first (nth match-index index-dist)) 0) current-index 1)))
+            (match-by-distance new-matched priority new-pairs))))))
 
 ; return the sum of the second portion of each element of a list of pairs L
 ;
 (defun sum-dist (l &optional (acc 0))
   (cond ((null l) acc)
+        ((= (second (first l)) -1) (sum-dist (rest l) acc))
         (t (sum-dist (rest l) (+ acc (second (first l)))))))
 
 ; initializes a bool list of length = (length L) to all false
@@ -400,15 +398,49 @@
 (defun initialize-pairs (l)
   (if (null l) NIL (cons '(-1 -1) (initialize-pairs (rest l)))))
 
+;; merge sort implementation which uses a comparison of the second element
+
+(defun combine (list1 list2)
+  (cond ((and (null list1) (null list2)) NIL)
+        ((null list1) list2)
+        ((null list2) list1)
+        ((< (second (first list1)) (second (first list2))) (cons (first list1) (combine (rest list1) list2)))
+        (t (cons (first list2) (combine list1 (rest list2))))))
+
+(defun merge-sort (l)
+  (cond ((null l) NIL)
+        ((= (length l) 1) l)
+        (t (let* ((dist (length l))
+                 (halfDist (floor dist 2)))
+             (combine (merge-sort (butlast l halfDist)) (merge-sort (nthcdr (- dist halfDist) l)))))))
+
+; initializes a list of (index, distance) pairs
+;
+(defun list-priorities (point l &optional (index 0))
+  (cond ((null l) NIL)
+        (t (cons (list index (distance point (first l))) (list-priorities point (rest l) (+ index 1))))))
+
+; find and sort list of (index, distance) pairs
+;
+(defun initialize-priority (point l)
+  (merge-sort (list-priorities point l)))
+
+; initializes a list of (index, distance) pairs from min to max distance for each element of list1
+;
+(defun initialize-priorities (list1 list2 &optional (prev NIL))
+  (cond ((null list1) prev)
+        (t (initialize-priorities (rest list1) list2 (cons (initialize-priority (first list1) list2) prev)))))
+
 ; calls the distance matching fcn on lists LIST1 & LIST2, return the sum
 ; of the distances between the pair matching (the minimal sum of the
 ; distance between items in LIST1 & LIST2)
 ;
-(defun min-sum-distances (keeper list1 list2)
+(defun min-sum-distances (list1 list2)
   (if (null list1) 0
     (let ((matched (initialize-list list1))
-          (index-dist (initialize-pairs list2)))
-      (sum-dist (match-by-distance list1 list2 matched index-dist)))))
+          (index-dist (initialize-pairs list2))
+          (priorities (initialize-priorities list1 list2)))
+      (sum-dist (match-by-distance matched priorities index-dist)))))
 
 ; get the location of the keeper in state S, returning nil if keeper is keeperStar
 ; flips the (col, row) point provided by getKeeperPosition to (row, col)
@@ -417,24 +449,63 @@
          (pos (list (second c-r) (first c-r))))
     (if (isKeeperStar (get-pt s pos)) NIL pos)))
 
+(defun isFree (point s ignore-list)
+  (let ((v (get-pt s point)))
+    (if (or (not (null (member point ignore-list :test 'equal))) (isBlank v) (isStar v)) t NIL)))
+
+(defun detect-any-free (s boxes ignore-list)
+  (cond ((null boxes) NIL)
+        ((member (first boxes) ignore-list) (detect-any-free s (rest boxes) ignore-list))
+        (t (let ((up-space (add-point (first boxes) '(-1 0)))
+                 (right-space (add-point (first boxes) '(0 1)))
+                 (down-space (add-point (first boxes) '(1 0)))
+                 (left-space (add-point (first boxes) '(0 -1))))
+               (let ((vertical-block (and (isFree up-space s ignore-list)
+                                          (isFree down-space s ignore-list)))
+                     (horizontal-block (and (isFree right-space s ignore-list)
+                                            (isFree left-space s ignore-list))))
+                 (cond ((or (not vertical-block) (not horizontal-block)) (first boxes))
+                       (t (detect-any-free s (rest boxes) ignore-list))))))))
+
+(defun detect-deadlock (s boxes &optional (ignore-boxes NIL))
+  (if (= (length boxes) (length ignore-boxes)) NIL
+    (let ((free-box (detect-any-free s boxes ignore-boxes)))
+      (cond ((null free-box) t)
+            (t (detect-deadlock s boxes (cons free-box ignore-boxes)))))))
+
 ;; HEURISTIC ATTEMPT
 
 ; three stage heuristic based on the state
 ; 1. there are boxes and a keeper off of stars
 ;       return  minimal sum of distance between stable matching of stars & boxes
 ;       + minimal distance from keeper to nearest unmatched star
-; 3. the keeper is not on a star but all boxes are
+; 2. the keeper is not on a star but all boxes are
 ;       return the distance between the keeper and the closest star
-; 4. else return 0
+; 3. else return 0
 ;
-(defun h304965058 (s)
+; if deadlocked, don't count!
+ (defun h304965058 (s)
+  (let ((stars (get-stars s))
+        (boxes (get-boxes s))
+        (keeperPos (get-keeper-not-star s)))
+    (cond ((and (not (null keeperPos)) (not (null boxes)))
+           (let ((dBoxes (min-sum-distances boxes stars))
+                 (dKeeper (get-min-distance keeperPos boxes)))
+             (+ dBoxes dKeeper)))
+          ((not (null boxes)) (min-sum-distances boxes stars))
+          ((not (null keeperPos)) (get-min-distance keeperPos stars))
+          (t 0))))
+
+(defun h2 (s)
   (let ((boxes (get-boxes s))
         (stars (get-stars s))
-        (keeperPos (getKeeperPosition s 0))
-        (keeperNotStar (get-keeper-not-star s)))
-    (let ((dBoxes (min-sum-distances keeperNotStar boxes stars))
-          (dKeeper (get-min-distance (list (second keeperPos) (first keeperPos)) boxes)))
-      (+ dBoxes dKeeper))))
+        (keeperPos (getKeeperPosition s 0)))
+    (cond ((and (null boxes) (null keeperPos)) 0)
+          ((null boxes) (get-min-distance (list (second keeperPos) (first keeperPos)) stars))
+          ((null keeperPos) (min-sum-distances boxes stars))
+          (t (let ((dBoxes (min-sum-distances boxes stars))
+                   (dKeeper (get-min-distance (list (second keeperPos) (first keeperPos)) stars)))
+               (+ dBoxes dKeeper))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; GRAVEYARD
