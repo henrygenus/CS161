@@ -460,11 +460,12 @@
 
 ; three stage heuristic based on the state
 ; 1. there are boxes and a keeper off of stars
-;       return  minimal sum of distance between stable matching of stars & boxes
+;       return (*) minimal sum of distance between stable matching of stars & boxes
 ;       + minimal distance from keeper to nearest unmatched star
 ; 2. the keeper is not on a star but all boxes are
 ;       return the distance between the keeper and the closest star
-; 3. else return 0
+; 3. keeper on star but not boxes -- return (*)
+; 4. else return 0
 ;
  (defun h304965058 (s)
   (let ((stars (get-stars s 0))
@@ -472,8 +473,8 @@
         (keeperPos (get-keeper-not-star s)))
     (cond ((and (not (null keeperPos)) (not (null boxes)))
            (let ((dBoxes (min-sum-distances boxes stars))
-                 (dKeeper (min-sum-distances boxes)))
-             dBoxes))
+                 (dKeeper (get-min-distance keeperPos boxes)))
+             (+ (floor dKeeper 2) dBoxes)))
           ((not (null boxes)) (min-sum-distances boxes stars))
           ((not (null keeperPos)) (get-min-distance keeperPos stars))
           (t 0))))
