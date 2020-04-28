@@ -3,26 +3,25 @@
 ;;;;;;;;;;;;;;
 
 
-; am doign it backward -- need to get ok values and cross off all not allowed by assignment
-
-
 ; EXERCISE: Modify this function to decide satisifiability of delta.
-; If delta is satisfiable, sat? returns a list of n integers that represents a model of delta,
+; If delta is satisfiable, sat? returns a list of n integers that
+; represents a model of delta,
 ; otherwise it returns NIL. (See spec for details.)
 ; param n: number of variables in delta
 ; param delta: a CNF represented as a list of lists
+;
 (defun sat? (n delta)
   (cond ((= n 0) (null delta))
         ((null delta) (fill-rest n))
-        (t (let ((sat-pos (try-filter n delta)))
-             (if (not (null sat-pos)) sat-pos
-               (try-filter (* -1 n) delta))))))
+        (t (let* ((d-pos (filter n delta))
+                 ((sat+ (run-sat n d-pos))))
+               (if (not (null sat+)) sat+
+                   (let ((d-neg (filter (* -1 n) delta))
+                         (sat- (run-sat (* n -1) d-neg)))
+                     (if (not (null sat-)) sat- NIL)))))))
 
-; returns (1) a list of numbers {n, +/- [(abs n)-1, 1]) st all delta is satisfied or
-;         (2) NIL if none exists
-;
-(defun try-filter (n delta)
-  (let ((sat (sat? (- (abs n) 1) (filter n delta))))
+(defun run-sat (n delta)
+  (let ((sat (sat? (- (abs n) 1) delta)))
     (cond ((= (abs n) 1) (if (null sat) NIL (list n)))
           ((= (length sat) (- (abs n) 1)) (cons n sat))
           (t NIL))))
@@ -33,8 +32,7 @@
   (cond ((= n 0) NIL)
         (t (cons n (fill-rest (- (abs n) 1))))))
 
-
-; returns the list of list DELTA with any sublists containing N having been removed
+; returns list DELTA with any sublists containing N having been removed
 ;
 (defun filter (n delta)
   (if (null delta) NIL
@@ -44,8 +42,8 @@
               ((member n curr-rule) rest-rule)
               (t (cons (first delta) rest-rule))))))
 
-
-; returns true if the rule is invalid -- ie there are no numbers left that can make it true
+; returns true if the rule is invalid
+; -- ie there are no numbers left that can make it true
 ;
 (defun invalid (n rule)
   (cond ((null rule) NIL)
