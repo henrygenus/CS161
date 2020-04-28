@@ -3,6 +3,10 @@
 ;;;;;;;;;;;;;;
 
 
+; IDEAS for efficiency
+;       order pairs of +/- by usages
+;       prune off constraints already met
+
 ; EXERCISE: Modify this function to decide satisifiability of delta.
 ; If delta is satisfiable, sat? returns a list of n integers that
 ; represents a model of delta,
