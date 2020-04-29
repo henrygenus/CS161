@@ -3,10 +3,6 @@
 ;;;;;;;;;;;;;;
 
 
-; IDEAS for efficiency
-;       order pairs of +/- by usages
-;       prune off constraints already met
-
 ; EXERCISE: Modify this function to decide satisifiability of delta.
 ; If delta is satisfiable, sat? returns a list of n integers that
 ; represents a model of delta,
@@ -15,44 +11,56 @@
 ; param delta: a CNF represented as a list of lists
 ;
 (defun sat? (n delta)
-  (cond ((= n 0) (null delta))
-        ((null delta) (fill-rest n))
-        (t (let* ((d-pos (filter n delta))
-                 ((sat+ (run-sat n d-pos))))
-               (if (not (null sat+)) sat+
-                   (let ((d-neg (filter (* -1 n) delta))
-                         (sat- (run-sat (* n -1) d-neg)))
-                     (if (not (null sat-)) sat- NIL)))))))
+    (sat n NIL delta))
 
-(defun run-sat (n delta)
-  (let ((sat (sat? (- (abs n) 1) delta)))
-    (cond ((= (abs n) 1) (if (null sat) NIL (list n)))
-          ((= (length sat) (- (abs n) 1)) (cons n sat))
-          (t NIL))))
+(defun sat (n assignment delta)
+  (cond ((null delta) (fill-out n assignment))
+        ((and (not (null assignment)) (= n (length assignment))) NIL)
+        (t (try-sat n assignment (rest delta) (first delta)))))
 
-; return a list of all integers [n, 1]
+; keep sorted list of numbers entered; start w/ singletons
+; try each assignment in a rule, if all fail then nil
 ;
-(defun fill-rest (n)
-  (cond ((= n 0) NIL)
-        (t (cons n (fill-rest (- (abs n) 1))))))
+(defun try-sat (n assignment delta curr-rule)
+    (let ((val (first curr-rule)))
+      (cond ((null val) NIL)
+            ((is-member assignment val) (sat n assignment delta))
+            ((is-member assignment (* -1 val)) (try-sat n assignment delta (rest curr-rule)))
+            (t (let* ((try-val-filter (filter val delta))
+                      (try-sat (sat n (insert val assignment) try-val-filter)))
+                 (if (not (null try-sat)) try-sat
+                   (try-sat n assignment delta (rest curr-rule))))))))
+
+; check if value is a member of the sorted list
+;
+(defun is-member (sorted-list value)
+  (cond ((or (null sorted-list) (< (abs (first sorted-list)) (abs value))) NIL)
+        ((= value (first sorted-list)) t)
+        (t (is-member (rest sorted-list) value))))
+
+; insert element n into the strictly decreasing sorted list (by absolute value)
+;
+(defun insert (n assignment &optional (parsed NIL))
+  (cond ((null assignment) (reverse (cons n parsed)))
+        ((< (abs (first assignment)) (abs n)) (append (reverse parsed) (cons n assignment)))
+        (t (insert n (rest assignment) (cons (first assignment) parsed)))))
+
+; fills in positive values for any number below n, inclusive
+;
+(defun fill-out (n pre-list &optional (post-list NIL))
+  (cond ((= n 0) post-list)
+        ((null pre-list) (fill-out (- n 1) pre-list (cons n post-list)))
+        ((= (abs (first pre-list)) n) (fill-out (- n 1) (rest pre-list) (cons (first pre-list) post-list)))
+        (t (fill-out (- n 1) pre-list (cons n post-list)))))
 
 ; returns list DELTA with any sublists containing N having been removed
 ;
-(defun filter (n delta)
-  (if (null delta) NIL
-    (let* ((curr-rule (first delta))
-          (rest-rule (filter n (rest delta))))
-        (cond ((invalid n curr-rule) NIL)
-              ((member n curr-rule) rest-rule)
-              (t (cons (first delta) rest-rule))))))
+(defun filter (n delta &optional (filtered NIL))
+  (if (null delta) (reverse filtered)
+    (let ((curr-rule (first delta)))
+      (cond ((member n curr-rule) (filter n (rest delta) filtered))
+            (t (filter n (rest delta) (cons curr-rule filtered)))))))
 
-; returns true if the rule is invalid
-; -- ie there are no numbers left that can make it true
-;
-(defun invalid (n rule)
-  (cond ((null rule) NIL)
-        ((>= (abs n) (abs (first rule))) NIL)
-        (t (invalid n (rest rule)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Functions that help you parse CNF from files in folder cnfs/
@@ -79,4 +87,5 @@
 ; Following is a helper function that combines parse-cnf and sat?
 (defun solve-cnf (filename)
   (let ((cnf (parse-cnf filename))) (sat? (first cnf) (second cnf))))
+
 
