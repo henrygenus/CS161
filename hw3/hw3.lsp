@@ -379,10 +379,10 @@
 ; merge sort implementation which uses a comparison of the second element
 ;
 (defun combine (list1 list2 &optional (suffix NIL))
-  (cond ((and (null list1) (null list2)) suffix)
-        ((null list1) (append (reverse list2) suffix))
-        ((null list2) (append (reverse list1) suffix))
-        ((> (second (first list1)) (second (first list2)))
+  (cond ((and (null list1) (null list2)) (reverse suffix))
+        ((null list1) (append (reverse suffix) list2))
+        ((null list2) (append (reverse suffix) list1))
+        ((< (second (first list1)) (second (first list2)))
          (combine (rest list1) list2 (cons (first list1) suffix)))
         (t (combine list1 (rest list2) (cons (first list2) suffix)))))
 
@@ -457,7 +457,6 @@
             ((= (length (first s)) keeperCol) (get-keeper-not-star (rest s)(+ 1 row-num)))
             (t (list row-num keeperCol))))))
 
-
 ; three stage heuristic based on the state
 ; 1. there are boxes and a keeper off of stars
 ;       return (*) minimal sum of distance between stable matching of stars & boxes
@@ -471,13 +470,10 @@
   (let ((stars (get-stars s 0))
         (boxes (get-boxes s 0))
         (keeperPos (get-keeper-not-star s)))
-    (cond ((and (not (null keeperPos)) (not (null boxes)))
-           (let ((dBoxes (min-sum-distances boxes stars))
-                 (dKeeper (get-min-distance keeperPos boxes)))
-             (+ (floor dKeeper 2) dBoxes)))
-          ((not (null boxes)) (min-sum-distances boxes stars))
-          ((not (null keeperPos)) (get-min-distance keeperPos stars))
-          (t 0))))
+    (if (null boxes) (get-min-distance keeperPos stars)
+      (let ((dBoxes (min-sum-distances boxes stars))
+            (dKeeper (get-min-distance keeperPos boxes)))
+        (+ dKeeper dBoxes)))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
