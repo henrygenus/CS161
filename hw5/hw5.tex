@@ -1,0 +1,165 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsmath}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+
+\begin{document}
+\section*{Problem 1}
+Use truth tables to show that the following pairs of sentences are equivalent: \
+\indent (a) $P \Rightarrow Q, \neg Q \Rightarrow \neg P$ \\
+\indent (b) $P \Leftrightarrow \neg Q, ((P \land \neg Q) \lor (\neg P \land Q))$
+\subsubsection*{Solution}
+(a) Let $\Delta_1 = P \Rightarrow Q \mbox{ and } \Delta_2 = \neg Q \Rightarrow \neg P$ \\
+We then end up with the following truth table:
+\begin{center}\begin{tabular}{ c | c c c c }
+World & P & Q & $\Delta_1$ & $\Delta_2$ \\
+\hline 
+1 & 0 & 0 & 1 & 1 \\
+2 & 0 & 1 & 1 & 1 \\
+3 & 1 & 0 & 0 & 0 \\
+4 & 1 & 1 & 1 & 1 \\
+\end{tabular} \end{center}
+We can thus observe
+\begin{align*}
+M(\Delta_1) &= {w_1, w_2, w_4} \\
+M(\Delta_2) &= {w_1, w_2, w_4} \\
+M(\Delta_1) &= M(\Delta_2), \\ &\Longrightarrow \Delta_1 = \Delta_2
+\end{align*}
+(b) Let $\Delta_1 = P \Leftrightarrow \neg Q
+	\mbox{ and } \Delta_2 = ( (P \lor \neg Q) \lor (\neg P \land Q) )$ \\
+We then end up with the following truth table:
+\begin{center}\begin{tabular}{ c | c c c c }
+World & P & Q & $\Delta_1$ & $\Delta_2$ \\
+\hline 
+1 & 0 & 0 & 0 & 0 \\
+2 & 0 & 1 & 1 & 1 \\
+3 & 1 & 0 & 1 & 1 \\
+4 & 1 & 1 & 0 & 0 \\
+\end{tabular} \end{center}
+We can thus observe
+\begin{align*}
+M(\Delta_1) &= {w_2, w_3} \\
+M(\Delta_2) &= {w_2, w_3} \\
+M(\Delta_1) &= M(\Delta_2), \\ &\Longrightarrow \Delta_1 = \Delta_2
+\end{align*}
+\clearpage
+
+\section*{Problem 2}
+Decide whether each of the following sentences is valid, satisfiable, or neither: \
+\indent (a) (Smoke $\Rightarrow$ Fire) $\Rightarrow (\neg$ Smoke $\Rightarrow \neg$ Fire) \\
+\indent (b) (Smoke $\Rightarrow$ Fire) $\Rightarrow$ ((Smoke $\lor$ Heat) $\Rightarrow$ Fire) \\
+\indent (c) ((Smoke $\land$ Heat) $\Rightarrow$ Fire) $\Leftrightarrow$ 
+		((Smoke $\Rightarrow$ Fire) $\lor$ (Heat $\Rightarrow$ Fire))
+\subsubsection*{Solution}
+\begin{center}\begin{tabular}{ c | c c c c c c }
+World & Smoke & Heat & Fire & (a) & (b) & (c) \\
+\hline 
+1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+2 & 0 & 0 & 1 & 1 & 0 & 1 \\
+3 & 0 & 1 & 0 & 0 & 1 & 1 \\
+4 & 0 & 1 & 0 & 0 & 1 & 1 \\
+5 & 1 & 0 & 0 & 1 & 1 & 1 \\
+6 & 1 & 0 & 1 & 1 & 1 & 1 \\
+7 & 1 & 1 & 0 & 1 & 1 & 1 \\
+8 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\end{tabular} \end{center}
+This implies (a) is satisfiable, (b) is satisfiable, and (c) is valid.
+\clearpage
+
+\section*{Problem 3}
+Consider the following: \ \\ \\
+If the unicorn is mythical, then it is immortal, but if it is not mythical, then it is a mortal mammal. 
+If the unicorn is either immortal or a mammal, then it is horned. 
+The unicorn is magical if it is horned. \\ \\
+\indent (a) Represent the information using a propositional logic knowledge base. \\
+\indent (b) Convert the knowledge base into CNF. \\
+\indent (c) Can you prove that the unicorn is mythical? magical? horned? \\
+\subsubsection*{Solution}
+(a) We will use the properties names: Mythical, Mortal, Mammal, Horned \\
+We can thus represent the knowledge base by: \begin{equation*}
+	KB = 
+	\begin{cases}
+		\text{Mythical } \Rightarrow  \neg \text{Mortal} \\
+		\neg \text{Mythical} \Rightarrow (\text{Mortal} \land \text{Mammal}) \\
+		(\neg \text{Mortal} \lor \mbox{Mammal}) \Rightarrow \text{Horned} \\
+		\text{Horned} \Rightarrow \text{Magical}
+	\end{cases} \end{equation*}
+(b) We first convert the knowledge base to a CNF: \begin{multline*}
+	(\neg \text{Mythical} \lor \neg \text{Mortal}) \land
+	(\text{Mythical} \lor \text{Mortal}) \land (\text{Mythical} \lor \text{Mammal}) \land \\
+	(\text{Mortal} \lor \text{Horned}) \land (\neg \text{Mammal}\lor \text{Horned}) \land
+	(\neg \text{Horned} \lor \text{Magical}) \end{multline*}
+(c) We can then use this CNF to attempt to resolve each of the statements:
+\begin{center}\begin{tabular}{ c c c c }
+ & Mythical & Magical & Horned \\
+\hline 
+1. & $ \neg \text{Mythical} \lor \neg \text{Mortal} $
+	& $ \neg \text{Mythical} \lor \neg \text{Mortal} $ 
+	& $ \neg \text{Mythical} \lor \neg \text{Mortal} $ \\
+2. & $ \text{Mythical} \lor \text{Mortal} $ 
+	& $  \text{Mythical} \lor \text{Mortal} $ 
+	& $ \text{Mythical} \lor \text{Mortal} $ \\
+3. & $ \text{Mythical} \lor \text{Mammal} $
+	& $ \text{Mythical} \lor \text{Mammal} $ 
+	& $ \text{Mythical} \lor \text{Mammal} $ \\
+4. & $ \text{Mortal} \lor \text{Horned} $
+	& $ \text{Mortal} \lor \text{Horned} $  
+	& $ \text{Mortal} \lor \text{Horned} $ \\
+5. &  $ \neg \text{Mammal}\lor \text{Horned} $ 
+	&  $ \neg \text{Mammal}\lor \text{Horned} $
+	& $ \neg \text{Mammal}\lor \text{Horned} $ \\
+6. & $ \neg \text{Horned} \lor \text{Magical} $
+	& $ \neg \text{Horned} \lor \text{Magical} $
+	& $ \neg \text{Horned} \lor \text{Magical} $ \\
+7. & $ \neg \text{Mythical} $ & $ \neg \text{Magical} $ & $ \neg \text{Horned} $ \\
+\hline
+8. & $ \text{Horned} <3, 7> $ & $ \neg \text{Horned} <6, 7> $ & $ \text{Mortal} <4, 7> $ \\
+9. & $ \text{Mortal} <2, 7> $ & $ \text{Mortal} <4, 8> $ & $ \text{Mythical} <3, 7> $ \\
+10. & $ \text{Magical} <6, 8> $ & $ \neg \text{Mortal} <1, 9> $ & $ \neg \text{Mythical} <1, 8> $ \\
+11. & ... & $\Phi <9, 10>$ & $\Phi <9, 10>$ \\
+\end{tabular} \end{center}
+Thus we can prove that the unicorn must be Magical and Horned.
+\clearpage
+
+\section*{Problem 4}
+Consider the two NNF circuits in Figure 1 and Figure 2. \\
+Identify whether they are decomposable, deterministic, smooth and why.
+\subsubsection*{Solution}
+Decomposability: any inputs of an AND gate have no shared inputs. \\
+Determinism: inputs to OR gates are mutually exclusive. \\
+Smoothness: all input atoms to OR gates are identical. \\
+Thus Figure 1 is decomposable and deterministic but not smooth \\
+	$\indent$ (second OR on the second OR level: \{C\} vs $\{\neg C, \neg D\}$) \\
+And Figure 2 is decomposable and smooth but non-deterministic \\
+	$\indent$ (first OR on the second OR level: $\{\neg A, B\}$)
+\clearpage
+
+\section*{Problem 5}
+The weight of a truth assignment is defined as the product of its literals weights. \\
+The WMC of a formula is the added weight of its satisfying assignments. \\
+If we assign the weights of literals to all the leaf nodes on a circuit, \\
+	$\indent$ (i) the count of each $\land$ node is the product of the counts of its children \\
+	$\indent$  (ii) the count of each $\lor$ node is the sum of the counts of its children. \\
+Suppose we have the following literal weights: \\
+	$\indent$ w(A)=0.2, w(B)=0.4, w(C)=0.6, w(D)=0.8 \\
+	$\indent$ w(¬A)=0.8, w(¬B)=0.6, w(¬C)=0.4 w(¬D)=0.2. \\
+Use the above values to answer the following: \\
+	$\indent$ (a) Compute the WMC for formula ($\neg$A $\land$ B) $\lor$ ($\neg$ B $\land$ A). \\
+	$\indent$ (b) Consider the smooth d-DNNF circuit in Figure 3. \\
+	$\indent \indent$ What is the relation between the root count and the WMC? \\
+$\indent$ (c) Compute the WMC for the smooth d-DNNF circuit in Figure 4. 
+\subsubsection*{Solution}
+(a) \begin{align*} \text{Weight} (\neg A \land B) \lor (\neg B \land A) &= (0.8)(0.4) + (0.2)(0.6) \\
+	&= (0.32) + (0.12) = (0.44) \end{align*}
+(b) The root count is (0.44); they match! \\
+(c) Let w(x) denote the weight of the literal x.
+ \begin{align*} \text{Count(Figure 4)} 
+	&= [(w(\neg A)) (w(B)) + (w(A)) (w(\neg B))] \cdot [(w(C)) (w(D)) + (w(\neg C)) (w(\neg D))] \\
+		&\indent +  [w(\neg A) w(\neg B) + w(A) w(B)] \cdot [w(C) w(\neg D) + w(\neg C) w(D)] \\
+	&= [(0.8)(0.4) + (0.6)(0.2)] \cdot [(0.6)(0.8) + (0.2)(0.4)]\\
+		&\indent +[(0.8)(0.6) + (0.2)(0.4)] \cdot [(0.2)(0.6) + (0.4)(0.8)] \\
+	&= 2 \cdot [(0.32) + (0.12)] \cdot [(0.48) + (0.08)] = (0.4928) \end{align*}
+	
+\end{document}
