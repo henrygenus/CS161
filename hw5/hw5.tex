@@ -115,10 +115,10 @@ We can thus represent the knowledge base by: \begin{equation*}
 	& $ \neg \text{Horned} \lor \text{Magical} $ \\
 7. & $ \neg \text{Mythical} $ & $ \neg \text{Magical} $ & $ \neg \text{Horned} $ \\
 \hline
-8. & $ \text{Horned} <3, 7> $ & $ \neg \text{Horned} <6, 7> $ & $ \text{Mortal} <4, 7> $ \\
-9. & $ \text{Mortal} <2, 7> $ & $ \text{Mortal} <4, 8> $ & $ \text{Mythical} <3, 7> $ \\
-10. & $ \text{Magical} <6, 8> $ & $ \neg \text{Mortal} <1, 9> $ & $ \neg \text{Mythical} <1, 8> $ \\
-11. & ... & $\Phi <9, 10>$ & $\Phi <9, 10>$ \\
+8. & $ \text{Mortal} <2, 7> $ & $ \neg \text{Horned} <6, 7> $ & $ \text{Mortal} <4, 7> $ \\
+9. & $ \text{Mammal} <3, 7> $ & $ \text{Mortal} <4, 8> $ & $ \text{Mythical} <3, 7> $ \\
+10. & $ \text{Horned} <6, 7> $ & $ \neg \text{Mortal} <1, 9> $ & $ \neg \text{Mythical} <1, 8> $ \\
+11. & $\text{Magical} <6, 10>$ & $\Phi <9, 10>$ & $\Phi <9, 10>$ \\
 \end{tabular} \end{center}
 Thus we can prove that the unicorn must be Magical and Horned.
 \clearpage

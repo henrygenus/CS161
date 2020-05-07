@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  6 MAY 2020 22:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  7 MAY 2020 01:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -140,7 +140,7 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count189
 \l__pdf_internal_box=\box47
 )
-No file hw5.aux.
+(./hw5.aux)
 \openout1 = `hw5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -159,7 +159,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
 
-(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
@@ -207,8 +207,8 @@ Overfull \hbox (56.93881pt too wide) detected at line 163
 
 ] (./hw5.aux) ) 
 Here is how much of TeX's memory you used:
- 2216 strings out of 480608
- 29063 string characters out of 5903631
+ 2218 strings out of 480608
+ 29079 string characters out of 5903631
  279479 words of memory out of 5000000
  18126 multiletter control sequences out of 15000+600000
  535285 words of font info for 36 fonts, out of 8000000 for 9000
@@ -224,7 +224,7 @@ r10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
 .pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pf
 b>
-Output written on hw5.pdf (5 pages, 84045 bytes).
+Output written on hw5.pdf (5 pages, 84040 bytes).
 PDF statistics:
  53 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream
