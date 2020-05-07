@@ -16,27 +16,20 @@
 (defun sat (n assignment delta)
   (cond ((null delta) (fill-out n assignment))
         ((and (not (null assignment)) (= n (length assignment))) NIL)
-        (t (try-sat n assignment (rest delta) (first delta)))))
+        (t (let ((sorted (merge-sort delta)))
+             (try-sat n assignment sorted)))))
 
 ; keep sorted list of numbers entered; start w/ singletons
 ; try each assignment in a rule, if all fail then nil
 ;
-(defun try-sat (n assignment delta curr-rule)
-    (let ((val (first curr-rule)))
-      (cond ((null val) NIL)
-            ((is-member assignment val) (sat n assignment delta))
-            ((is-member assignment (* -1 val)) (try-sat n assignment delta (rest curr-rule)))
-            (t (let* ((try-val-filter (filter val delta))
-                      (try-sat (sat n (insert val assignment) try-val-filter)))
-                 (if (not (null try-sat)) try-sat
-                   (try-sat n assignment delta (rest curr-rule))))))))
-
-; check if value is a member of the sorted list
-;
-(defun is-member (sorted-list value)
-  (cond ((or (null sorted-list) (< (abs (first sorted-list)) (abs value))) NIL)
-        ((= value (first sorted-list)) t)
-        (t (is-member (rest sorted-list) value))))
+(defun try-sat (n assignment delta)
+  (cond ((null (first delta)) NIL)
+        ((let* ((val (first (first delta)))
+                (try-val-filter (filter val delta)) ;returns NIL if all are satisfied
+                (try-sat (sat n (insert val assignment) try-val-filter)))
+           (if (null try-sat)
+                (try-sat n assignment (cons (rest (first delta)) (rest delta)))
+                try-sat)))))
 
 ; insert element n into the strictly decreasing sorted list (by absolute value)
 ;
@@ -53,14 +46,38 @@
         ((= (abs (first pre-list)) n) (fill-out (- n 1) (rest pre-list) (cons (first pre-list) post-list)))
         (t (fill-out (- n 1) pre-list (cons n post-list)))))
 
-; returns list DELTA with any sublists containing N having been removed
+; returns list DELTA with any sublists containing N having been removed & with any ~N removed
 ;
 (defun filter (n delta &optional (filtered NIL))
-  (if (null delta) (reverse filtered)
-    (let ((curr-rule (first delta)))
-      (cond ((member n curr-rule) (filter n (rest delta) filtered))
-            (t (filter n (rest delta) (cons curr-rule filtered)))))))
+  (cond ((null delta) (reverse filtered))
+        ((member n (first delta)) (filter n (rest delta) filtered))
+        (t (let ((filtered-rule (filter-rule (* -1 n) (first delta))))
+             (if (null filtered-rule) NIL
+               (filter n (rest delta) (cons filtered-rule filtered)))))))
 
+; filter the inverse of the assigned value from a passed rule
+;
+(defun filter-rule (n rule &optional (filtered NIL))
+       (cond ((null rule) filtered)
+             ((= n (first rule)) (if (null (rest rule)) filtered (append (rest rule) filtered)))
+             (t (filter-rule n (rest rule) (cons (first rule) filtered)))))
+
+; merge sort implementation which uses a comparison of the list length
+;
+(defun combine (list1 list2 &optional (suffix NIL))
+  (cond ((and (null list1) (null list2)) (reverse suffix))
+        ((null list1) (append (reverse suffix) list2))
+        ((null list2) (append (reverse suffix) list1))
+        ((< (length (first list1)) (length (first list2)))
+         (combine (rest list1) list2 (cons (first list1) suffix)))
+        (t (combine list1 (rest list2) (cons (first list2) suffix)))))
+
+(defun merge-sort (l)
+  (cond ((null l) NIL)
+        ((= (length l) 1) l)
+        (t (let* ((dist (length l))
+                 (halfDist (floor dist 2)))
+             (combine (merge-sort (butlast l halfDist)) (merge-sort (nthcdr (- dist halfDist) l)))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Functions that help you parse CNF from files in folder cnfs/
@@ -88,4 +105,17 @@
 (defun solve-cnf (filename)
   (let ((cnf (parse-cnf filename))) (sat? (first cnf) (second cnf))))
 
+(defun satisfied (assignment cnf)
+  (cond ((null cnf) T)
+        ((is-satisfied assignment (first cnf)) (satisfied assignment (rest cnf)))
+        (t NIL)))
 
+(defun is-satisfied (assignment rule)
+  (cond ((null rule) T)
+        ((is-member (first rule) assignment) T)
+        (t (is-satisfied assignment (rest rule)))))
+
+(defun is-member (item l)
+  (cond ((null l) NIL)
+        ((= item (first l)) T)
+        (t (is-member item (rest l)))))
