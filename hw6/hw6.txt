@@ -1,0 +1,61 @@
+1.
+        (a) {x=A, y=A, z=B}
+        (b) No Solution
+        (c) {x=B, y=A}
+        (d) {x=John, y=John}
+        (e) No Solution
+
+2.
+        (a) (A thing)(food(thing) => Likes(John, thing)
+            food(Apples)
+            food(Chicken)
+            (A thing) ((E one)(eats(one, thing) & -kills(thing, one)) => food(thing))
+            (A person) ((E thing) killed(thing, person) => -alive(person))
+            eats(Bill, Peanuts) & alive(Bill)
+            (A food)(eats(Bill, food) => eats(Sue, food))
+
+        (b) (1) likes(John, x) | -food(x)
+            (2) food(Apples)
+            (3) food(Chicken)
+            (4) kills(x, y) |  -eats(y, x) | food(x)
+            (5) -alive(x) | -kills(z, x)
+            (6) eats(Bill, Peanuts)
+            (7) alive(Bill)
+            (8) eats(Sue, x) | -eats(Bill, x)
+
+        (c) (9)  -likes(John, Peanuts)
+            (10) -food(Peanuts) by  <1, 9>: {x/Peanuts}
+            (11) kills(Peanuts, y) | -eats(y, Peanuts) by <4, 10>:{x/Peanuts}
+            (12) kills(Peanuts, Bill) by <6, 11>:{y/Bill}
+            (13) -alive(Bill) by  <5, 12>: {y/Peanuts, x/Bill}
+            (14) CONTRADICTION by <7, 13>
+            Therefore, John likes Peanuts.
+
+        (d) (9) eats(Sue, Peanuts) by <6, 8>: {x/Peanuts}
+            Therefore, Sue eats Peanuts
+
+        (e) "If you don't eat you die" can be expressed as (A x) ((A y) (-eats(x, y))) => die(x))
+                In CNF form, this is (A x) die(x) | eats(x, F(x))
+            "If you die, you are not alive" can be expressed as die(x) => -alive(x)
+                In CNF form, this is -die(x) | -alive(x)
+            "Bill is alive" can be expressed as alive(Bill), which is already in CNF form
+            Thus we need only remove fact (6), and we prove by resolution:
+            (9) -eats(Sue, x)
+            (10) die(x) | eats(x, F(x))
+            (11) -alive(x) | -die(x)
+            (12) -die(Bill) by <7, 11>: {x/Bill}
+            (13) eats(Bill, F(Bill)) by <10, 12>: {x/Bill}
+            (14) -kills(F(Bill), Bill) by <5, 7>: {x/Bill, z/F(Bill)}
+            (15) -eats(Bill, F(Bill)) | food(F(Bill)) by <4, 14>: {x/F(Bill), y/Bill}
+            (16) food(F(Bill)) by <13, 15>
+            (17) eats(Sue, F(Bill)) by <8, 13>: {x/Bill}
+            Though we cannot say what Sue eats, we do know that she eats some food (by 16, F(Bill) is a food).
+            That something is whatever Bill eats.
+
+3.
+	(1) NO
+	(2) YES
+	(3) The graph coloring problem is not solvable with 3 colors, but is with four.
+            Using the format "N Node# = C Color#", a solution is:
+	      {N1=C4, N2=C3, N3=C2, N4=C3, N5=C1, N6=C2, N7=C1}
+	(4) 8
