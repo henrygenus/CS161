@@ -1,0 +1,70 @@
+%This is my super simple Real Analysis Homework template
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+
+\title{Homework 1}
+\author{Your Name}
+\date\today
+%This information doesn't actually show up on your document unless you use the maketitle command below
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+%Section and subsection automatically number unless you put the asterisk next to them.
+\section*{Section 2.1}
+Let $m:\mathcal{A}\rightarrow [0,\infty)$ be a set function where $\mathcal{A}$ is a $\sigma$-algebra. Assume $m$ is countably additive over countable disjoint collections of sets in $\mathcal{A}$.
+%Basically, you type whatever text you want and use the $ sign to enter "math mode".
+%For fancy calligraphy letters, use \mathcal{}
+%Special characters are their own commands
+
+\subsection*{Problem 1}
+Given sets $A$, $B$, and $C$, if $A\subset B \textrm{ and } B \subset C$, then $A \subset C$.
+\begin{proof}
+Other symbols you can use for set notation are
+\begin{itemize}
+\item$A \supset B \supseteq C \subset D \subseteq E$. Also $\varnothing \textrm{vs} \emptyset$
+\item$\cup$ and $\cup_{k=1}^\infty E_k$
+\item$\cap$ and $\cap_{x \in \mathbb{N}} \{\frac{1}{\sqrt[3]{x}}\}$
+\item$\bigcup$ and $\bigcap\limits_{k=0}^n$ and $\bigcap$
+\item most Greek letters $\sigma \pi \theta \lambda_i e^{i\pi}$
+\item $\int_0^2 ln(2)x^2sin(x) dx$
+\item$\leq < \geq > = \neq$
+\end{itemize}
+If you want centered math on its own line, you can use a slash and square bracket.\\
+\[
+\left \{
+\sum\limits_{k=1}^\infty l(I_k):A\subseteq \bigcup_{k=1}^\infty \{I_k\}
+\right \}
+\]
+The left and right commands make the brackets get as big as we need them to be.
+\end{proof}
+
+\clearpage %Gives us a page break before the next section. Optional.
+\subsection*{Problem 2}
+Given...
+\begin{proof}
+Let $\epsilon>0$.
+If you have a shorter statement that you still want centered, use two \$\$ on either side.
+$$\exists \textrm{ some } \delta>0 \mid ...$$
+\end{proof}
+
+\subsection*{Problem 3}
+%
+\begin{proof}
+%
+\end{proof}
+
+\section*{Section 2.2}
+%
+\subsection*{Problem 6}
+Blah
+\subsection*{Problem 7}
+Blah
+\subsection*{Problem 10}
+Blah
+
+\end{document}
