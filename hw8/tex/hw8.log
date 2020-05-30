@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  28 MAY 2020 18:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  29 MAY 2020 22:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -343,49 +343,54 @@ Package pdftex.def Info: ../screenshots/testweight.png  used on input line 34.
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../scre
 enshots/diseaseweight.png> <../screenshots/testweight.png>]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4
-0.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
+9.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 40.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--54
+
+ []
+
 <../screenshots/MPE_LS~BS.png, id=14, 2890.8pt x 1806.75pt>
 File: ../screenshots/MPE_LS~BS.png Graphic file (type png)
 <use ../screenshots/MPE_LS~BS.png>
-Package pdftex.def Info: ../screenshots/MPE_LS~BS.png  used on input line 56.
+Package pdftex.def Info: ../screenshots/MPE_LS~BS.png  used on input line 70.
 (pdftex.def)             Requested size: 430.00462pt x 268.74017pt.
- [2
+[2
 
  <../screenshots/MPE_LS~BS.png>]
 <../screenshots/MPE_FH~EG.png, id=19, 2890.8pt x 1806.75pt>
 File: ../screenshots/MPE_FH~EG.png Graphic file (type png)
 <use ../screenshots/MPE_FH~EG.png>
-Package pdftex.def Info: ../screenshots/MPE_FH~EG.png  used on input line 70.
+Package pdftex.def Info: ../screenshots/MPE_FH~EG.png  used on input line 84.
 (pdftex.def)             Requested size: 430.00462pt x 268.74017pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--81
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--90
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 93--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--104
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--109
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--113
 
  []
 
@@ -395,18 +400,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--99
 Here is how much of TeX's memory you used:
  5135 strings out of 480608
  76053 string characters out of 5903631
- 333487 words of memory out of 5000000
+ 334487 words of memory out of 5000000
  20975 multiletter control sequences out of 15000+600000
  535310 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,10n,48p,219b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 50i,10n,48p,219b,501s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on hw8.pdf (3 pages, 890511 bytes).
+Output written on hw8.pdf (3 pages, 890934 bytes).
 PDF statistics:
  43 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream
