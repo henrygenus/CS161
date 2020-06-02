@@ -1,61 +1,99 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb} 
 \usepackage{amsthm}
 \usepackage{enumitem}
-\usepackage{graphicx}
-\usepackage{subfig}
-\usepackage{float}
-\usepackage{tikz}
-\usetikzlibrary{positioning, calc, shapes.geometric, shapes.multipart, 
-	shapes, arrows.meta, arrows, 
-	decorations.markings, external, trees}
-
+\usepackage[english]{babel}
 \usepackage[textheight=10in]{geometry}
-\setlist{  
-  listparindent=\parindent,
-  parsep=0pt,
+\usepackage{tikz}
+\tikzset{
+  treenode/.style = 	{shape=rectangle, rounded corners,
+				draw, align=center,
+				top color=white, bottom color=blue!30},
+  no/.style = 	{treenode, bottom color=red!30},
+  yes/.style = 	{treenode, bottom color=green!30},
+  env/.style = 	{treenode, font=\ttfamily\normalsize},
 }
-% \graphicspath{{../screenshots/}}
 
 
 \begin{document}
 \begin{enumerate}
+
 \item On the first round, we must consider all the attribute choices.  We thus have:
 	\begin{align*}
 		ENT(A, d) &= ENT(a, d) + ENT(\bar a, d) \\
-			&= Pr(a) \big[-Pr(d|a) \cdot log_2(Pr(d|a)) -Pr(d|a) \cdot log_2(Pr(d|a)) \big]\\
-				& \indent + Pr(\bar a)  \big[-Pr(d|\bar a) \cdot log_2(Pr(d|\bar a)) 
-					- Pr(d|\bar a) \cdot log_2(Pr(d|\bar a)) \big] \\
+			&= Pr(a) \big[-Pr(d|a) \cdot \text{\text{log}}_2(Pr(d|a)) 
+					-Pr(d|a) \cdot \text{\text{log}}_2(Pr(d|a)) \big]\\
+				& \indent + Pr(\bar a)  \big[-Pr(d|\bar a) \cdot \text{\text{log}}_2(Pr(d|\bar a)) 
+					- Pr(d|\bar a) \cdot \text{\text{log}}_2(Pr(d|\bar a)) \big] \\
+			&= \frac {12} {23} 
+					\left[ -\frac {3} {12} \text{\text{log}}_2\left(\frac{3}{12} \right) 
+					- \frac{9}{12} \text{\text{log}}_2\left( \frac{9}{12} \right) \right]
+				+ \frac {11} {23} 
+					\left[ -\frac {7} {11} \text{\text{log}}_2 \left(\frac{7}{11} \right) 
+					- \frac{4}{11} \text{\text{log}}_2 \left(\frac{4}{11} \right) \right]\\
+			&\approx 0.876\\
+		ENT(B, d) &= ENT(b, d) + ENT(\bar b, d) \\
+			&= Pr(b) \big[-Pr(d|b) \cdot \text{\text{log}}_2(Pr(d|b)) 
+					-Pr(d|b) \cdot \text{\text{log}}_2(Pr(d|b)) \big]\\
+				& \indent + Pr(\bar b)  \big[-Pr(d|\bar b) \cdot \text{\text{log}}_2(Pr(d|\bar b)) 
+					- Pr(d|\bar b) \cdot \text{\text{log}}_2(Pr(d|\bar b)) \big] \\
+			&= \frac {9} {23} 
+					\left[ -\frac {2} {9} \text{\text{log}}_2\left(\frac{2}{9} \right) 
+					- \frac{7}{9} \text{\text{log}}_2\left( \frac{7}{9} \right) \right]
+				+ \frac {14} {23} 
+					\left[ -\frac {8} {14} \text{\text{log}}_2 \left(\frac{8}{14} \right) 
+					- \frac{6}{14} \text{\text{log}}_2 \left(\frac{6}{14} \right) \right]\\
+			&\approx 0.899\\
+		ENT(C, d) &= ENT(c, d) + ENT(\bar c, d) \\
+			&= Pr(c) \big[-Pr(d|c) \cdot \text{\text{log}}_2(Pr(d|c)) 
+					-Pr(d|c) \cdot \text{\text{log}}_2(Pr(d|c)) \big]\\
+				& \indent + Pr(\bar c)  \big[-Pr(d|\bar c) \cdot \text{\text{log}}_2(Pr(d|\bar c)) 
+					- Pr(d|\bar c) \cdot \text{\text{log}}_2(Pr(d|\bar c)) \big] \\
+			&= \frac {16} {23} 
+					\left[ -\frac {6} {16} \text{\text{log}}_2\left(\frac{6}{16} \right) 
+					- \frac{10}{16} \text{\text{log}}_2\left( \frac{10}{16} \right) \right]
+				+ \frac {7} {23} 
+					\left[ -\frac {4} {7} \text{\text{log}}_2 \left(\frac{4}{7} \right) 
+					- \frac{3}{7} \text{\text{log}}_2 \left(\frac{3}{7} \right) \right]\\
+			&\approx 0.964
 	\end{align*}
+	Since splitting on A results in the lowest entropy and thus greatest information gain, 
+		we split on that first.  
+	This results in \[ 
+			\left \{ \begin{array} {lr}
+				\{+ x_5, +x_7, - x_6, -x_8\}, & \text{for } A=F\\
+			 	\{+ x_1, +x_2, - x_3, -x_4\}, & \text{for } A=T
+			\end{array}\right\}
+		\]
+	At this point we have completed our search, since $ENT(C | \bar a) = ENT(B | a) = 0$.\\
+	Therefore, our resulting tree is:
+	\begin{center}\begin{tikzpicture}
+	[
+		grow                    = right,
+		sibling distance        = 5em,
+		level distance          = 10em,
+		edge from parent/.style = {draw, -latex},
+		every node/.style       = {font=\footnotesize},
+		sloped
+	]
+	\node [env] {A}
+		child { node [env] {C}
+			child { node [no] {NO}
+				edge from parent node [below, align=center] {F}}
+			child { node [yes] {YES}
+				edge from parent node [above, align=center] {T}}
+			edge from parent node [below] {F} }
+		child [ missing ]
+		child { node [env] {B}
+			child { node [no] {NO}
+				edge from parent node [below, align=center] {F}}
+			child { node [yes] {YES}
+				edge from parent node [above, align=center] {T}}
+			edge from parent node [above] {T} };
+	\end{tikzpicture} \end{center}
+	
 \item
 \end{enumerate}
 \end{document}
-
-\if false
-\begin{center}\begin{tikzpicture}
-	%nodes:
-		\node [circle, draw] (1) {A};
-		\node [circle, draw, right =of 1] (2) {B};
-		\node [circle, draw, right =of 2] (3) {C};
-		\node [circle, draw, below =of 1] (4) {$H_1$};
-		\node [circle, draw, below =of 2] (5) {$H_2$};
-		\node [circle, draw, below =of 3] (6) {$H_3$};
-		\node [circle, draw, below =of 5] (7) {B};
-	%edges:
-		\draw[Arrow] (1.south) -- (4.north);
-		\draw[Arrow] (1.south) -- (5.north);
-		\draw[Arrow] (1.south) -- (6.north);
-		\draw[Arrow] (2.south) -- (4.north);
-		\draw[Arrow] (2.south) -- (5.north);
-		\draw[Arrow] (2.south) -- (6.north);
-		\draw[Arrow] (3.south) -- (4.north);
-		\draw[Arrow] (3.south) -- (5.north);
-		\draw[Arrow] (3.south) -- (6.north);
-		\draw[Arrow] (4.south) -- (7.north);
-		\draw[Arrow] (5.south) -- (7.north);
-		\draw[Arrow] (6.south) -- (7.north);
-\end{tikzpicture} \end{center}
-\fi
