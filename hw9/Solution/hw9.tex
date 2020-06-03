@@ -93,7 +93,52 @@
 				edge from parent node [above, align=center] {T}}
 			edge from parent node [above] {T} };
 	\end{tikzpicture} \end{center}
-	
-\item
+\clearpage
+\item We assume that all nodes utilize the step function with threshold t as labeled on the node.\\
+	These are therefore of the form \begin{equation*}
+		g(I) =  
+			\left \{ \begin{array} {lr}
+				1, & \text{for } I \geq t\\
+				0, & \text{for } I < t\\
+			\end{array}\right\}
+		\end{equation*}
+	Numbers appearing directly above or below an edge are weights.
+	Thus our network is:
+	 \begin{center}\begin{tikzpicture}
+	[
+		grow                    = left,
+		sibling distance        = 5em,
+		level distance          = 10em,
+		edge from parent/.style = {<-, draw},
+		every node/.style       = {font=\footnotesize},
+		sloped
+	]
+	\node [env] (rt) {t=1}
+		child {node [env] {t=1}
+			child {node [env] (AND1){t=1}
+				child {node [env] {A} 
+					edge from parent node [above, align=center] {1}
+				}
+				child {node [env] {B} 
+					edge from parent node [below, align=center] {-1}
+				}
+			edge from parent node [below, align=center] {1/2}
+			}
+			child [ missing ]
+			child {node [env] (AND2){t=1}
+				child {node [env] {C} 
+					edge from parent node [above, align=center] {-1}
+				}
+				child {node [env] {D} 
+					edge from parent node [below, align=center] {1}
+				}
+			edge from parent node [above, align=center] {1/2}
+			}
+			edge from parent node [above, align=center] {-2}
+		};
+	% generation-hopping
+	\draw [->] (AND1.east) -- node  [above, midway] {1} (rt.north west);
+	\draw [->] (AND2.east) -- node  [below, midway] {1} (rt.south west);
+	\end{tikzpicture} \end{center}
 \end{enumerate}
 \end{document}
