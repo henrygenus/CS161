@@ -7,6 +7,20 @@
 \usepackage[english]{babel}
 \usepackage[textheight=10in]{geometry}
 \usepackage{tikz}
+\usetikzlibrary{positioning, calc, shapes.geometric, shapes.multipart, 
+	shapes, arrows.meta, arrows, 
+	decorations.markings, external, trees}
+
+\tikzstyle{Arrow} = [
+	ultra thick,
+	decoration={
+		markings,
+		mark=at position 1 with {
+			\arrow[thick]{latex}
+			}
+		},
+	shorten >= 3pt, preaction = {decorate}
+	]
 \tikzset{
   treenode/.style = 	{shape=rectangle, rounded corners,
 				draw, align=center,
@@ -15,6 +29,8 @@
   yes/.style = 	{treenode, bottom color=green!30},
   env/.style = 	{treenode, font=\ttfamily\normalsize},
 }
+\definecolor{emerald}{rgb}{0.31, 0.78, 0.47}
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
 
 
 \begin{document}
@@ -102,43 +118,44 @@
 				0, & \text{for } I < t\\
 			\end{array}\right\}
 		\end{equation*}
-	Numbers appearing directly above or below an edge are weights.
-	Thus our network is:
-	 \begin{center}\begin{tikzpicture}
-	[
-		grow                    = left,
-		sibling distance        = 5em,
-		level distance          = 10em,
-		edge from parent/.style = {<-, draw},
-		every node/.style       = {font=\footnotesize},
-		sloped
-	]
-	\node [env] (rt) {t=1}
-		child {node [env] {t=1}
-			child {node [env] (AND1){t=1}
-				child {node [env] {A} 
-					edge from parent node [above, align=center] {1}
-				}
-				child {node [env] {B} 
-					edge from parent node [below, align=center] {-1}
-				}
-			edge from parent node [below, align=center] {1/2}
-			}
-			child [ missing ]
-			child {node [env] (AND2){t=1}
-				child {node [env] {C} 
-					edge from parent node [above, align=center] {-1}
-				}
-				child {node [env] {D} 
-					edge from parent node [below, align=center] {1}
-				}
-			edge from parent node [above, align=center] {1/2}
-			}
-			edge from parent node [above, align=center] {-2}
-		};
-	% generation-hopping
-	\draw [->] (AND1.east) -- node  [above, midway] {1} (rt.north west);
-	\draw [->] (AND2.east) -- node  [below, midway] {1} (rt.south west);
+	Green arrows represent a weight of one, and red represent a weight of -1.\\
+	We can break our XOR into the sentence \begin{equation*}
+		(A \land C \land -D) \lor (-B \land C \land -D) \lor (-A \land -C \land -D) \lor (B \land -C \land D) 
+		\end{equation*}
+	We use each of the four subsentences as one of the internodes; thus our network is:
+	\begin{center}\begin{tikzpicture}
+	% nodes 
+		\node[circle, draw] (1) {A};
+		\node[circle, draw, below =of 1] (2) {B};
+		\node[circle, draw, below =of 2] (3) {C};
+		\node[circle, draw, below =of 3] (4) {D};
+		\node[circle, draw, right =6cm of 1] (5) {t=2};
+		\node[circle, draw, right =6cm of 2] (6) {t=1};
+		\node[circle, draw, right =6cm of 3] (7) {t=0};
+		\node[circle, draw, right =6cm of 4] (8) {t=2};
+		\node[circle, draw, above right =3cm of 8] (9) {t=1};
+	% edges
+		% to internode 1
+			\draw [Arrow, emerald] (1.east) -- (5.west);
+			\draw [Arrow, emerald] (3.east) -- (5.west);
+			\draw [Arrow, burgundy] (4.east) -- (5.west);
+		% to internode 2
+			\draw [Arrow, burgundy] (2.east) -- (6.west);
+			\draw [Arrow, emerald] (3.east) -- (6.west);
+			\draw [Arrow, burgundy] (4.east) -- (6.west);
+		% to internode 3
+			\draw [Arrow, burgundy] (1.east) -- (7.west);
+			\draw [Arrow, burgundy] (3.east) -- (7.west);
+			\draw [Arrow, burgundy] (4.east) -- (7.west);
+		% to internode 3
+			\draw [Arrow, emerald] (2.east) -- (8.west); 
+			\draw [Arrow, burgundy] (3.east) -- (8.west); 		
+			\draw [Arrow, emerald] (4.east) -- (8.west); 
+		% to final node
+			\draw [Arrow, emerald] (5.east) -- (9.west);
+			\draw [Arrow, emerald] (6.east) -- (9.west);
+			\draw [Arrow, emerald] (7.east) -- (9.west);
+			\draw [Arrow, emerald] (8.east) -- (9.west); 
 	\end{tikzpicture} \end{center}
 \end{enumerate}
 \end{document}
