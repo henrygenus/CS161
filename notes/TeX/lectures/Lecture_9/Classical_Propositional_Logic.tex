@@ -1,0 +1,168 @@
+\documentclass[../../lecture_notes.tex]{subfiles}
+
+\begin{document}
+
+\noindent We will attempt to systemically answer the following question:\\
+\indent Does $\Delta$ imply $\alpha$?\\
+\\
+As well as the related questions:\\
+	\indent Is $\Delta$ equivalent to $\alpha$?\\
+	\indent Is $\Delta$ satisfiable?\\
+	\indent Is $\Delta$ valid?\\
+\\
+We will discuss four major methods:
+\begin{enumerate} [itemsep=0mm]
+	\item Enumerating Models
+	\item Inference Rules
+	\item Search (CSP/SAT)
+	\item NNF Circuits
+\end{enumerate}
+(1) and (2) are deprecated but (2) is fundamental to (3) and (4).\\
+This lecture will discuss the first two, and the next two will be discussed in the next.\\
+
+\subsection*{Inference By Enumerating Models}
+
+\begin{center} \begin{minipage}{0.6\textwidth}
+\noindent Suppose our knowledge base $\Delta = \{A, A \lor B \implies C\}$.\\
+Let $\alpha = C$; we can then ask: Does $\Delta$ imply $\alpha$?
+\begin{enumerate} [itemsep=0mm]
+	\item convert our knowledge base to CNF\\
+		$\Delta = A \land (A \lor B \implies C) = A \land (\neg(A \lor B) \lor C)$
+	\item build a truth table for the KB
+	\item use the models to solve:\\
+		$M(\Delta) = \{W1, W3\}$\\
+		$M(\alpha) = \{W1, W3, W5, W7\}$
+	\item If $M(\Delta) \subseteq M(\alpha)$, then $\Delta \models \alpha$
+\end{enumerate}
+\noindent Complexity: $O(2^n)$, n = \# variables \\(it can be used up to 25 variables!)\\
+We can just as easily use this to solve the other questions.
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+\begin{tabular}{ | c || c | c | c | c | c | }
+	\hline
+	& A & B & C & $\Delta$ & $\alpha$\\ 
+	\hline\hline
+	$W_1$ & T & T & T & T & T\\
+	\hline
+	$W_2$ & T & T & F & F & F\\
+	\hline
+	$W_3$ & T & F & T & T & T\\
+	\hline
+	$W_4$ & T & F & F & F & F\\
+	\hline
+	$W_5$ & F & T & T & F & T\\
+	\hline
+	$W_6$ & F & T & F & F & F\\
+	\hline
+	$W_7$ & F & F & T & F & T\\
+	\hline
+	$W_8$ & F & F & F & F & F\\
+	\hline
+\end{tabular} \end{minipage} \end{center}
+
+\noindent Many logical systems demonstrate \textbf{\underline{monotonicity}}.\\
+\indent $\equiv$ as the information increases, the set of entailed sentences can only grow.\\
+For these problems, enumeration can cause the set to explode;\\
+\indent we need a model that can ignore irrelevant propositions.
+
+\subsection*{Inference By Resolution}
+\noindent This method starts from the \textbf{\underline{Deduction Theorem}}:
+\indent Any question of implication can be converted into a SAT question.\\
+\\
+If we wish to solve a SAT question, we can attempt to prove by contradiction.
+\indent Say we want to prove that $\Delta$ implies $\alpha$:
+\begin{enumerate} [itemsep=0mm]
+	\item assume $\Delta$ \& $\neg \alpha$ 
+	\item show that this causes a contradiction
+\end{enumerate} \medskip
+
+\noindent  To solve questions of satisfiability, we will use the concept of \textbf{\underline{inference rules}}.\\
+An inference rule is of the form $\frac{P_1, P_2} {P_3}$.\\
+\indent This says “if P1 and P2, then P3”.\\
+\\
+To apply proof by contradiction to questions of satisfiability, we:
+\begin{enumerate} [itemsep=0mm]
+	\item convert the implication to normal form
+	\item apply inference rules until we either terminate or have a contradiction
+\end{enumerate} \medskip
+
+\noindent If we can use rule R for a given derivation, we use the symbol $\vdash_R$.\\
+If a rule will derive $\alpha$ from $\Delta$ any time $\Delta \not\models \alpha$, 
+	we call the rule \textbf{\underline{complete}}.\\
+\indent \textbf{\underline{Modus Ponens}} $\frac{A, A\implies B}  {B}$ is not complete.\\
+If a rule’s denominator is always true provided the numerator, we call the rule \textbf{\underline{sound}}.\\
+\indent $\frac {A, (A \lor B)} {(A \land B)}$ is not sound.\\
+\\
+We would assume a sound and complete rule would be needed for proofs, \\
+\indent BUT our primary rule is actually not complete:
+\begin{equation*} \text{Resolution: } \ \frac{A \lor B, \neg B \lor C } {A \lor C} \end{equation*}
+This may be counterintuitive, but we can see it holds:\\
+	\indent $A \lor B = \neg A \implies B$\\
+	\indent $\neg B \lor C = B \implies C$\\
+	\indent $\neg A \implies B \ \&\&\  B \implies C = \neg A \implies C = A \lor C$\\
+This is not complete, but it is \textbf{\underline{refutation complete}} when applied to a CNF.\\
+\indent $\equiv$ given any CNF with a contradiction, it will derive the contradiction.\\
+
+\begin{center} \begin{minipage}{0.8\textwidth}
+The Algorithm:
+We are asked the question "Does $\Delta$ imply $\alpha$?"\\
+This is equivalent to "Is $\Delta  \land \neg \alpha$ a contradiction?".\\
+We therefore apply resolution until either:
+\begin{enumerate} [itemsep=0mm]
+	\item a contradiction occurs, in which case $\Delta$ implies $\alpha$
+	\item no more resolution can be applied, in which case it does not
+\end{enumerate}
+Example 1:\\
+\indent $\Delta: ((A \lor \neg B) \implies C) \land (C \implies D \lor \neg E) \land (E \lor D)$\\
+\indent $\alpha: A \implies D$\\
+Does $\Delta$ imply $\alpha$? $\rightarrow$ Is $\Delta \land \neg \alpha$ unsatisfiable?\\
+\indent The empty set cannot be true, so $\Delta$ implies $\alpha$\\
+Example 2:\\
+\indent $\Delta: ((A \land B) \implies C) \land A \land (C \implies D)$\\
+\indent $\alpha: C$\\
+If we apply resolution, the algorithm will terminate; therefore, $\Delta$ does not imply $\alpha$.
+\end{minipage}%
+\begin{minipage}{0.2\textwidth} \begin{tikzpicture}
+\node [rectangle, draw, text width=\textwidth] {\begin{enumerate} [itemsep=0mm] \setcounter{enumi}{0}
+	\item $\neg A \lor C$
+	\item $B \lor C$
+	\item $\neg C \lor D$
+	\item $E \lor D$
+	\item $A$
+	\item $\neg D$\\
+	\item $C <0, 4>$
+	\item $D \lor \neg E <2, 6>$
+	\item $E <3, 5>$
+	\item $D <7, 8>$
+	\item $\Phi <5, 9>$
+\end{enumerate}};
+\end{tikzpicture}\end{minipage}\end{center}
+
+\noindent This algorithm depends on a CNF, but how do we get one?
+\begin{enumerate} [itemsep=0mm]
+	\item Get rid of all connections, but for $\{\lor \land \neg\}$
+		\begin{itemize} [itemsep=0mm]
+			\item $A \iff B \rightarrow (A \implies B) \land (B \implies A) $
+			\item $A \implies B \rightarrow \neg A \lor B$
+		\end{itemize}
+	\item Use deMorgan’s Law to push negatives inward
+		\begin{itemize} [itemsep=0mm]	
+			\item $\neg(A \land B) \rightarrow \neg A \lor \neg B$
+			\item $\neg(A \lor B) \rightarrow \neg A \land \neg B$
+		\end{itemize}
+	\item Distribute $\lor$ over $\land$
+		\begin{itemize} [itemsep=0mm]
+			\item $(A \land B) \lor C \rightarrow (A \lor C) \land (B \lor C)$
+		\end{itemize}
+\end{enumerate}
+
+Example: $A \iff (B \lor C)$
+\begin{enumerate} [itemsep=0mm]
+	\item $\rightarrow (A \implies (B \lor C)) \land ((B \lor C) \implies A)$
+                  $\rightarrow (\neg A \lor B \lor C) \land (\neg(B \lor C) \lor A)$
+	\item $\rightarrow (A \lor B \lor C) \land ((\neg B \land \neg C) \lor A)$
+	\item $\rightarrow (\neg A \lor B \lor C) \land ((\neg B \lor A) \land (\neg C \lor A)$
+\end{enumerate}
+\noindent Coincidentally, this is an NNF.
+
+\end{document}

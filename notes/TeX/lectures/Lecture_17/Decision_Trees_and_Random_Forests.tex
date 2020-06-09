@@ -1,0 +1,118 @@
+\documentclass[../../lecture_notes.tex]{subfiles}
+
+\begin{document}
+
+\noindent These two models are often used in \textbf{\underline{classifiers}}.\\
+\indent $\equiv$ a machine learning system that makes decisions on input.\\
+	\indent \indent the inputs are called characteristics or instance.\\
+	\indent \indent the output is called a decision.\\
+We can construct them from Bayesian Networks.\\
+\\
+We must first introduce the idea of \textbf{\underline{entropy}}.
+	\begin{equation*} \text{ENT}(X) = -\sum_X Pr(x) log_2{(Pr(x))} \end{equation*}
+We can show it with the following data table:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590913272078_Untitled+drawing+10.jpg)$
+\newpage
+
+\noindent The form we tend to utilize is \textbf{\underline{CONDITIONAL PROBABILITY}}.\\
+If we have ENT(X) and we learn that Y=y, we have 
+	\begin{equation*} E(X|y) = - \sum_X Pr(x|y) log_2{(Pr(x|y))} \end{equation*}
+Alternatively, if we plan to observe Y but do not yet know the value
+	\begin{equation*} E(X|Y) = - \sum_Y Pr(y) \text{ENT}(X|y) \end{equation*}
+It also turns out that information can never increase average entropy, ie
+	\begin{equation*} \text{ENT}(X|Y) \leq \text{ENT}(X) \end{equation*}
+Note that this specifies average; the entropy of a single value may increase:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590913804777_Untitled+drawing+11.jpg)$
+\newpage
+
+\noindent These are used to build classifiers by supervised learning of labeled data.\\
+Our CPT thus effectively functions as our model.\\
+\\
+We will now use the notion of a decision tree/random forest to solve a problem.\\
+We will use the following data and corresponding tree:
+
+\newpage
+$![We have 12 labeled variables](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590914176982_Screen+Shot+2020-05-31+at+1.34.17+AM.png)$
+\newpage
+
+\noindent This model is called \textbf{\underline{interpretable}} 
+	because it is easy to read, as opposed to a neural network.\\
+Classifying a variable is as easy as parsing the tree!\\
+	\indent Consider $X_{12}$ — we can just walk; this probability happens to match, but it won’t be in general.\\
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590914410089_Screen+Shot+2020-05-31+at+1.34.28+AM.png)$
+\newpage
+
+\noindent The depth of the decision tree is a sign of its complexity.\\
+Splitting is as easy as making a choice.\\
+Nodes represent attributes.\\
+Leaves represent decisions.\\
+\\
+We can equivalently build:\\
+	\indent this has 4 attributes rather than the 10 from above\\
+	\indent this is much shallower, and thus simpler\\
+\\
+The algorithm itself is very simple; we just split repeatedly as if tracing the tree.\\
+\\
+This assumes a black box for choosing variables, but developing one is not hard\\
+How do we choose which attribute to split on at a given depth?\\
+We can define the algorithm by looking at the following state:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590915632068_Untitled+drawing+14.jpg)$
+\newpage
+
+\noindent We thus use conditional entropy as a score to determine our next split.\\
+
+The algorithm is as follows:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590986583122_Untitled+drawing+15.jpg)$
+\newpage
+
+\noindent How do we evaluate an algorithm? We use \textbf{\underline{cross-validation}}.\\
+	\indent $\equiv$ split the dataset into 80/20 training/testing data \& repeat to find average score.\\
+\\
+This can be generalized one more time to a \textbf{\underline{random forest}}.\\
+\indent We build a series of trees and majority vote to determine the output.\\
+We call this type of method an ensemble learning method.\\
+
+\noindent Suppose we have a dataset of 5 values; we may bootstrap data sets by random choice to get:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590987081685_Untitled+drawing+16.jpg)$
+\newpage
+
+\noindent The count of numbers chosen will be a parameter.\\
+We can test the power using the out of bag examples.\\
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590987481637_Untitled+drawing+17.jpg)$
+\newpage
+
+\noindent A specific subset of these are called naive:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590988064834_Untitled+drawing+19.jpg)$
+\newpage
+
+\noindent Traditionally, we want AI to be easily explainable.\\
+Consider the following example:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_66C470E465947B218F12E6833ACF54B222DBA6F153DEEC1F4A1A4D06909A7A0F_1590988346381_Untitled+drawing+20.jpg)$
+\newpage
+
+\noindent Say we are asked C|\{S=1, G=0, F=1, M=1\}.\\
+We might say "yes, because F \& M!", as S \& G are not used.\\
+This is called a \textbf{\underline{PI-explanation}}.\\
+In actuality, we can make a tractable circuit from this data, which is much power powerful.\\
+This, however, is not as interpretable!\\
+In the current day, Random Forests < Bayesian Classifiers < Neural Networks.
+
+\end{document}

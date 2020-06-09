@@ -1,0 +1,109 @@
+\documentclass[../../lecture_notes.tex]{subfiles}
+
+\begin{document}
+
+\noindent These have been around for approximately 50 years, but have had many ups and downs.\\
+They have had a large impact in image analysis and sequence to sequence translation.\\
+Neural networks are a model-free approach to problem solving based on function fitting.\\
+Traditional approaches are model-based and work via representation and reasoning.\\
+
+\noindent The basic unit of a neural network is the \textbf{\underline{NEURON}}.\\
+These map a set of input activations to an output activation.
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591131415565_Untitled+drawing.jpg)$
+\newpage
+
+\noindent a — activations\\
+w — weights\\
+b — bias\\
+g(.) — activation function\\
+ai = g( [$\sum w_{ij} a_j] + b$)\\
+
+Activation Functions come in the following forms (generally):
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591132106832_Untitled+drawing+1.jpg)$
+\newpage
+
+\noindent A connected set of these forms a neural network!\\
+Modern neural networks also use non-neuron elements, but they are application specific.\\
+\\
+We could learn the structure, but many situations have heuristically derived templates.\\
+The specific forms of neural networks we consider are \textbf{\underline{Feed-Forward Neural Networks}}.\\
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591132562633_Untitled+drawing+2.jpg)$
+\newpage
+
+\noindent Greater depth requires more training, sp multi layer NN’s are computation-heavy.\\
+They used to be nearly impossible to train, but deep-learning has changed this.\\
+Neural networks are universal function approximators, since they map in $\to$ out.\\
+Are they expressive enough? \\
+	\indent YES; by the above, they can express every function up to a constant error.\\
+
+\subsubsection*{Pure-Step Neural Networks}
+\noindent Basic gates can be formed by networks consisting only of neurons with step functions.\\
+
+We can form an AND gate from a single neuron:
+\newpage
+$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591132995454_Untitled+drawing+4.jpg)$
+
+\noindent We can also form an OR gate from a single neuron:
+\newpage
+$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591133040302_Untitled+drawing+5.jpg)$
+\newpage
+
+We cannot, however, form an XOR gate from a single neuron.\\
+This is because an XOR gate is not \textbf{\underline{linearly separable}}.
+\newpage
+$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591133370907_Untitled+drawing+6.jpg)$
+\newpage
+
+\noindent Our neuron functions can only represent linearly separable functions.\\
+Networks, however, can represent much more complex representations.\\
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591133796275_Untitled+drawing+7.jpg)$
+\newpage
+
+\noindent This neural network, as can be seen, represents a complex non-linear function.\\
+We train the neural network by setting the weights to match labeled data.\\
+If I fix the values of $a_1$ and $a_2$, $a_5 = f_1(w_{13}, ..., w_{45}) = f_2(w_{13}, ..., w_{45})$.\\
+Thus this is just a complex case of function fitting!\\
+Modern neural networks can have billions of parameters, so this can grow very complex.\\
+\\
+Training neural networks is an exercise in optimization.\\
+Our optimization criteria is called the \textbf{\underline{loss function}}.\\
+This has a couple common forms:
+\begin{itemize} [itemsep=0mm]
+	\item cross entropy
+	\item mean-squared error = $\frac {1}{N} \sum (\text{NN}(L_i) - L_i)^2$.\\
+		This is of the form f(w1, …, wk), so we can optimize by weight!
+\end{itemize} \medskip
+
+\noindent We do the actual optimization via gradient descent.\\
+Tensor flow, RUST, and the ADAM optimizer can do this for us.\\
+We can stochastically break the data to increase the accuracy of the fit.\\
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591134328128_Untitled+drawing+8.jpg)$
+\newpage
+
+\noindent We call a single iteration of the gradient-descent algorithm an \textbf{\underline{epoch}}.\\
+How do we know which epoch to stop on?\\
+	\begin{enumerate} [itemsep=0mm]
+		\item set a limit on epoch count
+		\item stop when epoch stops changing much (patience)
+	\end{enumerate} \medskip
+
+\noindent We could also divide the data into batches to run optimizations in parallel.\\
+We thus perform an iteration on all batches per epoch.\\
+This has two major advantages:
+	\begin{enumerate} [itemsep=0mm]
+		\item parallelism
+		\item randomization (stochastic gradient descent)
+	\end{enumerate}
+\noindent A batching approach can run extremely fast on GPU’s rather than CPU’s!
+
+\end{document}

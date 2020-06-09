@@ -1,0 +1,126 @@
+\documentclass[../../lecture_notes.tex]{subfiles}
+
+\begin{document}
+
+\newpage
+$![Causal Graph and Conditional Probability Tables](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590219806142_Screen+Shot+2020-05-23+at+12.43.14+AM.png)$
+\newpage
+
+\noindent Variables:\\
+	\indent C — condition\\
+	\indent T’s — tests to detect the condition\\
+	\indent S — sex of the patient\\
+\\
+We first compute the marginal distributions to discuss probabilities.\\
+These come in two major forms:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590220321908_Untitled+drawing+5.jpg)$
+\newpage
+
+\noindent We then use this information to find the \textbf{\underline{Most Probable Explanation}}:\\
+We assume the final consequence (A) and search for the most probable query\\
+	\indent Setting A moves us from 32 → 8 states;\\
+	\indent result: \{C=no, S=fe, T1=-ve, T2=-ve\} = 47\%\\
+\\
+This is not applicable in every situation; we generalize into the \textbf{\underline{Maximum a Posteriori Hypothesis}}:\\
+	\indent this is more complex and less efficient, but more often applicable\\
+	\indent we find a subset of variables \& find the MPE\\
+	\indent (ex. S=C | A $\rightarrow$ \{C=no, S=male\} $|approx$ 49.3\%\\
+\\
+When we seek to make inferences, algorithms fall into two major categories:
+\begin{enumerate} [itemsep=0mm]
+	\item variable elimination
+	\item conditioning
+\end{enumerate} \medskip
+
+\noindent In both situations, complexity is tied to the topology of the Bayesian Network\\
+	\indent the actual property is \textbf{\underline{tree width}} — it is roughly analogous to connectivity\\
+	\indent MPH = $O(nd^w)$ given n=\#var, d=\#val, w=width\\
+We will not define tree width, as it is complex, but we observe a few special cases:\\
+	\indent Trees have width 1 (~one path from any node to node)\\
+	\indent Poly-trees (>1 parent ok) have width = the maximum parent count of any node\\
+These are both singly connected networks; multiply connected leads to a DAG\\
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590224552818_Untitled+drawing+6.jpg)$
+\newpage
+
+\noindent Our first method of performing inference is
+\subsection*{Weighted Model Counting}
+\noindent Consider the statement $\Delta = (A \lor B) \land\neg C$\\ 
+	\indent This has 3 variables and suggests 8 worlds\\
+	\indent Given an nd-DNNF circuit, we can solve in O(N)!\\
+	\indent Consider the example on the right; it is trivial! WMC = 0.04 + 0.10 + 0.00 = 0.14\\
+	\indent We therefore only need a compiler which would transform $\Delta \rightarrow$sd-DNNF\\
+	\indent Unfortunately, in the general case this is intractable\\
+There are tractable subsets of this, though:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590225097526_Untitled+drawing+7.jpg)$
+\newpage
+
+\noindent We can use probability is our weights! $ \rightarrow WMC(\Delta\land\alpha) = Pr(\alpha)$\\
+So we need to convert $\Delta \rightarrow$boolean circuit.\\
+We can see that $\Delta \text{ holds in } w_1, w_4, \& w_7$\\
+We thus say $W(A) = W(\neg A) = ... = W(\neg C) = 1$\\
+We then let $W(P_i) = \theta_i \& W(\neg P_i) = 0, \text{ so } W(A) = W(P_1) W(P_4) W(P_7)$\\
+\\
+Thus we can solve probabilistic reasoning by symbol manipulations!\\
+Properties of the algorithm:
+	\begin{enumerate} [itemsep=0mm]
+		\item there are many possible representations
+		\item it is not sensitive to tree width
+		\item it is not only applicable to Bayesian Networks
+	\end{enumerate} \medskip
+
+\noindent We can see that the size(Bayes) = size(CPT);
+	though size(Bayes) = O($nd^{k+1}$), size(joint-table) = O($D^n$)!
+This shows that Bayesian Networks are much more space efficient!\\
+\\
+The process of modeling logic as a Bayesian Network has 3 steps:
+\begin{enumerate} [itemsep=0mm]
+	\item define variables \& values
+	\item define edges
+	\item specify CPT
+\end{enumerate} 
+
+\noindent Variables will then be labeled either query or evidence variables depending on the query.\\
+This is a common approach used in early spam filters and Google ad Rephil.
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590256640289_Untitled+drawing+8.jpg)$
+\newpage
+
+\noindent Consider the following statements
+\begin{itemize} [itemsep=0mm]
+	\item The cold causes a sore throat/chill
+	\item The flu causes a sore throat/chill/fever/body ache
+	\item Tonsillitis can show itself in fever/body ache
+\end{itemize}
+\noindent This network forms a bipartite graph.\\
+We could have used one multivariable disease node.\\
+We use this to give probabilities of a given condition.\\
+\\
+If we have complete information, we can model a system as a Bayesian Network.\\
+For incomplete information, however, we must use Expectation Maximization.\\
+For example, suppose the following environment:
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590257642435_Untitled+drawing+9.jpg)$
+\newpage
+
+\noindent What is the marginal $(P|\neg S, \neg B, \neg U)$? -- 10.21\%!\\
+WHAT?? why is that so high?\\
+It turns out this is because of the false negative rate of the scanning test.\\
+We want a false negative rate of below 5\%.\\
+We can address this in one of three ways:
+	\begin{enumerate} [itemsep=0mm]
+		\item get a better scanning test — a false (-) for S of 4.63\% meets our requirement
+		\item lower the success of the procedure — 75.59\% would meet our requirement
+		\item increase P(L|P) — 99.67\% meets our requirement
+	\end{enumerate}
+	(b) and (c) turn out to be either impractical or in-economical, so our standard approach is to pay!
+
+
+\end{document}

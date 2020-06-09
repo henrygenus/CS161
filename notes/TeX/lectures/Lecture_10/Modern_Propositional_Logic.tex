@@ -1,0 +1,136 @@
+\documentclass[../../lecture_notes.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{Reducing Queries to SAT}
+\noindent Consider the sentence $\Delta = (A \lor B \lor \neg C) \land (\neg A \lor C) \land (A \land C \land \neg D)$\\
+We treat each clause as a constraint, and solve as a CSP\\
+\indent $\rightarrow \text{ if } w = \{A=T, B=F, C=T, D=F\}, \text{ then } w \models \Delta$\\
+\\
+Thus we can see why SAT is the prototypical NP-Complete problem.\\
+We will now discuss various methods to solve SAT problems\\
+ 
+\subsubsection*{Sat Solvers}
+\noindent There are two ways to solve SAT problems that are considered standard:
+\begin{enumerate} [itemsep=0mm]
+	\item Backtrack Search (DFS + Failure Detection)
+	\item Local Search (Very Fast, Incomplete Search)
+ \end{enumerate}
+\noindent In the context of SAT, backtrack search is called DPLL (initials of the 4 creators).\\
+There are a few tools commonly used to make DPLL faster.
+\begin{enumerate} [itemsep=0mm]
+	\item uses a degree heuristic to determine value ordering
+	\item can learn from the past via conflict clause learning
+	\item can perform component analysis to break problems down
+	\item utilizes random restarts 
+	\item utilizes unit resolution (resolution with a single term clause — linear \& incomplete)
+\end{enumerate}
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_2E6BCB9B7FA7CA166B30D63D0EE6631CB92348B5FD5B0AE0D0B6403B17C7DD96_1588409707432_Untitled+drawing+16.jpg)$
+\newpage
+
+\noindent Now consider the above with the input CNF
+\begin{enumerate} [itemsep=0mm]
+	\item $\frac {A \lor \neg B \lor C, \neg A} {\neg B \lor C}$
+	\item $\frac {\neg B \lor C, B} {C}$
+	\item $\frac{\neg C \lor D, C} {D}$
+\end{enumerate}
+\noindent $\implies \{A=0, B=1, C=1, D=1\}$ is a solution.\\
+
+\noindent Local Search is much simpler and faster, but incomplete.
+\begin{enumerate} [itemsep=0mm]
+	\item Guess a truth assignment
+	\item check whether the rule holds.\\
+		YES $\rightarrow$ DONE
+		NO $\rightarrow$ try again
+\end{enumerate}
+
+\newpage
+$![N represents the number of attacks](https://paper-attachments.dropbox.com/s_2E6BCB9B7FA7CA166B30D63D0EE6631CB92348B5FD5B0AE0D0B6403B17C7DD96_1588410528611_Untitled+drawing+17.jpg)$
+\newpage
+
+\noindent It turns out that the N queens problem is simple for local search;\\
+\indent This is because the solutions are densely distributed.\\
+\\
+Solutions are densely distributed when a problem is \textbf{\underline{under-constrained}}.\\
+Solutions are sparsely distributed when a problem is \textbf{\underline{over-constrained}}.\\
+The hardest problems tend to be at the threshold of the two.\\
+
+\newpage
+$![neighborhood structure](https://paper-attachments.dropbox.com/s_2E6BCB9B7FA7CA166B30D63D0EE6631CB92348B5FD5B0AE0D0B6403B17C7DD96_1588410892286_Untitled+drawing+18.jpg)$
+\newpage
+
+\noindent The difficulty of these algorithms comes in the way we determine what truth assignment to use.\\
+There are two standard approaches to this:
+
+\subsubsection*{1. Hill Climbing}
+We can imagine the complete assignments in a graph.\\
+\textbf{\underline{Hill-climbing}} is choosing the next node by heuristic.\\
+We have two major issues:
+	\begin{itemize} [itemsep=0mm]
+		\item local extrema\\
+			solution: utilize random restarts
+		\item side-moves
+			solution: consecutive side-move limits
+	\end{itemize}
+Our algorithm therefore takes the form of an embedded loop.\\
+
+\noindent There is no guarantee this visits every world; we have two choices to deal with this:
+\begin{enumerate} [itemsep=0mm]
+	\item allow the algorithm to complete — complete but can loop infinitely
+	\item terminate after a time limit — incomplete
+\end{enumerate}
+
+\subsubsection*{2. Stochastic methods}
+\noindent \textbf{\underline{Stochastic}} $\equiv$ probabilistic\\
+A common approach is \textbf{\underline{simulated annealing}}\\
+While not at goal:\\
+\indent pick a neighbor randomly\\
+\indent if it is better, go there\\
+\indent else, there is a \% chance based on how much worse it is and the depth of the neighbor\\
+End\\
+\\
+By exploring less when deeper, we can avoid local extrema and have a complete algorithm 
+\indent (provided we allow the algorithm to run for infinite time).\\
+
+
+\subsection*{Compiling Sentences To Tractable Circuits}
+\noindent Circuits are more compact than formulas, since circuits can reuse components!\\
+
+\newpage
+$![DNF/CNF circuits are flat — they have a constant depth 2](https://paper-attachments.dropbox.com/s_2E6BCB9B7FA7CA166B30D63D0EE6631CB92348B5FD5B0AE0D0B6403B17C7DD96_1588412155172_Untitled+drawing+19.jpg)$
+\newpage
+
+\noindent It therefore makes sense to use them to express complicated logic.\\
+
+\subsubsection*{Tractable NNF Circuits}
+\noindent NNF circuits are not inherently tractable, but they are given certain restrictions.\\
+\\
+If the sub-circuits of all AND gates in a circuit share no variables, we say it is \textbf{\underline{decomposable}}\\
+This property allows us to solve components of the circuit separately.\\
+	\indent an AND gate is satisfiable iff all its sub-circuits are\\
+	\indent an OR gate is satisfiable iff one of its sub-circuits are\\
+If the circuit is decomposable, The circuit is tractable for SAT.\\
+\\
+If the inputs to an OR gate are mutually exclusive, we say it is \textbf{\underline{deterministic}}.\\
+If a circuit is decomposable and deterministic, it is a d-DNNF circuit.\\
+\indent d-DNNF circuits are tractable for \#SAT (“sharp-SAT”).\\
+\indent \indent \#SAT counts the number of satisfying assignments in linear time.\\
+
+\noindent If all sub-circuits of an OR gate share all variables, the gate is said to be \textbf{\underline{smooth}}.\\
+\indent These can be easier to work with, but are logically equivalent to d-DNNFs.\\
+\\
+Complexity:
+\begin{itemize} [itemsep=0mm]
+	\item SAT is NP complete
+	        $\equiv$ it is not thought to be solvable in polynomial time
+	\item \#SAT is \#P complete
+		$\equiv$it involves counting the number of acceptable NP solutions
+	\item Maj-SAT is PP complete 
+		$\equiv$ a probabilistic algorithm is run a set \# of times for a polynomial time 
+\end{itemize}
+\noindent While these methods are increasingly comple, they all can repeat information over time or space.\\
+We address a solution to this issue in the next lecture.
+
+\end{document}

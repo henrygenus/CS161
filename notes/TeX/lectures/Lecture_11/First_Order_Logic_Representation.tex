@@ -1,0 +1,153 @@
+\documentclass[../../lecture_notes.tex]{subfiles}
+
+\begin{document}
+
+\noindent When we discussed propositional logic, we ran into a roadblock representing repeating data.\\
+Consider the Wumpus World:\\
+\indent Propositional: Each square needs a similar set of variables to represent all possible states\\
+\indent First Order: $\forall $r Pit(r) $\implies [\forall$ s Adjacent(r, s) $\implies$ Breezy(s)]\\
+First order logic is thus much more expressive and succinct; Our main challenge will be computational.\\
+\\
+Consider the representation of a world:\\
+	\indent Propositional Logic:
+		\begin{itemize} [itemsep=0mm]
+			\item Variables \{A, ...\} 
+			\item Values \{T, F\}
+		\end{itemize}
+	\indent First Order Logic: 
+		\begin{itemize} [itemsep=0mm]
+			\item Objects with Properties
+			\item Relationships Between Objects
+			\item Functions Mapping Objects to Objects
+		\end{itemize} \medskip
+
+\noindent How would we represent each of the following in first-order logic?
+\begin{enumerate} [itemsep=0mm]
+	\item One plus one equals two
+		\begin{itemize} [itemsep=0mm]
+			\item Objects: One, One plus one, two
+			\item Properties: None
+			\item Relations: equals
+			\item Functions: plus
+		\end{itemize}
+	\item Squares adjacent to the Wumpus are smelly
+		\begin{itemize} [itemsep=0mm]
+			\item Objects: Squares, Squares adjacent to the Wumpus, Wumpus
+			\item Properties: Smelly
+			\item Relations: adjacent
+			\item Functions: None
+		\end{itemize}
+\end{enumerate}
+
+\subsection*{Syntax}
+\noindent The syntax of first order logic is much nicer than that of propositional logic
+	\begin{itemize} [itemsep=0mm]
+		\item constants — uppercase words that represent objects\\
+			Examples include Z, Jack, UCLA, etc
+		\item predicates — lowercase words that represent relations\\
+			Examples include adjacent(),  at(), etc 
+		\item property — single argument predicate
+	        \item equality —  a key subset of predicates
+    		\item functions — lowercase words that give a value for each input\\
+		        Examples include leftLeg(), father(), etc
+	\end{itemize}
+\noindent These are domain specific and form our “vocabulary”.\\
+Our domain-independent vocabulary is as follows:
+	\begin{itemize} [itemsep=0mm]
+		\item variables: x, y, z
+		\item connectives: $\lor \land \neg \implies \iff$
+		\item quantifiers: $\forall \ \exists$
+	\end{itemize}
+\noindent We can use all of these to define atomic sentences.\\
+These are of the form: predicate (Term1, …, TermN)\\
+	\indent Term $\equiv$ a constant, variable, or function\\
+	\indent Ground term $\equiv$ term with no variables\\
+\\
+The new operators in first-order logic are called \textbf{\underline{quantifiers}}.
+Quantification comes in two forms
+	\begin{enumerate} [itemsep=0mm]
+		\item \textbf{\underline{UNIVERSAL QUANTIFICATION}}\\
+			FORM: $\forall$ variables sentence\\
+			ex. $\forall x at(x, UCLA) \implies smart(x)$ is a predicate
+				-- at(x, UCLA) is a relation
+				-- smart(x) is a property
+			This forms a conjunction of the instantiations of the predicate, and often appears with ‘$\implies$’\\
+			$\rightarrow$	[at(John, UCLA$\implies$ smart(John)] $\land$ 
+						[at(fatherOf(John), UCLA) $\implies$ smart(fatherOf(John))]
+		\item \textbf{\underline{EXISTENTIAL QUANTIFICATION}}\\
+			FORM: $\exists$ variables statement\\
+			ex $\exists$ x at(x, UCLA) $\land$ tall(x)\\
+			This forms a disjunction of the instantiations of the predicate, and often appears with ‘$\land$’\\
+			$\rightarrow$ [at(John, UCLA) $\land$ tall(John)] $\lor$ 
+						 [at(fatherOf(John), UCLA) $\land$ tall(fatherOf(John))]
+	\end{enumerate}
+
+\noindent Quantification is not always commutative:\\
+	\indent $\exists \ x \ \exists \ y = \exists \ y \ \exists \ x$\\
+	\indent $\forall \ x \ \forall \ y = \forall \ y \ \forall \ x$\\
+	\indent $\forall \ x \ \exists \ y != \exists y \ \forall \ x$\\
+Why? consider:\\
+	\indent $\forall \ x \ \exists$ y loves(y, x) means “everyone in the world has at least one person who loves them”\\
+	\indent $ \exists \ y \ \forall$ x loves(y, x) means “there is at least one person who loves everyone in the world”\\
+We can, however, use one operator to simulate the other:\\
+	\indent $\neg \forall$ x likes (x, IceCream) $= \exists x \neg$likes (x, IceCream)\\
+\\
+Asserting a number of unifications tends to be a bit trickier\\
+	\indent “Spot has two sisters” \\
+	\indent \indent $\rightarrow \exists \ x \ \exists$ y sister(x, spot) $\land$ sister(y, spot) $\land$ x != y\\
+	\indent “Spot has exactly two sisters” \\
+	\indent \indent $\rightarrow$ We use the above statement, 
+		plus $\forall$ z sister(z, spot) $\implies$ ((z = x) $\lor$ (z = y))\\
+        \indent Which can also be written as $\neg(\exists$ z sister(z, spot) $\land$ ((z = x) $\lor$ (z = y)))\\
+Some people make this cleaner by using to represent “exists a unique”\\
+\indent $\exists!$ x king(x) = [$\exists$ x king(x)] $\land$ [$\forall$ y king(y) $\implies$ (x = y)]\\
+\indent \indent (this is an error in actuality, since the x on the left is out of scope)\\
+\\
+We can see it is critical to develop well formed formulas with no free variables
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_8D4C39015E86438EFEF871831A9FF8532AD6DC7E337962820570A542BB06D7AF_1589429882152_Untitled+drawing+20.jpg)$
+\newpage
+
+\noindent Consider the 1-bit adder:\\
+\indent We want to derive the output given the input.\\
+\indent This is hard to do with circuits, but this is easy with first order logic.\\
+
+\newpage
+$![](https://paper-attachments.dropbox.com/s_8D4C39015E86438EFEF871831A9FF8532AD6DC7E337962820570A542BB06D7AF_1589431034153_Untitled+drawing+21.jpg)$
+\newpage
+
+\noindent Our vocabulary consists of:\\
+	\indent domain:\\
+	\indent \indent constants: {AND, OR, NOT, XOR, 0, 1}\\
+	\indent \indent functions: {type(g), signal(i, o), in(g), out(g)}\\
+	\indent \indent predicates: {connected($g_1, g_2$)}\\
+	\indent instance (the specific layout of this circuit):\\
+	\indent \indent constants: {$XOR_1, XOR_2, AND_1, AND_2, OR_1$}\\
+We then define our knowledge base:\\
+	\indent Domain:\\
+	\indent \indent $\forall$ t1, t2 connected(t1, t2) $\implies$ (signal(t1) = signal(t2))\\
+	\indent \indent $\forall$ t1, t2 connected(t1, t2) $\iff$ connected(t2, t1)\\
+	\indent \indent $\forall$ g type(g) = OR $\implies$ [signal(out(1, g)) = 1 $\iff \ \exists$ n signal(in(n, g)) = 1]\\
+	\indent \indent \indent (similar rules for other gates are omitted for the sake of brevity)\\
+	\indent \indent (the most general part follows)\\
+	\indent \indent $\forall$ t signal(t) = 1 $\lor$ signal(t) = 0\\
+	\indent \indent $\neg$1 = 0\\
+	\indent Instance:\\
+	\indent \indent type($XOR_1$) = XOR, type($XOR_2$) = XOR, ...\\
+	\indent \indent connected(out(1, $XOR_1$), in(2, $AND_2$)), ...\\
+This is all we need to begin queries!\\
+	\indent $\exists i_1, i_2, i_3$ signal(in(1, adder)) = 1\\
+		\indent \indent = $i_1 \land$ signal(in(2, adder)) \\
+		\indent \indent = $i_2 \land$ signal(in(3, adder)) \\
+		\indent \indent = $i_3$ $\land$ signal(out(1, adder)) \\
+		\indent \indent = 0 $\land$ signal(out(2, adder)) \\
+	\indent $\rightarrow$ \{(1, 1, 0), (1, 0 1), (0, 1, 1)\}\\
+\\
+We could expand this to check if a circuit is functioning \& to diagnose errors with:\\
+	\indent ok(g) — represents whether the circuit is ok\\
+	\indent stuck(g) — represents whether a gate is always off and stuck on 0\\
+We may even want to include wires if that is what we’re testing.\\
+All of this is called Knowledge Engineering.
+
+\end{document}
