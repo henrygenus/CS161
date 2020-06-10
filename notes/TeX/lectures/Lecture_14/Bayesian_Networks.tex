@@ -1,3 +1,4 @@
+
 \documentclass[../../lecture_notes.tex]{subfiles}
 
 \begin{document}
@@ -24,15 +25,22 @@ We can apply the same idea to sets of variables:\\
 	\indent X and Y are independent given Z if Pr(x|y, z) = Pr(x|z)\\
 	\indent We write this as I(X, Z, Y)\\
 \\
-Consider the following
-
-\newpage
-$![Directed Acyclic Graph (G)](https://paper-attachments.dropbox.com/s_13F2D47E7D3DCA10BE34C69E62E331D2224F9C5F91BEA8639D242F2792B86517_1590115697975_Untitled+drawing.jpg)$
-\newpage
+Consider the following:
+\begin{center}\begin{tikzpicture}
+	\node[circle, draw, align=center] (E) {E};
+	\node[circle, draw, below left =of E, align=center] (R) {R};
+	\node[circle, draw, below right =of E, align=center] (A) {A};
+	\node[circle, draw, below =of A, align=center] (C) {C};
+	\node[circle, draw, above right =of A, align=center] (B) {B};
+	\draw [->] (E.south west) -- (R.north east);
+	\draw [->] (E.south east) -- (A.north west);
+	\draw [->] (B.south) -- (A.north east);
+	\draw [->] (A.south) -- (C.north);
+\end{tikzpicture}\end{center}
 
 \subsubsection*{Logic}
-\noindent The alarm is triggered by burglary or earthquake.
-A radio report is caused by an earthquake.
+\noindent The alarm is triggered by burglary or earthquake.\\
+A radio report is caused by an earthquake.\\
 A call from the neighbor may come post-alarm.
 
 \subsubsection*{Independence}
@@ -59,9 +67,9 @@ Marcov(G) = \{ I(C, A, BE), I(R, E, ABC), I(A, BE, R), I(B, $\phi$, ER), I(E, $\
 \\
 We can parametrize the structure by assigning weight to the connections.\\
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_13F2D47E7D3DCA10BE34C69E62E331D2224F9C5F91BEA8639D242F2792B86517_1590117208298_Screen+Shot+2020-05-21+at+8.13.19+PM.png)$
-\newpage
+}
 
 \noindent Note that $Pr(\neg d, b, \neg c) = \theta_\{\neg d | b, \neg c\}$\\
 \\
@@ -75,23 +83,40 @@ We can evaluate the independence of any two nodes are independent given a third 
 \subsection*{Deseperation}
 \noindent This uses an expansion on Markov’s much more efficient than probability theory.\\
 If setting Z blocks paths x$\rightarrow$y, x \& y are d-separated given Z\\
-There are three ways for a node to be connected in a path:
+There are three ways for a node to be connected in a path, treated as follows:
 \begin{itemize} [itemsep=0mm]
-	\item sequential $\equiv\ \rightarrow w \rightarrow$
-	\item divergent $\equiv\ \leftarrow w \rightarrow$
-	\item convergent $\equiv\ \rightarrow w \leftarrow$
+	\item sequential $\equiv\ \rightarrow w \rightarrow$ is blocked iff w $\in$ \textbf{Z}
+	\item divergent $\equiv\ \leftarrow w \rightarrow$ is blocked iff w $\in$ \textbf{Z}
+	\item convergent $\equiv\ \rightarrow w \leftarrow$ is blocked iff w \& Decendants(w) $\notin$ \textbf{Z}
 \end{itemize}
-\noindent These are each treated differently:
-
-\newpage
-$\neg[](https://paper-attachments.dropbox.com/s_13F2D47E7D3DCA10BE34C69E62E331D2224F9C5F91BEA8639D242F2792B86517_1590118451755_Untitled+drawing+2.jpg)$
-\newpage
 
 \noindent We can clarify by giving an example:
-
-\newpage
-$![](https://paper-attachments.dropbox.com/s_13F2D47E7D3DCA10BE34C69E62E331D2224F9C5F91BEA8639D242F2792B86517_1590119210337_Untitled+drawing+4.jpg)$
-\newpage
-
-
+\begin{center}\begin{minipage} {0.6\textwidth}\begin{center} \begin{tikzpicture}
+	\node [circle, draw] (A) {A};
+	\node [circle, draw, below =of A] (T) {T};
+	\node [circle, draw, below right =of T] (P) {P};
+	\node [circle, draw, below left =of P] (X) {X};
+	\node [below right =0.8 of P] (t) {};
+	\node [circle, draw, right =0.4 of t] (D) {D};
+	\node [circle, draw, above right =0.8cm of P] (C) {C};
+	\node [above right =of C] (tt) {};
+	\node [circle, draw, below =0.1cm of tt] (S) {S};
+	\node [circle, draw, below right =of S] (B) {B};
+	\draw [->] (A.south) -- (T.north);
+	\draw [->] (T.south east) -- (P.north west);
+	\draw [->] (P.south west) -- (X.north east);
+	\draw [->] (P.south east) -- (D.north west);
+	\draw [->] (C.south west) -- (P.north east);
+	\draw [->] (S.south west) -- (C.north east);
+	\draw [->] (S.south east) -- (B.north west);
+	\draw [->] (B.south west) -- (D.north east);
+\end{tikzpicture}\end{center}\end{minipage}%
+\begin{minipage} {0.4\textwidth}
+dsep(C, S, B)?\\
+$\rightarrow$ open(BSC)? false.\\
+$\rightarrow$ open(CPDV)?\\
+--$\rightarrow$ open(SPD)? true.\\
+--$\rightarrow$ open(PDS)? false.\\
+$\implies$ dsep(C, S, B) = true.
+\end{minipage} \end{center}
 \end{document}

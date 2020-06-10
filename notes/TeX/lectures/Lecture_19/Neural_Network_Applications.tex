@@ -22,9 +22,9 @@ We define the parameters of a subnetwork of a neural network as follows:
 \subsection*{Convolution}
 \noindent Consider the example of analyzing a greyscale image; it may look like:
 
-\newpage
+\hl{
 $![convolution w/ f = 3, nc = 36, s = 1, p = 0](https://paper-attachments.dropbox.com/s_AA78EEC73035B10A6424111F8CC18FF4AA14B9B2A8F73FF013C6765837E92F61_1591303343711_Untitled+drawing+1.jpg)$
-\newpage
+}
 
 \noindent We pass the filter over each fxf submatrix of the input, performing a column dot product.\\
 We then apply an ReLU function before entering into the output matrix.\\
@@ -41,18 +41,18 @@ The output is 4x4x1 in this example, but we could do the following transformatio
 
 \noindent We can model a convolution with increased parameters like so:
 
-\newpage
+\hl{
 $![complex convolution w/ f=3, nc = 3, s = 1, p = 0](https://paper-attachments.dropbox.com/s_AA78EEC73035B10A6424111F8CC18FF4AA14B9B2A8F73FF013C6765837E92F61_1591303830548_Untitled+drawing+2.jpg)$
-\newpage
+}
 
 \noindent This behavior may bee seen in a color (rgb) image seeking to detect two features
 
 \subsection*{Max-Pooling}
 \noindent An example may take the following form:
 
-\newpage
+\hl{
 $![max-pool w/ f = 2, nc = 1, s = 2, p = 0](https://paper-attachments.dropbox.com/s_AA78EEC73035B10A6424111F8CC18FF4AA14B9B2A8F73FF013C6765837E92F61_1591304109912_Untitled+drawing+3.jpg)$
-\newpage
+}
 
 \noindent The output is determined by the maximum of the values in the region it represents.\\
 This effectively functions to aggregate data values to the most likely representation.\\
@@ -60,9 +60,9 @@ Padding is almost always zero, and there are no weights.\\
 \\
 These two operations are applied alternately to form a CNN:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_AA78EEC73035B10A6424111F8CC18FF4AA14B9B2A8F73FF013C6765837E92F61_1591304763546_Untitled+drawing+4.jpg)$
-\newpage
+}
 
 \noindent As we move right, we tend to increase filter count and thus $n_c$, but decrease f.\\
 We can thus think of this operation as stretching and squishing volume in alternation.\\
@@ -91,9 +91,9 @@ The data below compares the correctness of three approaches to image recognition
 		\item Neural Network
 	\end{enumerate}
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_AA78EEC73035B10A6424111F8CC18FF4AA14B9B2A8F73FF013C6765837E92F61_1591304763546_Untitled+drawing+4.jpg)$
-\newpage
+}
 
 \noindent We observe that approach (b) beats the neural network handedly in low data situations.\\
 Even in high data situations, approach (b) tends to beat out the neural network.\\
@@ -101,9 +101,9 @@ Even in high data situations, approach (b) tends to beat out the neural network.
 The below data compares the approaches when trained with different data than tested with.\\
 Noise is either horizontal or vertical pairs, and the models see only one type in each.\\
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_AA78EEC73035B10A6424111F8CC18FF4AA14B9B2A8F73FF013C6765837E92F61_1591304763546_Untitled+drawing+4.jpg)$
-\newpage
+}
 
 \noindent In this situation, approach (b) is relatively unaffected, but the neural network falls apart!
 This is analogous to a student solving problems by applying formulae.\\

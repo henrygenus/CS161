@@ -10,9 +10,9 @@ Traditional approaches are model-based and work via representation and reasoning
 \noindent The basic unit of a neural network is the \textbf{\underline{NEURON}}.\\
 These map a set of input activations to an output activation.
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591131415565_Untitled+drawing.jpg)$
-\newpage
+}
 
 \noindent a — activations\\
 w — weights\\
@@ -22,9 +22,9 @@ ai = g( [$\sum w_{ij} a_j] + b$)\\
 
 Activation Functions come in the following forms (generally):
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591132106832_Untitled+drawing+1.jpg)$
-\newpage
+}
 
 \noindent A connected set of these forms a neural network!\\
 Modern neural networks also use non-neuron elements, but they are application specific.\\
@@ -32,9 +32,9 @@ Modern neural networks also use non-neuron elements, but they are application sp
 We could learn the structure, but many situations have heuristically derived templates.\\
 The specific forms of neural networks we consider are \textbf{\underline{Feed-Forward Neural Networks}}.\\
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591132562633_Untitled+drawing+2.jpg)$
-\newpage
+}
 
 \noindent Greater depth requires more training, sp multi layer NN’s are computation-heavy.\\
 They used to be nearly impossible to train, but deep-learning has changed this.\\
@@ -46,26 +46,27 @@ Are they expressive enough? \\
 \noindent Basic gates can be formed by networks consisting only of neurons with step functions.\\
 
 We can form an AND gate from a single neuron:
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591132995454_Untitled+drawing+4.jpg)$
+}
 
 \noindent We can also form an OR gate from a single neuron:
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591133040302_Untitled+drawing+5.jpg)$
-\newpage
+}
 
 We cannot, however, form an XOR gate from a single neuron.\\
 This is because an XOR gate is not \textbf{\underline{linearly separable}}.
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591133370907_Untitled+drawing+6.jpg)$
-\newpage
+}
 
 \noindent Our neuron functions can only represent linearly separable functions.\\
 Networks, however, can represent much more complex representations.\\
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591133796275_Untitled+drawing+7.jpg)$
-\newpage
+}
 
 \noindent This neural network, as can be seen, represents a complex non-linear function.\\
 We train the neural network by setting the weights to match labeled data.\\
@@ -86,9 +87,9 @@ This has a couple common forms:
 Tensor flow, RUST, and the ADAM optimizer can do this for us.\\
 We can stochastically break the data to increase the accuracy of the fit.\\
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591134328128_Untitled+drawing+8.jpg)$
-\newpage
+}
 
 \noindent We call a single iteration of the gradient-descent algorithm an \textbf{\underline{epoch}}.\\
 How do we know which epoch to stop on?\\

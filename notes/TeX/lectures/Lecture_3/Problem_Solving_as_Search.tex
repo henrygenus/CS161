@@ -44,13 +44,13 @@ We will introduce a few “toy problems” to learn to answer these:\\
 8 PUZZLE\\
 
 \begin{center} \begin{tikzpicture}
-	\node[rectangle, draw] (1) {\begin{tabular} { c | c | c } 
-		5 & 4 & . \\ \hline \\ 6 & 1 & 8 \\ \hline \\7 & 3 & 2 \end{tabular}};
-	\node[rectangle, draw, right =of 1] (2) {\begin{tabular} { c | c | c } 
-		5 & . & 4 \\ \hline \\ 6 & 1 & 8 \\ \hline \\7 & 3 & 2 \end{tabular}};
+	\node (1) {\begin{tabular} { | c | c | c | } 
+		\hline 5 & 4 &  \\ \hline 6 & 1 & 8 \\ \hline 7 & 3 & 2 \\\hline\end{tabular}};
+	\node[right =of 1] (2) {\begin{tabular} { | c | c | c | } 
+		\hline 5 &  & 4 \\ \hline 6 & 1 & 8 \\ \hline 7 & 3 & 2 \\\hline\end{tabular}};
 	\node [right =of 2] (3) {...};
-	\node[rectangle, draw, right =of 3] (4) {\begin{tabular} { c | c | c } 
-		1 & 2 & 3 \\ \hline \\ 8 & . & 4 \\ \hline \\7 & 5 & 6 \end{tabular}};
+	\node[right =of 3] (4) {\begin{tabular} { | c | c | c | } 
+		\hline 1 & 2 & 3 \\ \hline 8 &  & 4 \\ \hline 7 & 5 & 6 \\\hline\end{tabular}};
 	\draw [->] (1.east) -- (2.west);
 	\draw [->] (2.east) -- (3.west);
 	\draw [->] (3.east) -- (4.west);
@@ -70,33 +70,33 @@ Instead, we think about moving the empty space…now we have 4 choices max!
 \end{itemize} \medskip
 
 \begin{center} \begin{tikzpicture}
-	\node [rectangle, draw]{\begin{tabular} { c | c } . & 1 \\ \hline \\ 3 & 2 \end{tabular}}
-		child {node [rectangle, draw] {\begin{tabular} { c | c } 1 & . \\ \hline \\ 2 & 3 \end{tabular}}
-			child {node [rectangle, draw]{\begin{tabular} { c | c } 1 & 2 \\ \hline \\ 3 & . \end{tabular}}
-				child {node [rectangle, draw]{\begin{tabular} { c | c } 1 & 2 \\ \hline \\ . & 3 \end{tabular}}
+	\node {\begin{tabular} { | c | c | } \hline & 1 \\ \hline 3 & 2 \\\hline\end{tabular}}
+		child {node {\begin{tabular} { | c | c | } \hline 1 & \\ \hline 2 & 3 \\\hline\end{tabular}}
+			child {node {\begin{tabular} { | c | c | } \hline 1 & 2 \\ \hline 3 &  \\\hline\end{tabular}}
+				child {node {\begin{tabular} { | c | c | } \hline 1 & 2 \\ \hline & 3 \\\hline\end{tabular}}
 					edge from parent node {}
 				}
-				child {node [ellipse, draw] {}
+				child {node [ellipse, draw, fill] {}
 					edge from parent node{}
 				}
 				edge from parent node {}
 			}
-			child {node [ellipse, draw] {}
+			child {node [ellipse, draw, fill] {}
 				edge from parent node{}
 			}
 		}
 		child [missing]
-		child {node[rectangle, draw] {\begin{tabular} { c | c } 3 & 1 \\ \hline \\ . & 2 \end{tabular}}
-			child {node [rectangle, draw]{\begin{tabular} { c | c } 3 & 1 \\ \hline \\ 2 & . \end{tabular}}
-				child {node [rectangle, draw]{\begin{tabular} { c | c } 3 & 2 \\ \hline \\ 1 & . \end{tabular}}
+		child {node {\begin{tabular} { | c | c | } \hline 3 & 1 \\ \hline  & 2 \\\hline\end{tabular}}
+			child {node {\begin{tabular} { | c | c | } \hline 3 & 1 \\ \hline 2 &  \\\hline\end{tabular}}
+				child {node {\begin{tabular} { | c | c | } \hline 3 & 2 \\ \hline 1 &  \\\hline\end{tabular}}
 					edge from parent node {}
 				}
-				child {node [ellipse, draw] {}
+				child {node [ellipse, draw, fill] {}
 					edge from parent node{}
 				}
 				edge from parent node {}
 			}
-			child {node [ellipse, draw] {}
+			child {node [ellipse, draw, fill] {}
 				edge from parent node{}
 			}
 		};
@@ -120,22 +120,22 @@ The third statement in this problem is called a constraint; any state violating 
 \\
 We will lay out the solution to this problem using LISP:
 \begin{lstlisting} [language=Lisp]
-	; We must first answer the question: How do I represent a state?
-	> (M C B)
-	; M & C represent people on boat side, B is bool for (boat on right)
-	let initial-state = (3 3 t) 
-	let final-state = (3 3 NIL) 
-	; we define a final-function that checks for final-state equivalence
-	> (fin-fcn '(3 3 t))
-	> NIL
-	> (fin-fcn '(3 3 NIL))
-	> t
-	; How do I change states? We define a successor function:
-	> (succ-fn '(3 3 t))
-	> ((0 1 NIL)
-	    (1 1 NIL)
-	    (0 2 NIL))
-	; as we can see, only three of the five choices are valid
+; We must first answer the question: How do I represent a state?
+> (M C B)
+; M & C represent people on boat side, B is bool for (boat on right)
+let initial-state = (3 3 t) 
+let final-state = (3 3 NIL) 
+; we define a final-function that checks for final-state equivalence
+> (fin-fcn '(3 3 t))
+> NIL
+> (fin-fcn '(3 3 NIL))
+> t
+; How do I change states? We define a successor function:
+> (succ-fn '(3 3 t))
+> ((0 1 NIL)
+    (1 1 NIL)
+    (0 2 NIL))
+; as we can see, only three of the five choices are valid
 \end{lstlisting}
 \noindent We must therefore pass three things to the function:
 \begin{enumerate} [itemsep=0mm]

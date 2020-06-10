@@ -1058,4 +1058,54 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package capt
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: floatrow package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+ABD: EveryShipout initializing macros
+\c@lstlisting=\count373
+LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+./Constraint_Satisfaction.tex:24: LaTeX Error: File `AU' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 	\includegraphics[width=0.8\textwidth]{AU}
+                                               
+? 
+./Constraint_Satisfaction.tex:24: Emergency stop.
+ ...                                              
+                                                  
+l.24 	\includegraphics[width=0.8\textwidth]{AU}
+                                               
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
+Here is how much of TeX's memory you used:
+ 30287 strings out of 480608
+ 693293 string characters out of 5903631
+ 958947 words of memory out of 5000000
+ 45695 multiletter control sequences out of 15000+600000
+ 537293 words of font info for 42 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 79i,4n,84p,1666b,218s stack positions out of 5000i,500n,10000p,200000b,80000s
+./Constraint_Satisfaction.tex:24:  ==> Fatal error occurred, no output PDF file
+ produced!

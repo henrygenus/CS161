@@ -57,10 +57,10 @@ Requirements for the function:
 \noindent Note that this may lead us to cut off paths at different steps.
 
 {
-\floatsetup{capposition=beside,capbesideposition={right}}
+\floatsetup{capposition=beside,capbesideposition={right, center}}
 \begin{figure} [H]
-	\captionsetup{labelformat=empty}
-	\includegraphics[width=0.5 \textwidth] {abpruning}
+	\captionsetup{labelformat=empty, width=0.5\textwidth}
+	\includegraphics[width=0.4\textwidth] {abpruning}
 	\caption{We can skip any value lower than the min!\\
 			This is called \textbf{\underline{alpha-beta pruning}} \\
 			\indent (alpha for max, beta for minimum).\\
@@ -70,23 +70,20 @@ Requirements for the function:
 			\noindent The gain depends on value order.\\
 			$\implies$ with a-b pruning, $T = O(b^{m/2})$.\\
 			This is up to twice as deep!\\
-			This is the best case, the average is $O(b^{3m/4})$.\\
-			\newline \newline \newline
+			This is the best case, the average is $O(b^{3m/4})$.
 	}
 \end{figure} 
 }
 
 \subsubsection*{Stochastic Search}
 \noindent This strategy cannot work for games of chance since we cannot predict our choices.\\
-We can instead use probabilities to weight the values.\\
-
-{
-\floatsetup{capposition=beside,capbesideposition={right}}
+We can instead use probabilities to weight the values. {
+\floatsetup{capposition=beside,capbesideposition={right, center}}
 \begin{figure} [H]		
-	\captionsetup{labelformat=empty}
-	\includegraphics[width=0.5 \textwidth] {abpruning}
-	\caption{\noindent Our choice of cutoff is very important:\\
-		\indent A depth cutoff in a search (here 2) must be \textbf{\underline{quiescent}}\\
+	\captionsetup{labelformat=empty, width=0.5\textwidth}
+	\includegraphics[width=0.4\textwidth] {stochastic}
+	\caption{\\\\Our choice of cutoff is very important:\\
+		\indent A depth cutoff in a search must be \textbf{\underline{quiescent}}\\
         		$\equiv$ unlikely to drastically change values.\\
 		\indent A bad cutoff may fall victim to the \textbf{\underline{horizon effect}}\\
 	        $\equiv$ when negatives are pushed just past the cutoff.\\
@@ -94,8 +91,7 @@ We can instead use probabilities to weight the values.\\
 		Time complexity: $O(b^m n^m)$ for n distinct events.\\
 			\newline \newline \newline
 	}
-\end{figure} 
-}\medskip
+\end{figure}}
 
 \subsection*{Additional Game Strategies}
 \noindent At the beginning or the end of a game, it may be more practical to do a table lookup.\\

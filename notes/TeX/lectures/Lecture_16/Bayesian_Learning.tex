@@ -7,18 +7,18 @@
 \subsection*{Parameters}
 \noindent Consider the disease model from the previous lecture:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8BD49E718AC081FD5F77701FB86FF68_1590905476354_Untitled+drawing.jpg)$
-\newpage
+}
 
 \noindent Cases 1 and 3 have incomplete data, whereas 2 had \textbf{\underline{complete}}.\\
 If every example is complete, the data set is called complete.\\
 If complete, the maximum likelihood parameters are unique.\\
 We find the likelihood of a parameter set like so:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8BD49E718AC081FD5F77701FB86FF68_1590905790509_Untitled+drawing+1.jpg)$
-\newpage
+}
 
 
 \noindent Param $\{S_1\} \rightarrow BN_1 \rightarrow Pr_1(.)$\\
@@ -32,14 +32,14 @@ We pick the set of parameters that maximizes the probability,\\
 
 \subsubsection*{Parameter Estimation With Complete Data}
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8BD49E718AC081FD5F77701FB86FF68_1590906656594_Untitled+drawing+2.jpg)$
+}
 
 \noindent The large table is our empirical distribution .\\
 This is formed by collapsing our distribution.\\
 	\indent $\theta_\{\neg S|H\} = \frac{Pr(\neg s,h)}{Pr(h)} = \frac{5}{6}$.\\
 This is our maximum likelihood parameter estimate!
-
 
 \subsubsection*{Parameter Estimation With Incomplete Data}
 \noindent This uses an iterative algorithm called \textbf{\underline{expected maximum}}.\\
@@ -60,9 +60,9 @@ Note: this is the thinking behind the original algorithm, but it isn’t how it 
 \subsection*{Structure}
 \noindent Consider the following three structures:
 
-\newpage 
+\hl{
 $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8BD49E718AC081FD5F77701FB86FF68_1590908603345_Untitled+drawing+4.jpg)$
-\newpage
+}
 
 \noindent What do I need to optimize to choose between these three structures?\\
 We have learned many of these algorithms, so we won’t discuss in detail, but:
@@ -81,9 +81,9 @@ Say we are using likelihood to compare; then C > B > A.\\
 	\indent Thus we need a model that balances structure complexity with likelihood.\\
 	\indent Why? Consider:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8BD49E718AC081FD5F77701FB86FF68_1590909021630_Untitled+drawing+5.jpg)$
-\newpage
+}
 
 \noindent The data is clearly a linear fit, but if we estimate to the fourth degree, we get bad data!\\
 There is no fixed answer to the problem; we clearly need some function of the form f(likelihood) - g(complexity).\\
@@ -94,9 +94,9 @@ A common one is called MDK, but we need not discuss details.\\
 We have done model learning now; we move on to query based.\\
 	\indent A model-based approach might give us the following:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8BD49E718AC081FD5F77701FB86FF68_1590909614270_Untitled+drawing+6.jpg)$
-\newpage
+}
 
 \noindent Say we promise only to infer upward:\\
 	\indent  Then we don’t ‘model’ the system and instead prepare for a specific ‘query’.\\
@@ -105,9 +105,9 @@ $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8B
 
 \subsubsection*{Arithmetic Circuits}
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8BD49E718AC081FD5F77701FB86FF68_1590910293904_Screen+Shot+2020-05-31+at+12.30.28+AM.png)$
-\newpage
+}
 
 \noindent The (+) symbols represent OR gates\\
 The (*) symbols represent AND gates\\
@@ -121,18 +121,18 @@ Thus we can evaluate this in linear time;u nfortunately converting to an arithme
 BUT what do we do if we don’t have the parameters?
 We use the labeled data:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8BD49E718AC081FD5F77701FB86FF68_1590911384850_Untitled+drawing+7.jpg)$
-\newpage
+}
 
 \noindent \textbf{\underline{Cross Entropy}} gives us a measure of the disagreement between the two.\\
 \indent Therefore, we often seek to minimize it across a structure.\\
 We generally use it to perform gradient descent (nth dimensional hill climbing).\\
 Consider the example of recognizing shapes:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_E29353D8DE6A7F32069419A77A11E9F7A8BD49E718AC081FD5F77701FB86FF68_1590911957073_Untitled+drawing+8.jpg)$
-\newpage
+}
 
 \noindent Though pixel is functional in general, we allow it to be probabilistic to permit noise.\\
 It will thus be inferred to be very close to 0/1.\\

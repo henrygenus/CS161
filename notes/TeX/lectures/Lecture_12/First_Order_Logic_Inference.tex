@@ -4,8 +4,7 @@
 
 \noindent To do computation, we must first convert from first-order logic to propositional logic.\\
 In general, we do replacement, written as: \{x/y\} — replace x with y.\\
-We must handle instantiation uniquely, however:\\
-\begin{enumerate} [itemsep=0mm]
+We must handle instantiation uniquely, however: \begin{enumerate} [itemsep=0mm]
 	\item UNIVERSAL INSTANTIATION\\
 		($\forall$ variable) (sentence) subst({variable/ground-term}, sentence)\\
 		ex: for constants \{John, Richard\}:\\
@@ -18,7 +17,7 @@ We must handle instantiation uniquely, however:\\
 		($\exists$ variable) (sentence) subst({variable/new-constant}, sentence)\\
 		ex: for constants\{C\}\\
 		$\exists$ x Crown(x) $\land$ On-Head(x, John)\\
-		$\rightarrow$ Crown(C) $\land$ On-Head(C, John)\\
+		$\rightarrow$ Crown(C) $\land$ On-Head(C, John)
 \end{enumerate}
 \noindent Without any functions, this term count is finite, but with functions, it could be infinite.\\
 We can see that in these cases:
@@ -136,18 +135,18 @@ We will do this with the following example:
 \noindent Notice that to be operated on, all clauses must be universally quantified
 
 \subsubsection*{Forward Chaining}
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_37BC3BDDFB4E93FABD6C94C74D020C3CD8B25F78236483B019E726793416E36E_1589436072359_Untitled+drawing+20.jpg)$
-\newpage
+}
 
 \noindent If there are no function symbols and all clauses are definite, the KB is a \textbf{\underline{data log}}\\
 \indent These are especially conducive to representing databases.\\
 If we preprocess as rules come in, we can handle many facts and even model a brain in real time.\\
 
 \subsubsection*{Backward Chaining}
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_37BC3BDDFB4E93FABD6C94C74D020C3CD8B25F78236483B019E726793416E36E_1589436972651_Untitled+drawing+21.jpg)$
-\newpage
+}
 
 \noindent This is often used with improvements for logic programming (as in prolog)\\
 The system often caches subgoals (like Missile(y)) for efficiency’s sake

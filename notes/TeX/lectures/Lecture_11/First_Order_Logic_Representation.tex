@@ -68,7 +68,7 @@ Quantification comes in two forms
 	\begin{enumerate} [itemsep=0mm]
 		\item \textbf{\underline{UNIVERSAL QUANTIFICATION}}\\
 			FORM: $\forall$ variables sentence\\
-			ex. $\forall x at(x, UCLA) \implies smart(x)$ is a predicate
+			ex. $\forall$ x at(x, UCLA) $\implies$ smart(x) is a predicate
 				-- at(x, UCLA) is a relation
 				-- smart(x) is a property
 			This forms a conjunction of the instantiations of the predicate, and often appears with ‘$\implies$’\\
@@ -103,19 +103,42 @@ Some people make this cleaner by using to represent “exists a unique”\\
 \indent $\exists!$ x king(x) = [$\exists$ x king(x)] $\land$ [$\forall$ y king(y) $\implies$ (x = y)]\\
 \indent \indent (this is an error in actuality, since the x on the left is out of scope)\\
 \\
-We can see it is critical to develop well formed formulas with no free variables
-
-\newpage
-$![](https://paper-attachments.dropbox.com/s_8D4C39015E86438EFEF871831A9FF8532AD6DC7E337962820570A542BB06D7AF_1589429882152_Untitled+drawing+20.jpg)$
-\newpage
+We can see it is critical to develop well formed formulas with no free variables.\\
 
 \noindent Consider the 1-bit adder:\\
 \indent We want to derive the output given the input.\\
 \indent This is hard to do with circuits, but this is easy with first order logic.\\
 
-\newpage
-$![](https://paper-attachments.dropbox.com/s_8D4C39015E86438EFEF871831A9FF8532AD6DC7E337962820570A542BB06D7AF_1589431034153_Untitled+drawing+21.jpg)$
-\newpage
+\begin{center} \begin{circuitikz}
+	\node at (0, 0) {};
+	\node at (0, 5) (A) {A};
+	\node at (0, 4) (B) {B};
+	\node at (0, 3) (C) {$C_{in}$};
+	\node at (8, 4) (S) {S};
+	\node at (8, 1.75) (Co) {$C_{out}$};	
+	\draw node [xor port] at (2, 4.5) (XOR1) {$XOR_1$};
+	\draw node [xor port] at (4, 4) (XOR2) {$XOR_2$};
+	\draw node [and port] at (4, 2.5) (AND1) {$AND_1$};
+	\draw node [and port] at (4, 1) (AND2) {$AND_2$};
+	\draw node [and port] at (6, 1.75) (OR) {OR};
+	\draw (A.east) -- (XOR1.in 1);
+	\draw (B.east) -- (XOR1.in 2);
+	\draw (C.east) -- (2.25, 3);
+	\draw (2.25, 3) -- (AND1.in 1);
+	\draw (XOR1.out) -- (XOR2.in 1);
+	\draw (2.25, 3) -- (XOR2.in 2);
+	\draw (XOR1.out) -- (2, 2.25);
+	\draw (2, 2.25) -- (AND1.in 2);
+	\draw (0.5, 4.85) -- (0.5, .75);
+	\draw (.5, .75) -- (AND2.in 2);
+	\draw (0.625, 1.17) -- (AND2.in 1);
+	\draw (XOR1.in 2) -- (0.625, 1.17);
+	\draw (2, 1.25) -- (AND2.in 1);
+	\draw (XOR2.out) -- (S.west);
+	\draw (AND1.out) -- (OR.in 1);
+	\draw (AND2.out) -- (OR.in 2);
+	\draw (OR.out) -- (Co.west);
+\end{circuitikz}\end{center} 
 
 \noindent Our vocabulary consists of:\\
 	\indent domain:\\

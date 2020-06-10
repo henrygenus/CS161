@@ -34,10 +34,19 @@ Resolving this turns out to be complicated, and we will not address it; instead 
 \noindent We introduce the idea of degrees of belief in [0, 1]\\
 We will use the same example as with logic:
 
-\newpage
-$![](https://paper-attachments.dropbox.com/s_C633C3C6B51D25B1B169EDE0794ADB8BD59FF8F0D02CB47284480A604E1852A9_1589858360590_Untitled+drawing+2.jpg)$
-\newpage
-
+\begin{center}\begin{minipage}{0.3\textwidth}
+\begin{tabular} { | c | c | c | c | c | }\hline
+	W & E & B & A & Pr(w)\\\hline
+	1 & 1 & 1 & 1 & 0.0190\\\hline
+	2 & 1 & 1 & 0 & 0.0010\\\hline
+	3 & 1 & 0 & 1 & 0.0560\\\hline
+	4 & 1 & 0 & 0 & 0.0240\\\hline
+	5 & 0 & 1 & 1 & 0.1620\\\hline
+	6 & 0 & 1 & 0 & 0.0180\\\hline
+	7 & 0 & 0 & 1 & 0.0072\\\hline
+	8 & 0 & 0 & 0 & 0.7128\\\hline
+\end{tabular}\end{minipage}%
+\begin{minipage}{0.7\textwidth}
 \noindent Instead of ruling worlds in or out by entailment, we represent the chance of each world occurring.\\
 \indent f: sentences $\rightarrow$ degree of certainty; $Pr(\alpha) = \sum Pr(w) \text{ for } w \models \alpha$\\
 Therefore \begin{itemize} [itemsep=0mm]
@@ -45,7 +54,7 @@ Therefore \begin{itemize} [itemsep=0mm]
 	\item $Pf(\neg E) = 1 - Pr(E) = 0.9$
 	\item Pr(B) = 0.12
 	\item $Pr(B \lor \neg E) = 1 - Pr(\neg B \land E) = 0.92$
-\end{itemize}
+\end{itemize}\end{minipage}\end{center}
 
 \noindent We have a few properties that are required for probability to work:
 	\begin{enumerate} [itemsep=0mm]

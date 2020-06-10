@@ -2,9 +2,9 @@
 
 \begin{document}
 
-\newpage
+\hl{
 $![Causal Graph and Conditional Probability Tables](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590219806142_Screen+Shot+2020-05-23+at+12.43.14+AM.png)$
-\newpage
+}
 
 \noindent Variables:\\
 	\indent C — condition\\
@@ -14,9 +14,9 @@ $![Causal Graph and Conditional Probability Tables](https://paper-attachments.dr
 We first compute the marginal distributions to discuss probabilities.\\
 These come in two major forms:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590220321908_Untitled+drawing+5.jpg)$
-\newpage
+}
 
 \noindent We then use this information to find the \textbf{\underline{Most Probable Explanation}}:\\
 We assume the final consequence (A) and search for the most probable query\\
@@ -42,9 +42,9 @@ We will not define tree width, as it is complex, but we observe a few special ca
 	\indent Poly-trees (>1 parent ok) have width = the maximum parent count of any node\\
 These are both singly connected networks; multiply connected leads to a DAG\\
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590224552818_Untitled+drawing+6.jpg)$
-\newpage
+}
 
 \noindent Our first method of performing inference is
 \subsection*{Weighted Model Counting}
@@ -56,9 +56,9 @@ $![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534
 	\indent Unfortunately, in the general case this is intractable\\
 There are tractable subsets of this, though:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590225097526_Untitled+drawing+7.jpg)$
-\newpage
+}
 
 \noindent We can use probability is our weights! $ \rightarrow WMC(\Delta\land\alpha) = Pr(\alpha)$\\
 So we need to convert $\Delta \rightarrow$boolean circuit.\\
@@ -88,9 +88,9 @@ The process of modeling logic as a Bayesian Network has 3 steps:
 \noindent Variables will then be labeled either query or evidence variables depending on the query.\\
 This is a common approach used in early spam filters and Google ad Rephil.
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590256640289_Untitled+drawing+8.jpg)$
-\newpage
+}
 
 \noindent Consider the following statements
 \begin{itemize} [itemsep=0mm]
@@ -106,9 +106,9 @@ If we have complete information, we can model a system as a Bayesian Network.\\
 For incomplete information, however, we must use Expectation Maximization.\\
 For example, suppose the following environment:
 
-\newpage
+\hl{
 $![](https://paper-attachments.dropbox.com/s_5F1FEB98332EEC99C328935F7AB0E929534BB33EF2AB134DF14A85072ADC65A0_1590257642435_Untitled+drawing+9.jpg)$
-\newpage
+}
 
 \noindent What is the marginal $(P|\neg S, \neg B, \neg U)$? -- 10.21\%!\\
 WHAT?? why is that so high?\\

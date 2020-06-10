@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  8 JUN 2020 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  9 JUN 2020 17:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -33,6 +33,29 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \belowcaptionskip=\skip48
 \bibindent=\dimen135
 )
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+(/usr/local/texlive/2020/texmf-dist/tex/latex/soul/soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks15
+\SOUL@lasttoken=\toks16
+\SOUL@cmds=\toks17
+\SOUL@buffer=\toks18
+\SOUL@token=\toks19
+\SOUL@spaceskip=\skip49
+\SOUL@ttwidth=\dimen136
+\SOUL@uldp=\dimen137
+\SOUL@ulht=\dimen138
+)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
@@ -41,7 +64,7 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks15
+\KV@toks@=\toks20
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
@@ -52,15 +75,15 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@cnth=\count175
 \Gm@cntv=\count176
 \c@Gm@tempcnt=\count177
-\Gm@bindingoffset=\dimen136
-\Gm@wd@mp=\dimen137
-\Gm@odd@mp=\dimen138
-\Gm@even@mp=\dimen139
-\Gm@layoutwidth=\dimen140
-\Gm@layoutheight=\dimen141
-\Gm@layouthoffset=\dimen142
-\Gm@layoutvoffset=\dimen143
-\Gm@dimlist=\toks16
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks21
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2020/03/22 3.42 The Babel package
@@ -74,7 +97,7 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2020/03/22 3.42 Babel common definitions
 \babel@savecnt=\count178
-\U@D=\dimen144
+\U@D=\dimen147
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
@@ -89,64 +112,43 @@ Package babel Info: \l@newzealand = using hyphenrules for ukenglish
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip49
-\enit@outerparindent=\dimen145
-\enit@toks=\toks17
+\labelindent=\skip50
+\enit@outerparindent=\dimen148
+\enit@toks=\toks22
 \enit@inbox=\box45
 \enit@count@id=\count180
 \enitdp@description=\count181
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/tools/tabularx.sty
-Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/tools/array.sty
-Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen146
-\ar@mcellbox=\box46
-\extrarowheight=\dimen147
-\NC@list=\toks18
-\extratabsurround=\skip50
-\backup@length=\skip51
-\ar@cellbox=\box47
-)
-\TX@col@width=\dimen148
-\TX@old@table=\dimen149
-\TX@old@col=\dimen150
-\TX@target=\dimen151
-\TX@delta=\dimen152
-\TX@cols=\count182
-\TX@ftn=\toks19
-)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box48
-\UL@hyphenbox=\box49
-\UL@skip=\skip52
-\UL@hook=\toks20
-\UL@height=\dimen153
-\UL@pe=\count183
-\UL@pixel=\dimen154
-\ULC@box=\box50
+\UL@box=\box46
+\UL@hyphenbox=\box47
+\UL@skip=\skip51
+\UL@hook=\toks23
+\UL@height=\dimen149
+\UL@pe=\count182
+\UL@pixel=\dimen150
+\ULC@box=\box48
 Package: ulem 2019/11/18
-\ULdepth=\dimen155
+\ULdepth=\dimen151
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
-\thm@style=\toks21
-\thm@bodyfont=\toks22
-\thm@headfont=\toks23
-\thm@notefont=\toks24
-\thm@headpunct=\toks25
-\thm@preskip=\skip53
-\thm@postskip=\skip54
-\thm@headsep=\skip55
-\dth@everypar=\toks26
+\thm@style=\toks24
+\thm@bodyfont=\toks25
+\thm@headfont=\toks26
+\thm@notefont=\toks27
+\thm@headpunct=\toks28
+\thm@preskip=\skip52
+\thm@postskip=\skip53
+\thm@headsep=\skip54
+\dth@everypar=\toks29
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks27
+\@emptytoks=\toks30
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -155,7 +157,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
-\@mathmargin=\skip56
+\@mathmargin=\skip55
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -163,51 +165,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks28
-\ex@=\dimen156
+\@emptytoks=\toks31
+\ex@=\dimen152
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen157
+\pmbraise@=\dimen153
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count184
+\inf@bad=\count183
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count185
-\leftroot@=\count186
+\uproot@=\count184
+\leftroot@=\count185
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count187
-\DOTSCASE@=\count188
+\classnum@=\count186
+\DOTSCASE@=\count187
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box51
-\strutbox@=\box52
-\big@size=\dimen158
+\Mathstrutbox@=\box49
+\strutbox@=\box50
+\big@size=\dimen154
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count189
-\c@MaxMatrixCols=\count190
+\macc@depth=\count188
+\c@MaxMatrixCols=\count189
 \dotsspace@=\muskip16
-\c@parentequation=\count191
-\dspbrk@lvl=\count192
-\tag@help=\toks29
-\row@=\count193
-\column@=\count194
-\maxfields@=\count195
-\andhelp@=\toks30
-\eqnshift@=\dimen159
-\alignsep@=\dimen160
-\tagshift@=\dimen161
-\tagwidth@=\dimen162
-\totwidth@=\dimen163
-\lineht@=\dimen164
-\@envbody=\toks31
-\multlinegap=\skip57
-\multlinetaggap=\skip58
-\mathdisplay@stack=\toks32
+\c@parentequation=\count190
+\dspbrk@lvl=\count191
+\tag@help=\toks32
+\row@=\count192
+\column@=\count193
+\maxfields@=\count194
+\andhelp@=\toks33
+\eqnshift@=\dimen155
+\alignsep@=\dimen156
+\tagshift@=\dimen157
+\tagwidth@=\dimen158
+\totwidth@=\dimen159
+\lineht@=\dimen160
+\@envbody=\toks34
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks35
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
@@ -224,19 +226,16 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen165
-\Gin@req@width=\dimen166
+)
+\Gin@req@height=\dimen161
+\Gin@req@width=\dimen162
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen167
-\WF@size=\dimen168
-\c@WF@wrappedlines=\count196
-\WF@box=\box53
-\WF@everypar=\toks33
+\wrapoverhang=\dimen163
+\WF@size=\dimen164
+\c@WF@wrappedlines=\count195
+\WF@box=\box51
+\WF@everypar=\toks36
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/caption/caption.sty
@@ -245,56 +244,56 @@ Package: caption 2020/01/03 v3.4h Customizing captions (AR)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
-\captionmargin=\dimen169
-\captionmargin@=\dimen170
-\captionwidth=\dimen171
-\caption@tempdima=\dimen172
-\caption@indent=\dimen173
-\caption@parindent=\dimen174
-\caption@hangindent=\dimen175
+\captionmargin=\dimen165
+\captionmargin@=\dimen166
+\captionwidth=\dimen167
+\caption@tempdima=\dimen168
+\caption@indent=\dimen169
+\caption@parindent=\dimen170
+\caption@hangindent=\dimen171
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count197
-\c@continuedfloat=\count198
+\c@caption@flags=\count196
+\c@continuedfloat=\count197
 Package caption Info: wrapfig package is loaded.
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/floatrow/floatrow.sty
 Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
-\c@float@type=\count199
-\float@exts=\toks34
-\float@box=\box54
-\@floatcapt=\box55
+\c@float@type=\count198
+\float@exts=\toks37
+\float@box=\box52
+\@floatcapt=\box53
 Package floatrow Info: Modified float package code loaded on input line 455.
 Package floatrow Info: Modified rotfloat package code loaded on input line 473.
 
-\FR@everyfloat=\toks35
-\flrow@foot=\insert252
-\FB@wd=\dimen176
-\FBo@wd=\dimen177
-\FBc@wd=\dimen178
-\FBo@ht=\skip59
-\FBc@ht=\skip60
-\FBf@ht=\skip61
-\FBo@max=\skip62
-\FBc@max=\skip63
-\FBf@max=\skip64
+\FR@everyfloat=\toks38
+\flrow@foot=\insert199
+\FB@wd=\dimen172
+\FBo@wd=\dimen173
+\FBc@wd=\dimen174
+\FBo@ht=\skip58
+\FBc@ht=\skip59
+\FBf@ht=\skip60
+\FBo@max=\skip61
+\FBc@max=\skip62
+\FBf@max=\skip63
 \c@FBl@b=\count266
 \floatbox@depth=\count267
 \c@FRobj=\count268
 \c@FRsobj=\count269
-\Xhsize=\skip65
-\sXhsize=\skip66
-\Zhsize=\skip67
-\sZhsize=\skip68
-\flrow@rowbox=\box56
-\FR@Zunitlength=\dimen179
+\Xhsize=\skip64
+\sXhsize=\skip65
+\Zhsize=\skip66
+\sZhsize=\skip67
+\flrow@rowbox=\box54
+\FR@Zunitlength=\dimen175
 \c@FBcnt=\count270
 \FPOScnt=\count271
-\LTleft=\skip69
-\LTright=\skip70
-\LTleft=\skip71
-\LTright=\skip72
-\flrow@types=\toks36
+\LTleft=\skip68
+\LTright=\skip69
+\LTleft=\skip70
+\LTright=\skip71
+\flrow@types=\toks39
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/forest/forest.sty
 Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
@@ -304,14 +303,14 @@ Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
-\pgfutil@everybye=\toks37
-\pgfutil@tempdima=\dimen180
-\pgfutil@tempdimb=\dimen181
+\pgfutil@everybye=\toks40
+\pgfutil@tempdima=\dimen176
+\pgfutil@tempdimb=\dimen177
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
 sts.tex))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box57
+\pgfutil@abb=\box55
 (/usr/local/texlive/2020/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
@@ -326,32 +325,32 @@ Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks38
-\pgfkeys@temptoks=\toks39
+\pgfkeys@pathtoks=\toks41
+\pgfkeys@temptoks=\toks42
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
 ode.tex
-\pgfkeys@tmptoks=\toks40
+\pgfkeys@tmptoks=\toks43
 ))
-\pgf@x=\dimen182
-\pgf@y=\dimen183
-\pgf@xa=\dimen184
-\pgf@ya=\dimen185
-\pgf@xb=\dimen186
-\pgf@yb=\dimen187
-\pgf@xc=\dimen188
-\pgf@yc=\dimen189
-\pgf@xd=\dimen190
-\pgf@yd=\dimen191
+\pgf@x=\dimen178
+\pgf@y=\dimen179
+\pgf@xa=\dimen180
+\pgf@ya=\dimen181
+\pgf@xb=\dimen182
+\pgf@yb=\dimen183
+\pgf@xc=\dimen184
+\pgf@yc=\dimen185
+\pgf@xd=\dimen186
+\pgf@yd=\dimen187
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
 \c@pgf@counta=\count272
 \c@pgf@countb=\count273
 \c@pgf@countc=\count274
 \c@pgf@countd=\count275
-\t@pgf@toka=\toks41
-\t@pgf@tokb=\toks42
-\t@pgf@tokc=\toks43
+\t@pgf@toka=\toks44
+\t@pgf@tokb=\toks45
+\t@pgf@tokc=\toks46
 \pgf@sys@id@count=\count276
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
@@ -383,6 +382,7 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -399,12 +399,12 @@ Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen192
+\pgfmath@dimen=\dimen188
 \pgfmath@count=\count279
-\pgfmath@box=\box58
-\pgfmath@toks=\toks44
-\pgfmath@stack@operand=\toks45
-\pgfmath@stack@operation=\toks46
+\pgfmath@box=\box56
+\pgfmath@toks=\toks47
+\pgfmath@stack@operand=\toks48
+\pgfmath@stack@operation=\toks49
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex
@@ -430,52 +430,52 @@ erarithmetics.code.tex)))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
 File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@picminx=\dimen193
-\pgf@picmaxx=\dimen194
-\pgf@picminy=\dimen195
-\pgf@picmaxy=\dimen196
-\pgf@pathminx=\dimen197
-\pgf@pathmaxx=\dimen198
-\pgf@pathminy=\dimen199
-\pgf@pathmaxy=\dimen256
-\pgf@xx=\dimen257
-\pgf@xy=\dimen258
-\pgf@yx=\dimen259
-\pgf@yy=\dimen260
-\pgf@zx=\dimen261
-\pgf@zy=\dimen262
+\pgf@picminx=\dimen189
+\pgf@picmaxx=\dimen190
+\pgf@picminy=\dimen191
+\pgf@picmaxy=\dimen192
+\pgf@pathminx=\dimen193
+\pgf@pathmaxx=\dimen194
+\pgf@pathminy=\dimen195
+\pgf@pathmaxy=\dimen196
+\pgf@xx=\dimen197
+\pgf@xy=\dimen198
+\pgf@yx=\dimen256
+\pgf@yy=\dimen257
+\pgf@zx=\dimen258
+\pgf@zy=\dimen259
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
 ruct.code.tex
 File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@path@lastx=\dimen263
-\pgf@path@lasty=\dimen264
+\pgf@path@lastx=\dimen260
+\pgf@path@lasty=\dimen261
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
 .code.tex
 File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@shorten@end@additional=\dimen265
-\pgf@shorten@start@additional=\dimen266
+\pgf@shorten@end@additional=\dimen262
+\pgf@shorten@start@additional=\dimen263
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
 de.tex
 File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfpic=\box59
-\pgf@hbox=\box60
-\pgf@layerbox@main=\box61
+\pgfpic=\box57
+\pgf@hbox=\box58
+\pgf@layerbox@main=\box59
 \pgf@picture@serial@count=\count281
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
 File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgflinewidth=\dimen267
+\pgflinewidth=\dimen264
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
 ations.code.tex
 File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@pt@x=\dimen268
-\pgf@pt@y=\dimen269
-\pgf@pt@temp=\dimen270
+\pgf@pt@x=\dimen265
+\pgf@pt@y=\dimen266
+\pgf@pt@temp=\dimen267
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
 e.tex
@@ -492,12 +492,12 @@ File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
 de.tex
 File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfarrowsep=\dimen271
+\pgfarrowsep=\dimen268
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
 e.tex
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@max=\dimen272
+\pgf@max=\dimen269
 \pgf@sys@shading@range@num=\count282
 \pgf@shadingcount=\count283
 )
@@ -508,7 +508,7 @@ File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
 code.tex
 File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfexternal@startupbox=\box62
+\pgfexternal@startupbox=\box60
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
 de.tex
@@ -529,7 +529,7 @@ File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
 e.tex
 File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodeparttextbox=\box63
+\pgfnodeparttextbox=\box61
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
 tex
@@ -538,8 +538,8 @@ File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -0-65.sty
 Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@nodesepstart=\dimen273
-\pgf@nodesepend=\dimen274
+\pgf@nodesepstart=\dimen270
+\pgf@nodesepend=\dimen271
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -1-18.sty
@@ -554,10 +554,10 @@ Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen275
-\pgffor@skip=\dimen276
-\pgffor@stack=\toks47
-\pgffor@toks=\toks48
+\pgffor@iter=\dimen272
+\pgffor@skip=\dimen273
+\pgffor@stack=\toks50
+\pgffor@toks=\toks51
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
 e.tex
@@ -567,20 +567,20 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@plot@mark@count=\count284
-\pgfplotmarksize=\dimen277
+\pgfplotmarksize=\dimen274
 )
-\tikz@lastx=\dimen278
-\tikz@lasty=\dimen279
-\tikz@lastxsaved=\dimen280
-\tikz@lastysaved=\dimen281
-\tikz@lastmovetox=\dimen282
-\tikz@lastmovetoy=\dimen283
-\tikzleveldistance=\dimen284
-\tikzsiblingdistance=\dimen285
-\tikz@figbox=\box64
-\tikz@figbox@bg=\box65
-\tikz@tempbox=\box66
-\tikz@tempbox@bg=\box67
+\tikz@lastx=\dimen275
+\tikz@lasty=\dimen276
+\tikz@lastxsaved=\dimen277
+\tikz@lastysaved=\dimen278
+\tikz@lastmovetox=\dimen279
+\tikz@lastmovetoy=\dimen280
+\tikzleveldistance=\dimen281
+\tikzsiblingdistance=\dimen282
+\tikz@figbox=\box62
+\tikz@figbox@bg=\box63
+\tikz@tempbox=\box64
+\tikz@tempbox@bg=\box65
 \tikztreelevel=\count285
 \tikznumberofchildren=\count286
 \tikznumberofcurrentchild=\count287
@@ -646,26 +646,26 @@ File: tikzlibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
 shapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodepartlowerbox=\box68
-\pgfnodeparttwobox=\box69
-\pgfnodepartthreebox=\box70
-\pgfnodepartfourbox=\box71
-\pgfnodeparttwentybox=\box72
-\pgfnodepartnineteenbox=\box73
-\pgfnodeparteighteenbox=\box74
-\pgfnodepartseventeenbox=\box75
-\pgfnodepartsixteenbox=\box76
-\pgfnodepartfifteenbox=\box77
-\pgfnodepartfourteenbox=\box78
-\pgfnodepartthirteenbox=\box79
-\pgfnodeparttwelvebox=\box80
-\pgfnodepartelevenbox=\box81
-\pgfnodeparttenbox=\box82
-\pgfnodepartninebox=\box83
-\pgfnodeparteightbox=\box84
-\pgfnodepartsevenbox=\box85
-\pgfnodepartsixbox=\box86
-\pgfnodepartfivebox=\box87
+\pgfnodepartlowerbox=\box66
+\pgfnodeparttwobox=\box67
+\pgfnodepartthreebox=\box68
+\pgfnodepartfourbox=\box69
+\pgfnodeparttwentybox=\box70
+\pgfnodepartnineteenbox=\box71
+\pgfnodeparteighteenbox=\box72
+\pgfnodepartseventeenbox=\box73
+\pgfnodepartsixteenbox=\box74
+\pgfnodepartfifteenbox=\box75
+\pgfnodepartfourteenbox=\box76
+\pgfnodepartthirteenbox=\box77
+\pgfnodeparttwelvebox=\box78
+\pgfnodepartelevenbox=\box79
+\pgfnodeparttenbox=\box80
+\pgfnodepartninebox=\box81
+\pgfnodeparteightbox=\box82
+\pgfnodepartsevenbox=\box83
+\pgfnodepartsixbox=\box84
+\pgfnodepartfivebox=\box85
 )))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryfit.code.tex
@@ -682,8 +682,8 @@ e.tex)
 \pgf@intersect@solutions=\count293
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks49
-\pgfopts@list@add@b@toks=\toks50
+\pgfopts@list@add@a@toks=\toks52
+\pgfopts@list@add@b@toks=\toks53
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
@@ -705,7 +705,7 @@ Package: expl3 2020-03-06 L3 programming layer (loader)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count295
-\l__pdf_internal_box=\box88
+\l__pdf_internal_box=\box86
 ))
 Package: xparse 2020-03-06 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count296
@@ -714,29 +714,29 @@ Package: xparse 2020-03-06 L3 Experimental document command parser
 \l__xparse_v_nesting_int=\count299
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/inlinedef/inlinedef.sty
 Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
-\ID@toks=\toks51
+\ID@toks=\toks54
 \ID@count=\count300
 )
-\ID@usercommands=\toks52
+\ID@usercommands=\toks55
 \safeloop@depth=\count301
 \safeRKloop@depth=\count302
-\forest@temp@dimen=\dimen286
+\forest@temp@dimen=\dimen283
 \forest@temp@count=\count303
 \forest@n=\count304
 \forest@temp@global@count=\count305
-\forest@temp@toks=\toks53
+\forest@temp@toks=\toks56
 \forest@temparray@M=\count306
 \forest@temparray@N=\count307
 \forest@global@temparray@M=\count308
 \forest@global@temparray@N=\count309
 \forest@isnum@count=\count310
 \forest@isdim@nonintpart=\count311
-\forest@isdim@dimen=\dimen287
+\forest@isdim@dimen=\dimen284
 \forest@sort@m=\count312
 \forest@sort@k=\count313
 \forest@sort@p=\count314
-\bracket@content=\toks54
-\bracket@afterthought=\toks55
+\bracket@content=\toks57
+\bracket@afterthought=\toks58
 \forest@node@maxid=\count315
 \forest@process@left@M=\count316
 \forest@process@left@N=\count317
@@ -747,18 +747,18 @@ Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \forest@process@result@M=\count322
 \forest@process@result@N=\count323
 \forest@process@n=\count324
-\forest@nodewalk@branch@toks=\toks56
-\forest@nodewalk@shortsteps@resolution=\toks57
-\forest@do@dynamics=\toks58
-\forest@box=\box89
-\forest@xg=\dimen288
-\forest@yg=\dimen289
-\forest@xs=\dimen290
-\forest@ys=\dimen291
-\forest@pi@toks=\toks59
-\forest@segment@toks=\toks60
-\forest@PIi@toks=\toks61
-\forest@PIii@toks=\toks62
+\forest@nodewalk@branch@toks=\toks59
+\forest@nodewalk@shortsteps@resolution=\toks60
+\forest@do@dynamics=\toks61
+\forest@box=\box87
+\forest@xg=\dimen285
+\forest@yg=\dimen286
+\forest@xs=\dimen287
+\forest@ys=\dimen288
+\forest@pi@toks=\toks62
+\forest@segment@toks=\toks63
+\forest@PIi@toks=\toks64
+\forest@PIii@toks=\toks65
 \forest@copy@in=\read4
 \forest@copy@out=\write4
 \forest@externalize@max@outer@n=\count325
@@ -771,62 +771,140 @@ Package: forest-lib-edges 2016/12/05 v0.1.1
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tikz-qtree/pgftree.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tikz-qtree/pgfsubpic.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tikz-qtree/pgfsubpic.tex
-\pgf@subpicminx=\dimen292
-\pgf@subpicminy=\dimen293
-\pgf@subpicmaxx=\dimen294
-\pgf@subpicmaxy=\dimen295
+\pgf@subpicminx=\dimen289
+\pgf@subpicminy=\dimen290
+\pgf@subpicmaxx=\dimen291
+\pgf@subpicmaxy=\dimen292
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tikz-qtree/pgftree.tex
-\levelsep=\dimen296
-\subtreesep=\dimen297
-\smuggle@levelsep=\dimen298
-\smuggle@subtreesep=\dimen299
-\this@levelsep=\dimen300
-\this@subtreesep=\dimen301
-\pgftree@childx=\dimen302
-\pgftree@savechildx=\dimen303
-\pgftree@childy=\dimen304
-\pgftree@savechildy=\dimen305
+\levelsep=\dimen293
+\subtreesep=\dimen294
+\smuggle@levelsep=\dimen295
+\smuggle@subtreesep=\dimen296
+\this@levelsep=\dimen297
+\this@subtreesep=\dimen298
+\pgftree@childx=\dimen299
+\pgftree@savechildx=\dimen300
+\pgftree@childy=\dimen301
+\pgftree@savechildy=\dimen302
 \pgftree@childi=\count327
 \pgftree@savechildi=\count328
 \pgftree@level=\count329
-\pgftree@depth=\dimen306
-\pgf@subpic@hbox@children=\box90
-\pgf@subpic@minx@children=\dimen307
-\pgf@subpic@miny@children=\dimen308
-\pgf@subpic@maxx@children=\dimen309
-\pgf@subpic@maxy@children=\dimen310
-\pgftree@lastchildx=\dimen311
-\pgftree@lastchildy=\dimen312
+\pgftree@depth=\dimen303
+\pgf@subpic@hbox@children=\box88
+\pgf@subpic@minx@children=\dimen304
+\pgf@subpic@miny@children=\dimen305
+\pgf@subpic@maxx@children=\dimen306
+\pgf@subpic@maxy@children=\dimen307
+\pgftree@lastchildx=\dimen308
+\pgftree@lastchildy=\dimen309
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tikz-qtree/tikz-qtree.tex
-\@result=\toks63
-\child@list=\toks64
-\root@node=\toks65
+\@result=\toks66
+\child@list=\toks67
+\root@node=\toks68
 ))
-(/usr/local/texlive/2020/texmf-dist/tex/latex/tools/multicol.sty
+(/usr/local/texlive/2020/texmf-dist/tex/latex/circuitikz/circuitikz.sty
+Package: circuitikz 2020/03/22{} The CircuiTikz circuit drawing package version
+ 1.0.2
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfarrowinset=\dimen310
+\pgfarrowlength=\dimen311
+\pgfarrowwidth=\dimen312
+\pgfarrowlinewidth=\dimen313
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.co
+de.tex
+File: pgfmodulebending.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineart
+ransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgftransformnonlinearflatness=\dimen314
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvili
+near.code.tex
+File: pgflibrarycurvilinear.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@curvilinear@time@a=\dimen315
+\pgf@curvilinear@length@a=\dimen316
+\pgf@curvilinear@length@b=\dimen317
+\pgf@curvilinear@length@c=\dimen318
+\pgf@curvilinear@length@d=\dimen319
+)
+\pgf@arrows@the@rigidity=\dimen320
+))
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryfpu.code.tex)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcirc.defines.tex
+\pgf@circ@count@a=\count330
+\pgf@circ@count@b=\count331
+\pgf@circ@count@c=\count332
+\pgf@circ@res@up=\dimen321
+\pgf@circ@res@down=\dimen322
+\pgf@circ@res@zero=\dimen323
+\pgf@circ@res@left=\dimen324
+\pgf@circ@res@right=\dimen325
+\pgf@circ@res@other=\dimen326
+\pgf@circ@res@step=\dimen327
+\pgf@circ@res@temp=\dimen328
+\pgfstartlinewidth=\dimen329
+\pgf@circ@Rlen=\dimen330
+\pgf@circ@scaled@Rlen=\dimen331
+) (/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircutils.tex)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircshapes.tex)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircmonopoles.tex
+) (/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircbipoles.tex
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcirctripoles.tex
+\pgf@circ@res@count=\count333
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircquadpoles.tex
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircmultipoles.te
+x) (/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcirclabel.tex)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircvoltage.tex)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircpath.tex)
+
+Package circuitikz Warning: You did not specify one of the voltage directions:
+(circuitikz)                  oldvoltagedirection, nooldvoltagedirection, 
+(circuitikz)                  RPvoltages or EFvoltages 
+(circuitikz)                Default directions may have changed, 
+(circuitikz)                please check the manual.
+
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count330
-\mult@box=\box91
-\multicol@leftmargin=\dimen313
-\c@unbalance=\count331
-\c@collectmore=\count332
-\doublecol@number=\count333
-\multicoltolerance=\count334
-\multicolpretolerance=\count335
-\full@width=\dimen314
-\page@free=\dimen315
-\premulticols=\dimen316
-\postmulticols=\dimen317
-\multicolsep=\skip73
-\multicolbaselineskip=\skip74
-\partial@page=\box92
-\last@line=\box93
-\maxbalancingoverflow=\dimen318
-\mult@rightbox=\box94
-\mult@grightbox=\box95
-\mult@gfirstbox=\box96
-\mult@firstbox=\box97
+\c@tracingmulticols=\count334
+\mult@box=\box89
+\multicol@leftmargin=\dimen332
+\c@unbalance=\count335
+\c@collectmore=\count336
+\doublecol@number=\count337
+\multicoltolerance=\count338
+\multicolpretolerance=\count339
+\full@width=\dimen333
+\page@free=\dimen334
+\premulticols=\dimen335
+\postmulticols=\dimen336
+\multicolsep=\skip72
+\multicolbaselineskip=\skip73
+\partial@page=\box90
+\last@line=\box91
+\maxbalancingoverflow=\dimen337
+\mult@rightbox=\box92
+\mult@grightbox=\box93
+\mult@gfirstbox=\box94
+\mult@firstbox=\box95
+\@tempa=\box96
+\@tempa=\box97
 \@tempa=\box98
 \@tempa=\box99
 \@tempa=\box100
@@ -862,37 +940,35 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \@tempa=\box130
 \@tempa=\box131
 \@tempa=\box132
-\@tempa=\box133
-\@tempa=\box134
-\c@minrows=\count336
-\c@columnbadness=\count337
-\c@finalcolumnbadness=\count338
-\last@try=\dimen319
-\multicolovershoot=\dimen320
-\multicolundershoot=\dimen321
-\mult@nat@firstbox=\box135
-\colbreak@box=\box136
-\mc@col@check@num=\count339
+\c@minrows=\count340
+\c@columnbadness=\count341
+\c@finalcolumnbadness=\count342
+\last@try=\dimen338
+\multicolovershoot=\dimen339
+\multicolundershoot=\dimen340
+\mult@nat@firstbox=\box133
+\colbreak@box=\box134
+\mc@col@check@num=\count343
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count340
-\lst@gtempboxa=\box137
-\lst@token=\toks66
-\lst@length=\count341
-\lst@currlwidth=\dimen322
-\lst@column=\count342
-\lst@pos=\count343
-\lst@lostspace=\dimen323
-\lst@width=\dimen324
-\lst@newlines=\count344
-\lst@lineno=\count345
-\lst@maxwidth=\dimen325
+\lst@mode=\count344
+\lst@gtempboxa=\box135
+\lst@token=\toks69
+\lst@length=\count345
+\lst@currlwidth=\dimen341
+\lst@column=\count346
+\lst@pos=\count347
+\lst@lostspace=\dimen342
+\lst@width=\dimen343
+\lst@newlines=\count348
+\lst@lineno=\count349
+\lst@maxwidth=\dimen344
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count346
-\lst@skipnumbers=\count347
-\lst@framebox=\box138
+\c@lstnumber=\count350
+\lst@skipnumbers=\count351
+\lst@framebox=\box136
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -903,14 +979,6 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 s/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
-meta.code.tex
-File: pgflibraryarrows.meta.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfarrowinset=\dimen326
-\pgfarrowlength=\dimen327
-\pgfarrowwidth=\dimen328
-\pgfarrowlinewidth=\dimen329
-)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -918,7 +986,7 @@ File: tikzlibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
 code.tex
 File: pgflibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\arrowsize=\dimen330
+\arrowsize=\dimen345
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarydecorations.markings.code.tex
@@ -926,16 +994,16 @@ s/tikzlibrarydecorations.markings.code.tex
 s/tikzlibrarydecorations.code.tex
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
 s.code.tex
-\pgfdecoratedcompleteddistance=\dimen331
-\pgfdecoratedremainingdistance=\dimen332
-\pgfdecoratedinputsegmentcompleteddistance=\dimen333
-\pgfdecoratedinputsegmentremainingdistance=\dimen334
-\pgf@decorate@distancetomove=\dimen335
-\pgf@decorate@repeatstate=\count348
-\pgfdecorationsegmentamplitude=\dimen336
-\pgfdecorationsegmentlength=\dimen337
+\pgfdecoratedcompleteddistance=\dimen346
+\pgfdecoratedremainingdistance=\dimen347
+\pgfdecoratedinputsegmentcompleteddistance=\dimen348
+\pgfdecoratedinputsegmentremainingdistance=\dimen349
+\pgf@decorate@distancetomove=\dimen350
+\pgf@decorate@repeatstate=\count352
+\pgfdecorationsegmentamplitude=\dimen351
+\pgfdecorationsegmentlength=\dimen352
 )
-\tikz@lib@dec@box=\box139
+\tikz@lib@dec@box=\box137
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.markings.code.tex))
@@ -970,24 +1038,24 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count349
-\c@Blindtext=\count350
-\c@blind@countparstart=\count351
-\blind@countxx=\count352
-\blindtext@numBlindtext=\count353
-\blind@countyy=\count354
-\c@blindlist=\count355
-\c@blindlistlevel=\count356
-\c@blindlist@level=\count357
-\blind@listitem=\count358
-\c@blind@listcount=\count359
-\c@blind@levelcount=\count360
-\blind@mathformula=\count361
-\blind@Mathformula=\count362
-\c@blind@randomcount=\count363
-\c@blind@randommax=\count364
-\c@blind@pangramcount=\count365
-\c@blind@pangrammax=\count366
+\c@blindtext=\count353
+\c@Blindtext=\count354
+\c@blind@countparstart=\count355
+\blind@countxx=\count356
+\blindtext@numBlindtext=\count357
+\blind@countyy=\count358
+\c@blindlist=\count359
+\c@blindlistlevel=\count360
+\c@blindlist@level=\count361
+\blind@listitem=\count362
+\c@blind@listcount=\count363
+\c@blind@levelcount=\count364
+\blind@mathformula=\count365
+\blind@Mathformula=\count366
+\c@blind@randomcount=\count367
+\c@blind@randommax=\count368
+\c@blind@pangramcount=\count369
+\c@blind@pangrammax=\count370
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/02/14 v1.6 Multi-file projects (package)
@@ -998,21 +1066,43 @@ Package: import 2020/01/22  v 6.0
 (./lecture_notes.aux)
 \openout1 = `lecture_notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 
+(/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count371
+\scratchdimen=\dimen353
+\scratchbox=\box138
+\nofMPsegments=\count372
+\nofMParguments=\count373
+\everyMPshowfont=\toks70
+\MPscratchCnt=\count374
+\MPscratchDim=\dimen354
+\MPnumerator=\count375
+\makeMPintoPDFobject=\count376
+\everyMPtoPDFconversion=\toks71
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1047,43 +1137,20 @@ LaTeX Font Info:    ... okay on input line 53.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count367
-\scratchdimen=\dimen338
-\scratchbox=\box140
-\nofMPsegments=\count368
-\nofMParguments=\count369
-\everyMPshowfont=\toks67
-\MPscratchCnt=\count370
-\MPscratchDim=\dimen339
-\MPnumerator=\count371
-\makeMPintoPDFobject=\count372
-\everyMPtoPDFconversion=\toks68
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: floatrow package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-
 ABD: EveryShipout initializing macros
-\c@lstlisting=\count373
-LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
+\c@lstlisting=\count377
+LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1125,20 +1192,7 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 40.
 
-[9]
-Overfull \hbox (0.81435pt too wide) in paragraph at lines 125--126
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (0.81435pt too wide) in paragraph at lines 128--129
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[10]) [11] (./Lectures/Lecture_4/Blind_Search_Strategies.tex [12]) [13]
+[9] [10]) [11] (./Lectures/Lecture_4/Blind_Search_Strategies.tex [12]) [13]
 (./Lectures/Lecture_5/Heuristic_Search.tex [14]
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 124.
@@ -1165,782 +1219,261 @@ Package pdftex.def Info: Images/minimax.jpeg  used on input line 28.
 File: Images/abpruning.jpeg Graphic file (type jpg)
 <use Images/abpruning.jpeg>
 Package pdftex.def Info: Images/abpruning.jpeg  used on input line 63.
-(pdftex.def)             Requested size: 215.0023pt x 161.2441pt.
+(pdftex.def)             Requested size: 171.99922pt x 128.99968pt.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 63--75
- [][] 
+Overfull \hbox (2.5pt too wide) in paragraph at lines 74--74
+[] [] 
  []
 
-File: Images/abpruning.jpeg Graphic file (type jpg)
-<use Images/abpruning.jpeg>
-Package pdftex.def Info: Images/abpruning.jpeg  used on input line 87.
-(pdftex.def)             Requested size: 215.0023pt x 161.2441pt.
+<Images/stochastic.jpeg, id=91, 963.6pt x 722.7pt>
+File: Images/stochastic.jpeg Graphic file (type jpg)
+<use Images/stochastic.jpeg>
+Package pdftex.def Info: Images/stochastic.jpeg  used on input line 84.
+(pdftex.def)             Requested size: 171.99922pt x 128.99968pt.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 87--96
- [][] 
+Overfull \hbox (2.5pt too wide) in paragraph at lines 93--93
+[] [] 
  []
 
-) [21 <./Images/abpruning.jpeg>]
-(./Lectures/Lecture_8/Knowledge_Representation.tex
-Overfull \hbox (5.5959pt too wide) in alignment at lines 45--45
-[][][][] 
+) [21 <./Images/abpruning.jpeg> <./Images/stochastic.jpeg>]
+(./Lectures/Lecture_8/Knowledge_Representation.tex [22] [23]) [24]
+(./Lectures/Lecture_9/Classical_Propositional_Logic.tex [25]
+Overfull \hbox (6.56448pt too wide) in paragraph at lines 139--139
+[][] 
+ []
+
+) [26] (./Lectures/Lecture_10/Modern_Propositional_Logic.tex
+Overfull \hbox (46.42326pt too wide) in paragraph at lines 94--94
+[][] 
+ []
+
+[27]) [28] (./Lectures/Lecture_11/First_Order_Logic_Representation.tex [29]
+[30]) [31] (./Lectures/Lecture_12/First_Order_Logic_Inference.tex [32]
+Overfull \hbox (309.25447pt too wide) in paragraph at lines 140--141
+[][][][][]
+ []
+
+[33]
+Overfull \hbox (309.25447pt too wide) in paragraph at lines 149--150
+[][][][][]
+ []
+
+) [34] (./Lectures/Lecture_13/Probabilistic_Reasoning.tex [35]) [36]
+(./Lectures/Lecture_14/Bayesian_Networks.tex
+Overfull \hbox (421.49059pt too wide) in paragraph at lines 72--73
+[][][][][]
+ []
+
+[37]) [38] (./Lectures/Lecture_15/Modeling_and_Inference.tex
+Overfull \hbox (625.71265pt too wide) in paragraph at lines 7--8
+[][][][][]
  []
 
 
-Overfull \hbox (13.99998pt too wide) in paragraph at lines 26--47
-[]$[]$$[]$ 
+Overfull \hbox (304.37566pt too wide) in paragraph at lines 19--20
+[][][][][]
  []
 
-[22]
-Overfull \hbox (153.62953pt too wide) in paragraph at lines 49--50
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]A\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 FD\
-OT1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 253230\OML/cmm/m/it/9 F\OT1/cmr/
-m/n/9 60\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 9085\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 1\O
-ML/cmm/m/it/9 F\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 CBEF\OT1/cmr/m/n/9 7\OML/cmm/m/i
-t/9 FEAC\OT1/cmr/m/n/9 15\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 53\OML/cmm/m/it/9 B\OT
-1/cmr/m/n/9 7\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 471\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 444\OML/cmm/
-m/it/9 BF\OT1/cmr/m/n/9 72\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 A\OT
-1/cmr/m/n/9 3\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 98[]588394595022[]\OML/cmm/m/it/9 
-ntitled \OT1/cmr/m/n/9 +
+
+Overfull \hbox (304.37566pt too wide) in paragraph at lines 47--48
+[][][][][]
  []
 
-[23] [24]
-Overfull \hbox (153.62953pt too wide) in paragraph at lines 127--128
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]A\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 FD\
-OT1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 253230\OML/cmm/m/it/9 F\OT1/cmr/
-m/n/9 60\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 9085\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 1\O
-ML/cmm/m/it/9 F\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 CBEF\OT1/cmr/m/n/9 7\OML/cmm/m/i
-t/9 FEAC\OT1/cmr/m/n/9 15\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 53\OML/cmm/m/it/9 B\OT
-1/cmr/m/n/9 7\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 471\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 444\OML/cmm/
-m/it/9 BF\OT1/cmr/m/n/9 72\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 A\OT
-1/cmr/m/n/9 3\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 98[]588396105010[]\OML/cmm/m/it/9 
-ntitled \OT1/cmr/m/n/9 +
+
+Overfull \hbox (304.37566pt too wide) in paragraph at lines 61--62
+[][][][][]
  []
 
-[25] [26]
-Overfull \hbox (153.62953pt too wide) in paragraph at lines 191--192
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]A\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 FD\
-OT1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 253230\OML/cmm/m/it/9 F\OT1/cmr/
-m/n/9 60\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 9085\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 1\O
-ML/cmm/m/it/9 F\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 CBEF\OT1/cmr/m/n/9 7\OML/cmm/m/i
-t/9 FEAC\OT1/cmr/m/n/9 15\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 53\OML/cmm/m/it/9 B\OT
-1/cmr/m/n/9 7\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 471\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 444\OML/cmm/
-m/it/9 BF\OT1/cmr/m/n/9 72\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 A\OT
-1/cmr/m/n/9 3\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 98[]588399344766[]\OML/cmm/m/it/9 
-ntitled \OT1/cmr/m/n/9 +
+[39]
+Overfull \hbox (304.37566pt too wide) in paragraph at lines 93--94
+[][][][][]
  []
 
-[27]) [28] (./Lectures/Lecture_9/Classical_Propositional_Logic.tex [29]
-Overfull \hbox (135.9768pt too wide) in paragraph at lines 26--27
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 74860\OML/cmm/m/it/9 
-BCEDA\OT1/cmr/m/n/9 14\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 AF\OT1/c
-mr/m/n/9 4\OML/cmm/m/it/9 CF\OT1/cmr/m/n/9 812954\OML/cmm/m/it/9 D\OT1/cmr/m/n/
-9 158\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 615\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 94\OML/
-cmm/m/it/9 E\OT1/cmr/m/n/9 6039\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 620\OML/cmm/m/it
-/9 A\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 690\OML/cmm/m/it/9 ADD\OT1/
-cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 3049165[]588401588798[]\OML/cmm/m/it
-/9 ntitled \OT1/cmr/m/n/9 +
+
+Overfull \hbox (304.37566pt too wide) in paragraph at lines 111--112
+[][][][][]
  []
 
-[30] [31] [32]
-Overfull \hbox (135.9768pt too wide) in paragraph at lines 103--104
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 74860\OML/cmm/m/it/9 
-BCEDA\OT1/cmr/m/n/9 14\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 AF\OT1/c
-mr/m/n/9 4\OML/cmm/m/it/9 CF\OT1/cmr/m/n/9 812954\OML/cmm/m/it/9 D\OT1/cmr/m/n/
-9 158\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 615\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 94\OML/
-cmm/m/it/9 E\OT1/cmr/m/n/9 6039\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 620\OML/cmm/m/it
-/9 A\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 690\OML/cmm/m/it/9 ADD\OT1/
-cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 3049165[]588404551971[]\OML/cmm/m/it
-/9 ntitled \OT1/cmr/m/n/9 +
+) [40] (./Lectures/Lecture_16/Bayesian_Learning.tex
+Overfull \hbox (283.05682pt too wide) in paragraph at lines 12--13
+[][][][][]
  []
 
-[33]) [34] (./Lectures/Lecture_10/Modern_Propositional_Logic.tex [35]
-Overfull \hbox (158.50162pt too wide) in paragraph at lines 30--31
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 BCB
-\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 FA\OT1/cmr/m/n
-/9 7\OML/cmm/m/it/9 CA\OT1/cmr/m/n/9 166\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 30\OML/
-cmm/m/it/9 D\OT1/cmr/m/n/9 63\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 E
-E\OT1/cmr/m/n/9 6631\OML/cmm/m/it/9 CB\OT1/cmr/m/n/9 92348\OML/cmm/m/it/9 B\OT1
-/cmr/m/n/9 5\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 0
-\OML/cmm/m/it/9 AE\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 0\OML/cmm/m/i
-t/9 B\OT1/cmr/m/n/9 6403\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 17\OML/cmm/m/it/9 C\OT1
-/cmr/m/n/9 7\OML/cmm/m/it/9 DD\OT1/cmr/m/n/9 96[]588409707432[]\OML/cmm/m/it/9 
-ntitled \OT1/cmr/m/n/9 +
+
+Overfull \hbox (298.98727pt too wide) in paragraph at lines 21--22
+[][][][][]
  []
 
-[36] [37]
-Overfull \hbox (158.50162pt too wide) in paragraph at lines 50--51
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 BCB
-\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 FA\OT1/cmr/m/n
-/9 7\OML/cmm/m/it/9 CA\OT1/cmr/m/n/9 166\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 30\OML/
-cmm/m/it/9 D\OT1/cmr/m/n/9 63\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 E
-E\OT1/cmr/m/n/9 6631\OML/cmm/m/it/9 CB\OT1/cmr/m/n/9 92348\OML/cmm/m/it/9 B\OT1
-/cmr/m/n/9 5\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 0
-\OML/cmm/m/it/9 AE\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 0\OML/cmm/m/i
-t/9 B\OT1/cmr/m/n/9 6403\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 17\OML/cmm/m/it/9 C\OT1
-/cmr/m/n/9 7\OML/cmm/m/it/9 DD\OT1/cmr/m/n/9 96[]588410528611[]\OML/cmm/m/it/9 
-ntitled \OT1/cmr/m/n/9 +
+
+Overfull \hbox (298.98727pt too wide) in paragraph at lines 37--38
+[][][][][]
  []
 
-[38] [39]
-Overfull \hbox (158.50162pt too wide) in paragraph at lines 61--62
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 BCB
-\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 FA\OT1/cmr/m/n
-/9 7\OML/cmm/m/it/9 CA\OT1/cmr/m/n/9 166\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 30\OML/
-cmm/m/it/9 D\OT1/cmr/m/n/9 63\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 E
-E\OT1/cmr/m/n/9 6631\OML/cmm/m/it/9 CB\OT1/cmr/m/n/9 92348\OML/cmm/m/it/9 B\OT1
-/cmr/m/n/9 5\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 0
-\OML/cmm/m/it/9 AE\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 0\OML/cmm/m/i
-t/9 B\OT1/cmr/m/n/9 6403\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 17\OML/cmm/m/it/9 C\OT1
-/cmr/m/n/9 7\OML/cmm/m/it/9 DD\OT1/cmr/m/n/9 96[]588410892286[]\OML/cmm/m/it/9 
-ntitled \OT1/cmr/m/n/9 +
+
+Overfull \hbox (298.98727pt too wide) in paragraph at lines 65--66
+[][][][][]
  []
 
-[40] [41]
-
-LaTeX Warning: Command \textemdash invalid in math mode on input line 102.
-
-
-Overfull \hbox (158.50162pt too wide) in paragraph at lines 102--103
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 BCB
-\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 FA\OT1/cmr/m/n
-/9 7\OML/cmm/m/it/9 CA\OT1/cmr/m/n/9 166\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 30\OML/
-cmm/m/it/9 D\OT1/cmr/m/n/9 63\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 E
-E\OT1/cmr/m/n/9 6631\OML/cmm/m/it/9 CB\OT1/cmr/m/n/9 92348\OML/cmm/m/it/9 B\OT1
-/cmr/m/n/9 5\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 0
-\OML/cmm/m/it/9 AE\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 0\OML/cmm/m/i
-t/9 B\OT1/cmr/m/n/9 6403\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 17\OML/cmm/m/it/9 C\OT1
-/cmr/m/n/9 7\OML/cmm/m/it/9 DD\OT1/cmr/m/n/9 96[]588412155172[]\OML/cmm/m/it/9 
-ntitled \OT1/cmr/m/n/9 +
+[41]
+Overfull \hbox (298.98727pt too wide) in paragraph at lines 86--87
+[][][][][]
  []
 
-[42]) [43] (./Lectures/Lecture_11/First_Order_Logic_Representation.tex [44]
+
+Overfull \hbox (298.98727pt too wide) in paragraph at lines 99--100
+[][][][][]
+ []
+
+
+Overfull \hbox (425.83823pt too wide) in paragraph at lines 110--111
+[][][][][]
+ []
+
+
+Overfull \hbox (298.98727pt too wide) in paragraph at lines 126--127
+[][][][][]
+ []
+
+
+Overfull \hbox (298.98727pt too wide) in paragraph at lines 135--136
+[][][][][]
+ []
+
+) [42] (./Lectures/Lecture_17/Decision_Trees_and_Random_Forests.tex
+Overfull \hbox (304.94708pt too wide) in paragraph at lines 17--18
+[][][][][]
+ []
+
+
+Overfull \hbox (304.94708pt too wide) in paragraph at lines 30--31
+[][][][][]
+ []
+
+
+Overfull \hbox (531.2363pt too wide) in paragraph at lines 40--41
+[][][][][]
+ []
+
+
+Overfull \hbox (422.5481pt too wide) in paragraph at lines 49--50
+[][][][][]
+ []
+
+
+Overfull \hbox (304.94708pt too wide) in paragraph at lines 68--69
+[][][][][]
+ []
+
+
+Overfull \hbox (304.94708pt too wide) in paragraph at lines 76--77
+[][][][][]
+ []
+
+[43]
+Overfull \hbox (304.94708pt too wide) in paragraph at lines 89--90
+[][][][][]
+ []
+
+
+Overfull \hbox (304.94708pt too wide) in paragraph at lines 96--97
+[][][][][]
+ []
+
+
+Overfull \hbox (304.94708pt too wide) in paragraph at lines 102--103
+[][][][][]
+ []
+
+
+Overfull \hbox (304.94708pt too wide) in paragraph at lines 109--110
+[][][][][]
+ []
+
+) [44] (./Lectures/Lecture_18/Neural_Networks.tex
+Overfull \hbox (282.23953pt too wide) in paragraph at lines 15--16
+[][][][][]
+ []
+
+
+Overfull \hbox (298.16998pt too wide) in paragraph at lines 27--28
+[][][][][]
+ []
+
+
+Overfull \hbox (298.16998pt too wide) in paragraph at lines 37--38
+[][][][][]
+ []
+
+
+Overfull \hbox (298.16998pt too wide) in paragraph at lines 48--52
+[][][][][]
+ []
+
+
+Overfull \hbox (298.16998pt too wide) in paragraph at lines 53--57
+[][][][][]
+ []
+
+
+Overfull \hbox (298.16998pt too wide) in paragraph at lines 58--63
+[][][][][]
+ []
+
+
+Overfull \hbox (298.16998pt too wide) in paragraph at lines 69--70
+[][][][][]
+ []
+
 [45]
-Overfull \hbox (135.71327pt too wide) in paragraph at lines 109--110
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]D\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 C\O
-T1/cmr/m/n/9 39015\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 86438\OML/cmm/m/it/9 EFEF\OT1
-/cmr/m/n/9 871831\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 FF\OT1/cmr/m/
-n/9 8532\OML/cmm/m/it/9 AD\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 DC\OT1/cmr/m/n/9 7\OM
-L/cmm/m/it/9 E\OT1/cmr/m/n/9 337962820570\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 542\OM
-L/cmm/m/it/9 BB\OT1/cmr/m/n/9 06\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 7\OML/cmm/m/it/
-9 AF[]\OT1/cmr/m/n/9 589429882152[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
+Overfull \hbox (298.16998pt too wide) in paragraph at lines 92--93
+[][][][][]
  []
 
-[46] [47]
-Overfull \hbox (135.71327pt too wide) in paragraph at lines 117--118
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]D\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 C\O
-T1/cmr/m/n/9 39015\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 86438\OML/cmm/m/it/9 EFEF\OT1
-/cmr/m/n/9 871831\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 FF\OT1/cmr/m/
-n/9 8532\OML/cmm/m/it/9 AD\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 DC\OT1/cmr/m/n/9 7\OM
-L/cmm/m/it/9 E\OT1/cmr/m/n/9 337962820570\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 542\OM
-L/cmm/m/it/9 BB\OT1/cmr/m/n/9 06\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 7\OML/cmm/m/it/
-9 AF[]\OT1/cmr/m/n/9 589431034153[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
+) [46] (./Lectures/Lecture_19/Neural_Network_Applications.tex
+Overfull \hbox (464.89464pt too wide) in paragraph at lines 27--28
+[][][][][]
  []
 
-[48]) [49] (./Lectures/Lecture_12/First_Order_Logic_Inference.tex [50] [51]
-[52]
-Overfull \hbox (146.82368pt too wide) in paragraph at lines 140--141
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 BC\O
-T1/cmr/m/n/9 3\OML/cmm/m/it/9 BDDFB\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 E\OT1/cmr/m/
-n/9 93\OML/cmm/m/it/9 FABD\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 94\OM
-L/cmm/m/it/9 C\OT1/cmr/m/n/9 74\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 020\OML/cmm/m/it
-/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 CD\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 B\OT1/cmr
-/m/n/9 25\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 78236483\OML/cmm/m/it/9 B\OT1/cmr/m/n/
-9 019\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 726793416\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 3
-6\OML/cmm/m/it/9 E[]\OT1/cmr/m/n/9 589436072359[]\OML/cmm/m/it/9 ntitled \OT1/c
-mr/m/n/9 +
+
+Overfull \hbox (493.99762pt too wide) in paragraph at lines 46--47
+[][][][][]
  []
 
-[53] [54]
-Overfull \hbox (146.82368pt too wide) in paragraph at lines 149--150
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 BC\O
-T1/cmr/m/n/9 3\OML/cmm/m/it/9 BDDFB\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 E\OT1/cmr/m/
-n/9 93\OML/cmm/m/it/9 FABD\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 94\OM
-L/cmm/m/it/9 C\OT1/cmr/m/n/9 74\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 020\OML/cmm/m/it
-/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 CD\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 B\OT1/cmr
-/m/n/9 25\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 78236483\OML/cmm/m/it/9 B\OT1/cmr/m/n/
-9 019\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 726793416\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 3
-6\OML/cmm/m/it/9 E[]\OT1/cmr/m/n/9 589436972651[]\OML/cmm/m/it/9 ntitled \OT1/c
-mr/m/n/9 +
+
+Overfull \hbox (458.22499pt too wide) in paragraph at lines 55--56
+[][][][][]
  []
 
-[55]) [56] (./Lectures/Lecture_13/Probabilistic_Reasoning.tex [57]
-Overfull \hbox (146.079pt too wide) in paragraph at lines 38--39
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 633\OML/cmm/m/it/9 C\
-OT1/cmr/m/n/9 3\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 B\OT1/cmr/m/n/9
- 51\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 25\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 1\OML/cmm/
-m/it/9 B\OT1/cmr/m/n/9 169\OML/cmm/m/it/9 EDE\OT1/cmr/m/n/9 0794\OML/cmm/m/it/9
- ADB\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cmr/m/n/9 59\OML/cmm/m/it/9 FF\OT1/c
-mr/m/n/9 8\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 02\O
-ML/cmm/m/it/9 CB\OT1/cmr/m/n/9 47284480\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 604\OML/
-cmm/m/it/9 E\OT1/cmr/m/n/9 1852\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 9[]589858360590[
-]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
+
+Overfull \hbox (296.45026pt too wide) in paragraph at lines 65--66
+[][][][][]
  []
 
-[58]) [59] (./Lectures/Lecture_14/Bayesian_Networks.tex [60]
-Overfull \hbox (141.20425pt too wide) in paragraph at lines 30--31
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 F\OT
-1/cmr/m/n/9 2\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 47\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 
-7\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DCA\OT1/cmr/m/n/9 10\OML/cmm/
-m/it/9 BE\OT1/cmr/m/n/9 34\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 69\OML/cmm/m/it/9 E\O
-T1/cmr/m/n/9 62\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 331\OML/cmm/m/it/9 D\OT1/cmr/m/n
-/9 2224\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 5\OML/c
-mm/m/it/9 F\OT1/cmr/m/n/9 91\OML/cmm/m/it/9 BEA\OT1/cmr/m/n/9 8639\OML/cmm/m/it
-/9 D\OT1/cmr/m/n/9 242\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 2792\OML/cmm/m/it/9 B\OT1
-/cmr/m/n/9 86517[]590115697975[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
+[47]
+Overfull \hbox (296.45026pt too wide) in paragraph at lines 96--97
+[][][][][]
  []
 
-[61] [62]
-Overfull \hbox (135.57399pt too wide) in paragraph at lines 63--64
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 F\OT
-1/cmr/m/n/9 2\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 47\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 
-7\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DCA\OT1/cmr/m/n/9 10\OML/cmm/
-m/it/9 BE\OT1/cmr/m/n/9 34\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 69\OML/cmm/m/it/9 E\O
-T1/cmr/m/n/9 62\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 331\OML/cmm/m/it/9 D\OT1/cmr/m/n
-/9 2224\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 5\OML/c
-mm/m/it/9 F\OT1/cmr/m/n/9 91\OML/cmm/m/it/9 BEA\OT1/cmr/m/n/9 8639\OML/cmm/m/it
-/9 D\OT1/cmr/m/n/9 242\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 2792\OML/cmm/m/it/9 B\OT1
-/cmr/m/n/9 86517[]590117208298[]\OML/cmm/m/it/9 creen \OT1/cmr/m/n/9 +
+
+Overfull \hbox (296.45026pt too wide) in paragraph at lines 106--107
+[][][][][]
  []
 
-[63] [64]
-Overfull \hbox (141.20425pt too wide) in paragraph at lines 87--88
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 F\OT
-1/cmr/m/n/9 2\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 47\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 
-7\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DCA\OT1/cmr/m/n/9 10\OML/cmm/
-m/it/9 BE\OT1/cmr/m/n/9 34\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 69\OML/cmm/m/it/9 E\O
-T1/cmr/m/n/9 62\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 331\OML/cmm/m/it/9 D\OT1/cmr/m/n
-/9 2224\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 5\OML/c
-mm/m/it/9 F\OT1/cmr/m/n/9 91\OML/cmm/m/it/9 BEA\OT1/cmr/m/n/9 8639\OML/cmm/m/it
-/9 D\OT1/cmr/m/n/9 242\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 2792\OML/cmm/m/it/9 B\OT1
-/cmr/m/n/9 86517[]590118451755[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[65] [66]
-Overfull \hbox (141.20425pt too wide) in paragraph at lines 93--94
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 F\OT
-1/cmr/m/n/9 2\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 47\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 
-7\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DCA\OT1/cmr/m/n/9 10\OML/cmm/
-m/it/9 BE\OT1/cmr/m/n/9 34\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 69\OML/cmm/m/it/9 E\O
-T1/cmr/m/n/9 62\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 331\OML/cmm/m/it/9 D\OT1/cmr/m/n
-/9 2224\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 5\OML/c
-mm/m/it/9 F\OT1/cmr/m/n/9 91\OML/cmm/m/it/9 BEA\OT1/cmr/m/n/9 8639\OML/cmm/m/it
-/9 D\OT1/cmr/m/n/9 242\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 2792\OML/cmm/m/it/9 B\OT1
-/cmr/m/n/9 86517[]590119210337[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[67]) (./Lectures/Lecture_15/Modeling_and_Inference.tex [68]
-Overfull \hbox (140.93958pt too wide) in paragraph at lines 6--7
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]F\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 FEB
-\OT1/cmr/m/n/9 98332\OML/cmm/m/it/9 EEC\OT1/cmr/m/n/9 99\OML/cmm/m/it/9 C\OT1/c
-mr/m/n/9 328935\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 AB\OT1/cmr/m/n/
-9 0\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 929534\OML/cmm/m/it/9 BB\OT1/cmr/m/n/9 33\OM
-L/cmm/m/it/9 EF\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 AB\OT1/cmr/m/n/9 134\OML/cmm/m/i
-t/9 DF\OT1/cmr/m/n/9 14\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 85072\OML/cmm/m/it/9 ADC
-\OT1/cmr/m/n/9 65\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0[]590219806142[]\OML/cmm/m/it
-/9 creen \OT1/cmr/m/n/9 +
- []
-
-[69] [70]
-Overfull \hbox (146.56984pt too wide) in paragraph at lines 18--19
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]F\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 FEB
-\OT1/cmr/m/n/9 98332\OML/cmm/m/it/9 EEC\OT1/cmr/m/n/9 99\OML/cmm/m/it/9 C\OT1/c
-mr/m/n/9 328935\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 AB\OT1/cmr/m/n/
-9 0\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 929534\OML/cmm/m/it/9 BB\OT1/cmr/m/n/9 33\OM
-L/cmm/m/it/9 EF\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 AB\OT1/cmr/m/n/9 134\OML/cmm/m/i
-t/9 DF\OT1/cmr/m/n/9 14\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 85072\OML/cmm/m/it/9 ADC
-\OT1/cmr/m/n/9 65\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0[]590220321908[]\OML/cmm/m/it
-/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[71] [72]
-Overfull \hbox (146.56984pt too wide) in paragraph at lines 46--47
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]F\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 FEB
-\OT1/cmr/m/n/9 98332\OML/cmm/m/it/9 EEC\OT1/cmr/m/n/9 99\OML/cmm/m/it/9 C\OT1/c
-mr/m/n/9 328935\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 AB\OT1/cmr/m/n/
-9 0\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 929534\OML/cmm/m/it/9 BB\OT1/cmr/m/n/9 33\OM
-L/cmm/m/it/9 EF\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 AB\OT1/cmr/m/n/9 134\OML/cmm/m/i
-t/9 DF\OT1/cmr/m/n/9 14\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 85072\OML/cmm/m/it/9 ADC
-\OT1/cmr/m/n/9 65\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0[]590224552818[]\OML/cmm/m/it
-/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[73] [74]
-Overfull \hbox (146.56984pt too wide) in paragraph at lines 60--61
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]F\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 FEB
-\OT1/cmr/m/n/9 98332\OML/cmm/m/it/9 EEC\OT1/cmr/m/n/9 99\OML/cmm/m/it/9 C\OT1/c
-mr/m/n/9 328935\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 AB\OT1/cmr/m/n/
-9 0\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 929534\OML/cmm/m/it/9 BB\OT1/cmr/m/n/9 33\OM
-L/cmm/m/it/9 EF\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 AB\OT1/cmr/m/n/9 134\OML/cmm/m/i
-t/9 DF\OT1/cmr/m/n/9 14\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 85072\OML/cmm/m/it/9 ADC
-\OT1/cmr/m/n/9 65\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0[]590225097526[]\OML/cmm/m/it
-/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[75] [76]
-Overfull \hbox (146.56984pt too wide) in paragraph at lines 92--93
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]F\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 FEB
-\OT1/cmr/m/n/9 98332\OML/cmm/m/it/9 EEC\OT1/cmr/m/n/9 99\OML/cmm/m/it/9 C\OT1/c
-mr/m/n/9 328935\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 AB\OT1/cmr/m/n/
-9 0\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 929534\OML/cmm/m/it/9 BB\OT1/cmr/m/n/9 33\OM
-L/cmm/m/it/9 EF\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 AB\OT1/cmr/m/n/9 134\OML/cmm/m/i
-t/9 DF\OT1/cmr/m/n/9 14\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 85072\OML/cmm/m/it/9 ADC
-\OT1/cmr/m/n/9 65\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0[]590256640289[]\OML/cmm/m/it
-/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[77] [78]
-Overfull \hbox (146.56984pt too wide) in paragraph at lines 110--111
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]F\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 FEB
-\OT1/cmr/m/n/9 98332\OML/cmm/m/it/9 EEC\OT1/cmr/m/n/9 99\OML/cmm/m/it/9 C\OT1/c
-mr/m/n/9 328935\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 AB\OT1/cmr/m/n/
-9 0\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 929534\OML/cmm/m/it/9 BB\OT1/cmr/m/n/9 33\OM
-L/cmm/m/it/9 EF\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 AB\OT1/cmr/m/n/9 134\OML/cmm/m/i
-t/9 DF\OT1/cmr/m/n/9 14\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 85072\OML/cmm/m/it/9 ADC
-\OT1/cmr/m/n/9 65\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0[]590257642435[]\OML/cmm/m/it
-/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[79]) [80] (./Lectures/Lecture_16/Bayesian_Learning.tex [81]
-Overfull \hbox (141.18146pt too wide) in paragraph at lines 11--12
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 29353\OML/cmm/m/it/9 
-D\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 DE\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/
-n/9 7\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 32069419\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 77
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 11\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 9\OML/cmm/m/i
-t/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cm
-r/m/n/9 49\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 718\OML/cmm/m/it/9 AC\OT1/cmr/m/n/9 0
-81\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 77701\OML/c
-mm/m/it/9 FB\OT1/cmr/m/n/9 86\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 68[]590905476354[
-]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[82] [83]
-Overfull \hbox (141.18146pt too wide) in paragraph at lines 20--21
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 29353\OML/cmm/m/it/9 
-D\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 DE\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/
-n/9 7\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 32069419\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 77
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 11\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 9\OML/cmm/m/i
-t/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cm
-r/m/n/9 49\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 718\OML/cmm/m/it/9 AC\OT1/cmr/m/n/9 0
-81\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 77701\OML/c
-mm/m/it/9 FB\OT1/cmr/m/n/9 86\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 68[]590905790509[
-]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[84] [85]
-Overfull \hbox (141.18146pt too wide) in paragraph at lines 36--37
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 29353\OML/cmm/m/it/9 
-D\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 DE\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/
-n/9 7\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 32069419\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 77
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 11\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 9\OML/cmm/m/i
-t/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cm
-r/m/n/9 49\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 718\OML/cmm/m/it/9 AC\OT1/cmr/m/n/9 0
-81\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 77701\OML/c
-mm/m/it/9 FB\OT1/cmr/m/n/9 86\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 68[]590906656594[
-]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[86]
-Overfull \hbox (141.18146pt too wide) in paragraph at lines 64--65
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 29353\OML/cmm/m/it/9 
-D\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 DE\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/
-n/9 7\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 32069419\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 77
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 11\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 9\OML/cmm/m/i
-t/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cm
-r/m/n/9 49\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 718\OML/cmm/m/it/9 AC\OT1/cmr/m/n/9 0
-81\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 77701\OML/c
-mm/m/it/9 FB\OT1/cmr/m/n/9 86\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 68[]590908603345[
-]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[87] [88]
-Overfull \hbox (141.18146pt too wide) in paragraph at lines 85--86
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 29353\OML/cmm/m/it/9 
-D\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 DE\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/
-n/9 7\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 32069419\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 77
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 11\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 9\OML/cmm/m/i
-t/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cm
-r/m/n/9 49\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 718\OML/cmm/m/it/9 AC\OT1/cmr/m/n/9 0
-81\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 77701\OML/c
-mm/m/it/9 FB\OT1/cmr/m/n/9 86\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 68[]590909021630[
-]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[89] [90]
-Overfull \hbox (141.18146pt too wide) in paragraph at lines 98--99
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 29353\OML/cmm/m/it/9 
-D\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 DE\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/
-n/9 7\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 32069419\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 77
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 11\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 9\OML/cmm/m/i
-t/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cm
-r/m/n/9 49\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 718\OML/cmm/m/it/9 AC\OT1/cmr/m/n/9 0
-81\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 77701\OML/c
-mm/m/it/9 FB\OT1/cmr/m/n/9 86\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 68[]590909614270[
-]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[91] [92]
-Overfull \hbox (135.5512pt too wide) in paragraph at lines 109--110
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 29353\OML/cmm/m/it/9 
-D\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 DE\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/
-n/9 7\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 32069419\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 77
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 11\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 9\OML/cmm/m/i
-t/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cm
-r/m/n/9 49\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 718\OML/cmm/m/it/9 AC\OT1/cmr/m/n/9 0
-81\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 77701\OML/c
-mm/m/it/9 FB\OT1/cmr/m/n/9 86\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 68[]590910293904[
-]\OML/cmm/m/it/9 creen \OT1/cmr/m/n/9 +
- []
-
-[93] [94]
-Overfull \hbox (141.18146pt too wide) in paragraph at lines 125--126
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 29353\OML/cmm/m/it/9 
-D\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 DE\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/
-n/9 7\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 32069419\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 77
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 11\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 9\OML/cmm/m/i
-t/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cm
-r/m/n/9 49\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 718\OML/cmm/m/it/9 AC\OT1/cmr/m/n/9 0
-81\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 77701\OML/c
-mm/m/it/9 FB\OT1/cmr/m/n/9 86\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 68[]590911384850[
-]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[95] [96]
-Overfull \hbox (141.18146pt too wide) in paragraph at lines 134--135
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 29353\OML/cmm/m/it/9 
-D\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 DE\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 A\OT1/cmr/m/
-n/9 7\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 32069419\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 77
-\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 11\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 9\OML/cmm/m/i
-t/9 F\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 BD\OT1/cm
-r/m/n/9 49\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 718\OML/cmm/m/it/9 AC\OT1/cmr/m/n/9 0
-81\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 5\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 77701\OML/c
-mm/m/it/9 FB\OT1/cmr/m/n/9 86\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 68[]590911957073[
-]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[97]) [98] (./Lectures/Lecture_17/Decision_Trees_and_Random_Forests.tex
-[99]
-Overfull \hbox (142.5163pt too wide) in paragraph at lines 16--17
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590913272078[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[100] [101]
-Overfull \hbox (142.5163pt too wide) in paragraph at lines 29--30
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590913804777[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[102] [103]
-Overfull \hbox (136.88603pt too wide) in paragraph at lines 39--40
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590914176982[]\OML/cmm/m/it/9 creen \OT1/cmr/m/n/9 +
- []
-
-[104] [105]
-Overfull \hbox (136.88603pt too wide) in paragraph at lines 48--49
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590914410089[]\OML/cmm/m/it/9 creen \OT1/cmr/m/n/9 +
- []
-
-[106] [107]
-Overfull \hbox (142.5163pt too wide) in paragraph at lines 67--68
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590915632068[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[108] [109]
-Overfull \hbox (142.5163pt too wide) in paragraph at lines 75--76
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590986583122[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[110] [111]
-Overfull \hbox (142.5163pt too wide) in paragraph at lines 88--89
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590987081685[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[112] [113]
-Overfull \hbox (142.5163pt too wide) in paragraph at lines 95--96
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590987481637[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[114] [115]
-Overfull \hbox (142.5163pt too wide) in paragraph at lines 101--102
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590988064834[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[116] [117]
-Overfull \hbox (142.5163pt too wide) in paragraph at lines 108--109
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 C\OT
-1/cmr/m/n/9 470\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 465947\OML/cmm/m/it/9 B\OT1/cmr/
-m/n/9 218\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 12\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 6833
-\OML/cmm/m/it/9 ACF\OT1/cmr/m/n/9 54\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 222\OML/cmm
-/m/it/9 DBA\OT1/cmr/m/n/9 6\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 153\OML/cmm/m/it/9 D
-EEC\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 A\OT1/cmr/m
-/n/9 1\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 D\OT1/cmr/m/n/9 06909\OM
-L/cmm/m/it/9 A\OT1/cmr/m/n/9 7\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 0\OML/cmm/m/it/9 
-F[]\OT1/cmr/m/n/9 590988346381[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[118]) [119] (./Lectures/Lecture_18/Neural_Networks.tex [120]
-Overfull \hbox (140.36417pt too wide) in paragraph at lines 14--15
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 D\O
-T1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 912\OML/cmm/m/it/9 A\OT1/cmr/m/n/
-9 4932\OML/cmm/m/it/9 DB\OT1/cmr/m/n/9 33218\OML/cmm/m/it/9 BCF\OT1/cmr/m/n/9 0
-120\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DBC\OT1/cmr/m/n/9 4521\OML
-/cmm/m/it/9 D\OT1/cmr/m/n/9 2822\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1\OML/cmm/m/it/
-9 AA\OT1/cmr/m/n/9 28\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 A\OT1/cmr
-/m/n/9 628\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 5392148\OML/cmm/m/it/9 D[]\OT1/cmr/m/
-n/9 591131415565[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[121] [122]
-Overfull \hbox (140.36417pt too wide) in paragraph at lines 26--27
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 D\O
-T1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 912\OML/cmm/m/it/9 A\OT1/cmr/m/n/
-9 4932\OML/cmm/m/it/9 DB\OT1/cmr/m/n/9 33218\OML/cmm/m/it/9 BCF\OT1/cmr/m/n/9 0
-120\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DBC\OT1/cmr/m/n/9 4521\OML
-/cmm/m/it/9 D\OT1/cmr/m/n/9 2822\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1\OML/cmm/m/it/
-9 AA\OT1/cmr/m/n/9 28\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 A\OT1/cmr
-/m/n/9 628\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 5392148\OML/cmm/m/it/9 D[]\OT1/cmr/m/
-n/9 591132106832[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[123] [124]
-Overfull \hbox (140.36417pt too wide) in paragraph at lines 36--37
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 D\O
-T1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 912\OML/cmm/m/it/9 A\OT1/cmr/m/n/
-9 4932\OML/cmm/m/it/9 DB\OT1/cmr/m/n/9 33218\OML/cmm/m/it/9 BCF\OT1/cmr/m/n/9 0
-120\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DBC\OT1/cmr/m/n/9 4521\OML
-/cmm/m/it/9 D\OT1/cmr/m/n/9 2822\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1\OML/cmm/m/it/
-9 AA\OT1/cmr/m/n/9 28\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 A\OT1/cmr
-/m/n/9 628\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 5392148\OML/cmm/m/it/9 D[]\OT1/cmr/m/
-n/9 591132562633[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[125] [126]
-Overfull \hbox (140.36417pt too wide) in paragraph at lines 50--51
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 D\O
-T1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 912\OML/cmm/m/it/9 A\OT1/cmr/m/n/
-9 4932\OML/cmm/m/it/9 DB\OT1/cmr/m/n/9 33218\OML/cmm/m/it/9 BCF\OT1/cmr/m/n/9 0
-120\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DBC\OT1/cmr/m/n/9 4521\OML
-/cmm/m/it/9 D\OT1/cmr/m/n/9 2822\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1\OML/cmm/m/it/
-9 AA\OT1/cmr/m/n/9 28\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 A\OT1/cmr
-/m/n/9 628\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 5392148\OML/cmm/m/it/9 D[]\OT1/cmr/m/
-n/9 591132995454[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[127]
-Overfull \hbox (140.36417pt too wide) in paragraph at lines 54--55
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 D\O
-T1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 912\OML/cmm/m/it/9 A\OT1/cmr/m/n/
-9 4932\OML/cmm/m/it/9 DB\OT1/cmr/m/n/9 33218\OML/cmm/m/it/9 BCF\OT1/cmr/m/n/9 0
-120\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DBC\OT1/cmr/m/n/9 4521\OML
-/cmm/m/it/9 D\OT1/cmr/m/n/9 2822\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1\OML/cmm/m/it/
-9 AA\OT1/cmr/m/n/9 28\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 A\OT1/cmr
-/m/n/9 628\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 5392148\OML/cmm/m/it/9 D[]\OT1/cmr/m/
-n/9 591133040302[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[128] [129]
-Overfull \hbox (140.36417pt too wide) in paragraph at lines 60--61
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 D\O
-T1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 912\OML/cmm/m/it/9 A\OT1/cmr/m/n/
-9 4932\OML/cmm/m/it/9 DB\OT1/cmr/m/n/9 33218\OML/cmm/m/it/9 BCF\OT1/cmr/m/n/9 0
-120\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DBC\OT1/cmr/m/n/9 4521\OML
-/cmm/m/it/9 D\OT1/cmr/m/n/9 2822\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1\OML/cmm/m/it/
-9 AA\OT1/cmr/m/n/9 28\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 A\OT1/cmr
-/m/n/9 628\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 5392148\OML/cmm/m/it/9 D[]\OT1/cmr/m/
-n/9 591133370907[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[130] [131]
-Overfull \hbox (140.36417pt too wide) in paragraph at lines 67--68
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 D\O
-T1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 912\OML/cmm/m/it/9 A\OT1/cmr/m/n/
-9 4932\OML/cmm/m/it/9 DB\OT1/cmr/m/n/9 33218\OML/cmm/m/it/9 BCF\OT1/cmr/m/n/9 0
-120\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DBC\OT1/cmr/m/n/9 4521\OML
-/cmm/m/it/9 D\OT1/cmr/m/n/9 2822\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1\OML/cmm/m/it/
-9 AA\OT1/cmr/m/n/9 28\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 A\OT1/cmr
-/m/n/9 628\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 5392148\OML/cmm/m/it/9 D[]\OT1/cmr/m/
-n/9 591133796275[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[132] [133]
-Overfull \hbox (140.36417pt too wide) in paragraph at lines 90--91
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]E\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 D\O
-T1/cmr/m/n/9 9\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 912\OML/cmm/m/it/9 A\OT1/cmr/m/n/
-9 4932\OML/cmm/m/it/9 DB\OT1/cmr/m/n/9 33218\OML/cmm/m/it/9 BCF\OT1/cmr/m/n/9 0
-120\OML/cmm/m/it/9 FD\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 DBC\OT1/cmr/m/n/9 4521\OML
-/cmm/m/it/9 D\OT1/cmr/m/n/9 2822\OML/cmm/m/it/9 A\OT1/cmr/m/n/9 1\OML/cmm/m/it/
-9 AA\OT1/cmr/m/n/9 28\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 A\OT1/cmr
-/m/n/9 628\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 5392148\OML/cmm/m/it/9 D[]\OT1/cmr/m/
-n/9 591134328128[]\OML/cmm/m/it/9 ntitled \OT1/cmr/m/n/9 +
- []
-
-[134]) [135] (./Lectures/Lecture_19/Neural_Network_Applications.tex [136]
-Overfull \hbox (138.64444pt too wide) in paragraph at lines 26--27
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]A\OT1/cmr/m/n/9 78\OML/cmm/m/it/9 EE
-C\OT1/cmr/m/n/9 73035\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 10\OML/cmm/m/it/9 A\OT1/cm
-r/m/n/9 6424111\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 CC\OT1/cmr/m/n/
-9 18\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 AA\OT1/cmr/m/n/9 14\OML/c
-mm/m/it/9 B\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 A\O
-T1/cmr/m/n/9 8\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 73\OML/cmm/m/it/9 FF\OT1/cmr/m/n/
-9 013\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 6765837\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 92\
-OML/cmm/m/it/9 F\OT1/cmr/m/n/9 61[]591303343711[]\OML/cmm/m/it/9 ntitled \OT1/c
-mr/m/n/9 +
- []
-
-[137] [138]
-Overfull \hbox (138.64444pt too wide) in paragraph at lines 45--46
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]A\OT1/cmr/m/n/9 78\OML/cmm/m/it/9 EE
-C\OT1/cmr/m/n/9 73035\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 10\OML/cmm/m/it/9 A\OT1/cm
-r/m/n/9 6424111\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 CC\OT1/cmr/m/n/
-9 18\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 AA\OT1/cmr/m/n/9 14\OML/c
-mm/m/it/9 B\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 A\O
-T1/cmr/m/n/9 8\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 73\OML/cmm/m/it/9 FF\OT1/cmr/m/n/
-9 013\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 6765837\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 92\
-OML/cmm/m/it/9 F\OT1/cmr/m/n/9 61[]591303830548[]\OML/cmm/m/it/9 ntitled \OT1/c
-mr/m/n/9 +
- []
-
-[139] [140]
-Overfull \hbox (138.64444pt too wide) in paragraph at lines 54--55
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]A\OT1/cmr/m/n/9 78\OML/cmm/m/it/9 EE
-C\OT1/cmr/m/n/9 73035\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 10\OML/cmm/m/it/9 A\OT1/cm
-r/m/n/9 6424111\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 CC\OT1/cmr/m/n/
-9 18\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 AA\OT1/cmr/m/n/9 14\OML/c
-mm/m/it/9 B\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 A\O
-T1/cmr/m/n/9 8\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 73\OML/cmm/m/it/9 FF\OT1/cmr/m/n/
-9 013\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 6765837\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 92\
-OML/cmm/m/it/9 F\OT1/cmr/m/n/9 61[]591304109912[]\OML/cmm/m/it/9 ntitled \OT1/c
-mr/m/n/9 +
- []
-
-[141] [142]
-Overfull \hbox (138.64444pt too wide) in paragraph at lines 64--65
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]A\OT1/cmr/m/n/9 78\OML/cmm/m/it/9 EE
-C\OT1/cmr/m/n/9 73035\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 10\OML/cmm/m/it/9 A\OT1/cm
-r/m/n/9 6424111\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 CC\OT1/cmr/m/n/
-9 18\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 AA\OT1/cmr/m/n/9 14\OML/c
-mm/m/it/9 B\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 A\O
-T1/cmr/m/n/9 8\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 73\OML/cmm/m/it/9 FF\OT1/cmr/m/n/
-9 013\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 6765837\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 92\
-OML/cmm/m/it/9 F\OT1/cmr/m/n/9 61[]591304763546[]\OML/cmm/m/it/9 ntitled \OT1/c
-mr/m/n/9 +
- []
-
-[143] [144]
-Overfull \hbox (138.64444pt too wide) in paragraph at lines 95--96
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]A\OT1/cmr/m/n/9 78\OML/cmm/m/it/9 EE
-C\OT1/cmr/m/n/9 73035\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 10\OML/cmm/m/it/9 A\OT1/cm
-r/m/n/9 6424111\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 CC\OT1/cmr/m/n/
-9 18\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 AA\OT1/cmr/m/n/9 14\OML/c
-mm/m/it/9 B\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 A\O
-T1/cmr/m/n/9 8\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 73\OML/cmm/m/it/9 FF\OT1/cmr/m/n/
-9 013\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 6765837\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 92\
-OML/cmm/m/it/9 F\OT1/cmr/m/n/9 61[]591304763546[]\OML/cmm/m/it/9 ntitled \OT1/c
-mr/m/n/9 +
- []
-
-[145] [146]
-Overfull \hbox (138.64444pt too wide) in paragraph at lines 105--106
-\OML/cmm/m/it/9 attachments:dropbox:com=s[]A\OT1/cmr/m/n/9 78\OML/cmm/m/it/9 EE
-C\OT1/cmr/m/n/9 73035\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 10\OML/cmm/m/it/9 A\OT1/cm
-r/m/n/9 6424111\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 8\OML/cmm/m/it/9 CC\OT1/cmr/m/n/
-9 18\OML/cmm/m/it/9 FF\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 AA\OT1/cmr/m/n/9 14\OML/c
-mm/m/it/9 B\OT1/cmr/m/n/9 9\OML/cmm/m/it/9 B\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 A\O
-T1/cmr/m/n/9 8\OML/cmm/m/it/9 F\OT1/cmr/m/n/9 73\OML/cmm/m/it/9 FF\OT1/cmr/m/n/
-9 013\OML/cmm/m/it/9 C\OT1/cmr/m/n/9 6765837\OML/cmm/m/it/9 E\OT1/cmr/m/n/9 92\
-OML/cmm/m/it/9 F\OT1/cmr/m/n/9 61[]591304763546[]\OML/cmm/m/it/9 ntitled \OT1/c
-mr/m/n/9 +
- []
-
-[147]) [148]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+) [48]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
  (./lecture_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 134.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 135.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 135.
  ) 
 Here is how much of TeX's memory you used:
- 33782 strings out of 480608
- 750541 string characters out of 5903631
- 1170062 words of memory out of 5000000
- 49079 multiletter control sequences out of 15000+600000
- 547069 words of font info for 59 fonts, out of 8000000 for 9000
+ 44769 strings out of 480608
+ 1086306 string characters out of 5903631
+ 1634868 words of memory out of 5000000
+ 60003 multiletter control sequences out of 15000+600000
+ 547382 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 138i,14n,170p,1612b,2455s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 138i,14n,170p,1612b,2458s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pf
@@ -1962,10 +1495,10 @@ mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2020/texmf
 -dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-d
 ist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2020/texmf-dis
 t/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on lecture_notes.pdf (148 pages, 882539 bytes).
+Output written on lecture_notes.pdf (48 pages, 884185 bytes).
 PDF statistics:
- 570 PDF objects out of 1000 (max. 8388607)
- 392 compressed objects within 4 object streams
+ 249 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
