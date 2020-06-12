@@ -10,21 +10,70 @@ Traditional approaches are model-based and work via representation and reasoning
 \noindent The basic unit of a neural network is the \textbf{\underline{NEURON}}.\\
 These map a set of input activations to an output activation.
 
-\hl{
-$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591131415565_Untitled+drawing.jpg)$
-}
-
+\begin{minipage}{0.6\textwidth}\begin{tikzpicture}
+	\node[ellipse, draw, align=center, minimum width = 4cm] (neuron) {$\Sigma \ \ \ \ \ \ \ \ \biggr| \ \ \ \ \ \ \ \ g(.)$};
+	\node[above left =of neuron] (aj) {$a_j$};
+	\node[right =of neuron] (ai) {$a_i$};	
+	\node[below left =of neuron] (b) {b};
+	\draw [->] (aj.south east) -- node[right] {$w_j$} (neuron.north west);
+	\draw [->] (b.east) -- (neuron.south west);
+	\draw [->] (neuron.east) -- (ai.west);
+\end{tikzpicture}\end{minipage}%
+\begin{minipage}{0.4\textwidth}
 \noindent a — activations\\
 w — weights\\
 b — bias\\
 g(.) — activation function\\
-ai = g( [$\sum w_{ij} a_j] + b$)\\
+ai = g( [$\sum w_{ij} a_j] + b$)
+\end{minipage}\bigskip
 
-Activation Functions come in the following forms (generally):
+\noindent Activation Functions come in the following forms (generally):\\\bigskip\bigskip
 
-\hl{
-$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591132106832_Untitled+drawing+1.jpg)$
-}
+\begin{center}
+\begin{minipage}{0.5\linewidth} \begin{center}\begin{tikzpicture}
+	\node[text width=3cm] (text1) {
+		Step Function:\[g(x) = \left\{\begin{array} {lr}
+			1 & x \geq t\\
+			0 & x < t 
+		\end{array}\right\}\]};
+	\node[below right=0cm of text1, text width=5cm] (g1) {\begin{axis} [width=5cm, height=5cm,
+	axis x line=center, axis y line=center, xmin=-1, xmax = 1, ymin=-1, ymax=1, xticklabels={}, yticklabels={}] 
+		\plot [domain=-1:0.5, ultra thick, <-] (x, 0);
+		\plot [domain=0:0.5, ultra thick] (0.5, x);
+		\plot [domain=0.5:1, ultra thick, ->] (x, 0.5);
+	\end{axis}}; 
+\end{tikzpicture}\end{center}\end{minipage}%
+\begin{minipage}{0.5\linewidth}\begin{center}\begin{tikzpicture}
+	\node[text width=3cm, right =of g1] (text2) {
+		Sign Function:\[g(x) = \left\{\begin{array} {lr}
+			1 & x \geq t\\
+			-1 & x < t 
+		\end{array}\right\}\]};
+	\node[below right=0.5cm of text2, text width=5cm] (g2) {\begin{axis} [width=5cm, height=5cm,
+	axis x line=center, axis y line=center, xmin=-1, xmax = 1, ymin=-1, ymax=1, xticklabels={}, yticklabels={}] 
+		\plot [domain=-1:0, ultra thick, <-] (x, -0.5);
+		\plot [domain=-0.5:0.5, ultra thick] (0, x);
+		\plot [domain=0:1, ultra thick, ->] (x, 0.5);
+	\end{axis}};
+\end{tikzpicture}\end{center}\end{minipage}\end{center}
+\begin{center}\bigskip\bigskip\bigskip\bigskip\bigskip
+\begin{minipage}{0.5\linewidth} \begin{center}\begin{tikzpicture}
+	\node[text width=3cm] (text1) {
+		Sigmoid Function:\[g(x) = \frac{1}{1+e^{-x}}\]};
+	\node[below right=0cm of text1, text width=5cm] (g1) {\begin{axis} [width=5cm, height=5cm,
+	axis x line=center, axis y line=center, xmin=-10, xmax = 10, ymin=-1.1, ymax=1.1, xticklabels={}, yticklabels={}] 
+	\addplot [domain=-10:10, ultra thick, <->] {1/(1+pow(e, -x))};
+	\end{axis}}; 
+\end{tikzpicture}\end{center}\end{minipage}%
+\begin{minipage}{0.5\linewidth}\begin{center}\begin{tikzpicture}
+	\node[text width=3cm, right =of g1] (text2) {
+		Step Function:\[g(x) = max(0, x)\]};
+	\node[below right=0cm of text2, text width=5cm] (g2) {\begin{axis} [width=5cm, height=5cm,
+	axis x line=center, axis y line=center, xmin=-1, xmax = 1, ymin=-1, ymax=1, xticklabels={}, yticklabels={}] 
+		\plot [domain=-1:0, ultra thick, <-] (x, 0);
+		\plot [domain=-0:1, ultra thick, ->] (x, x);
+	\end{axis}};
+\end{tikzpicture}\end{center}\end{minipage}\end{center}
 
 \noindent A connected set of these forms a neural network!\\
 Modern neural networks also use non-neuron elements, but they are application specific.\\
@@ -32,9 +81,12 @@ Modern neural networks also use non-neuron elements, but they are application sp
 We could learn the structure, but many situations have heuristically derived templates.\\
 The specific forms of neural networks we consider are \textbf{\underline{Feed-Forward Neural Networks}}.\\
 
-\hl{
-$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591132562633_Untitled+drawing+2.jpg)$
-}
+\begin{center}\begin{neuralnetwork}[height=4]
+	\inputlayer[count=4, bias=false, title=Input\\Layer]
+	\hiddenlayer[count=3, bias=false, title=Layer 1] \linklayers
+	\hiddenlayer[count=2, bias=false, title=Layer 2] \linklayers
+	\outputlayer[count=1, title=Output\\Layer] \linklayers
+\end{neuralnetwork}\end{center}
 
 \noindent Greater depth requires more training, sp multi layer NN’s are computation-heavy.\\
 They used to be nearly impossible to train, but deep-learning has changed this.\\
@@ -45,28 +97,100 @@ Are they expressive enough? \\
 \subsubsection*{Pure-Step Neural Networks}
 \noindent Basic gates can be formed by networks consisting only of neurons with step functions.\\
 
-We can form an AND gate from a single neuron:
-\hl{
-$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591132995454_Untitled+drawing+4.jpg)$
-}
+\begin{center}\begin{minipage}{0.5\textwidth}
+\noindent OR gate:\\
+\begin{tikzpicture}
+	\node[ellipse, draw, align=center, minimum width = 4cm, minimum height = 1cm] (neuron) {t=1};
+	\node[above left =of neuron] (I) {$I_1$};
+	\node[right =of neuron] (O) {OUT};	
+	\node[below left =of neuron] (II) {$I_2$};
+	\draw [->] (aj.south east) -- node[right] {$w_1=0.6$} (neuron.north west);
+	\draw [->] (II.east) -- node[right] {$w_2=0.6$} (neuron.south west);
+	\draw [->] (neuron.east) -- (ai.west);
+\end{tikzpicture}\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\noindent AND gate:\\
+\begin{tikzpicture}
+	\node[ellipse, draw, align=center, minimum width = 4cm, minimum height = 1cm] (neuron) {t=1};
+	\node[above left =of neuron] (I) {$I_1$};
+	\node[right =of neuron] (O) {OUT};	
+	\node[below left =of neuron] (II) {$I_2$};
+	\draw [->] (aj.south east) -- node[right] {$w_1=1$} (neuron.north west);
+	\draw [->] (II.east) -- node[right] {$w_2=1$} (neuron.south west);
+	\draw [->] (neuron.east) -- (ai.west);
+\end{tikzpicture}\end{minipage}\end{center}\bigskip
 
-\noindent We can also form an OR gate from a single neuron:
-\hl{
-$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591133040302_Untitled+drawing+5.jpg)$
-}
 
-We cannot, however, form an XOR gate from a single neuron.\\
-This is because an XOR gate is not \textbf{\underline{linearly separable}}.
-\hl{
-$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591133370907_Untitled+drawing+6.jpg)$
-}
+\noindent We cannot, however, form an XOR gate from a single neuron.\\
+This is because an XOR gate is not \textbf{\underline{linearly separable}}.\\
+\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+
+\begin{tikzpicture}
+	\node (1) {
+	\begin{axis} [width=5cm, height=5cm, xmin=-2, xmax=2, ymin=-2, ymax=2, 
+				xticklabels={}, yticklabels={}, axis x line=center, axis y line=center]
+		\addplot [only marks, circle, draw, fill=white] table {
+			0 0
+			0 1
+			1 0
+			};
+		\addplot [only marks, circle, draw] table {
+			1 1
+			};
+		\plot[domain=-0.5:2] (x, 1.5 - x);
+	\end{axis}};
+	\node[below right=0cm of 1] {AND Gate};
+	\node[right=2cm of 1] (2) {
+	\begin{axis}  [width=5cm, height=5cm, xmin=-2, xmax=2, ymin=-2, ymax=2, 
+				xticklabels={}, yticklabels={}, axis x line=center, axis y line=center]
+		\addplot [only marks, circle, draw, fill=white] table {
+			0 0
+			};
+		\addplot [only marks, circle, draw] table {
+			0 1
+			1 0
+			1 1
+			};
+		\plot[domain=-1:1.5] (x, 0.5 - x);
+	\end{axis}};
+	\node[below right=0cm of 2] {OR Gate};
+	\node[right=2cm of 2] (3) {
+	\begin{axis} [width=5cm, height=5cm, xmin=-2, xmax=2, ymin=-2, ymax=2, 
+				xticklabels={}, yticklabels={}, axis x line=center, axis y line=center]
+		\addplot [only marks, circle, draw, fill=white] table {
+			0 0
+			1 1
+			};
+		\addplot [only marks, circle, draw] table {
+			0 1
+			1 0
+			};
+	\end{axis}};
+	\node[below right=0cm of 3] {XOR Gate};
+\end{tikzpicture}\medskip
 
 \noindent Our neuron functions can only represent linearly separable functions.\\
 Networks, however, can represent much more complex representations.\\
 
-\hl{
-$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591133796275_Untitled+drawing+7.jpg)$
-}
+\begin{center}
+\begin{minipage}{0.4\textwidth}
+\begin{neuralnetwork}[height=3]
+	\newcommand{\x}[2]{$a_#2$}
+	\newcommand{\y}[2]{$b_#2$}
+	\newcommand{\z}[2]{$c_#2$}
+	\inputlayer[count=2, bias=false, text=\x, title=Input\\Layer]
+	\hiddenlayer[count=2, bias=false, text=\y, title=Layer 2] \linklayers
+	\outputlayer[count=1, text=\z, title=Output\\Layer] \linklayers
+\end{neuralnetwork}\end{minipage}%
+\begin{minipage}{0.6\textwidth}
+\begin{align*}
+	c_1 &= g(w_{b_1c_1}b_1 + w_{b_2c_1}b_2)\\
+		& b_1 = g(w_{a_1b_1}a_1 + w_{a_2b_1}a_2)\\
+		& b_2 = g(w_{a_1b_2}a_1 + w_{a_2b_2}a_2)\\
+	\rightarrow c_1 &= g(w_{b_1c_1} g(w_{a_1b_1}a_1 + w_{a_2b_1}a_2) \\
+		&\ \ \ \ \ \ + w_{b_2c_1} g(w_{a_1b_2}a_1 + w_{a_2b_2}a_2)) \\
+		&\sim f(a_1, a_2, b_1, b_2, c_1)
+\end{align*}\end{minipage}\end{center}
 
 \noindent This neural network, as can be seen, represents a complex non-linear function.\\
 We train the neural network by setting the weights to match labeled data.\\
@@ -83,13 +207,19 @@ This has a couple common forms:
 		This is of the form f(w1, …, wk), so we can optimize by weight!
 \end{itemize} \medskip
 
+\begin{center}\begin{minipage}{0.7\textwidth}
 \noindent We do the actual optimization via gradient descent.\\
 Tensor flow, RUST, and the ADAM optimizer can do this for us.\\
 We can stochastically break the data to increase the accuracy of the fit.\\
-
-\hl{
-$![](https://paper-attachments.dropbox.com/s_6E2D9A912A4932DB33218BCF0120FD3DBC4521D2822A1AA28C3A628B5392148D_1591134328128_Untitled+drawing+8.jpg)$
-}
+\end{minipage}%
+\begin{minipage}{0.3\textwidth}\begin{forest}
+	for tree={grow=east}
+	[Data
+		[Testing\\20\%]
+		[Training\\80\%
+			[Training\\80\%]
+			[Validation\\20\%]]]
+\end{forest}\end{minipage}\end{center}
 
 \noindent We call a single iteration of the gradient-descent algorithm an \textbf{\underline{epoch}}.\\
 How do we know which epoch to stop on?\\

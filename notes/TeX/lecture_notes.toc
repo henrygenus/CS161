@@ -14,7 +14,7 @@
 \contentsline {section}{\numberline {13}Probabilistic Reasoning}{35}%
 \contentsline {section}{\numberline {14}Bayesian Networks}{37}%
 \contentsline {section}{\numberline {15}Modeling and Inference}{39}%
-\contentsline {section}{\numberline {16}Bayesian Learning}{41}%
-\contentsline {section}{\numberline {17}Decision Trees and Random Forests}{43}%
-\contentsline {section}{\numberline {18}Neural Networks}{45}%
-\contentsline {section}{\numberline {19}Neural Network Applications}{47}%
+\contentsline {section}{\numberline {16}Bayesian Learning}{42}%
+\contentsline {section}{\numberline {17}Decision Trees and Random Forests}{46}%
+\contentsline {section}{\numberline {18}Neural Networks}{49}%
+\contentsline {section}{\numberline {19}Neural Network Applications}{52}%

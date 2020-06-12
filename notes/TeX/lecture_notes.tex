@@ -8,6 +8,7 @@
 \usepackage{amsthm} 
 \usepackage{amssymb}
 \usepackage{amsmath} 
+\usepackage{pgfplots}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \graphicspath{ {Images/} }
@@ -16,6 +17,7 @@
 \usepackage[edges]{forest}
 \usepackage{tikz-qtree}
 \usepackage{circuitikz}
+\usepackage{neuralnetwork}
 \usepackage{float}
 \usepackage{multicol}
 \usepackage{xcolor}
@@ -44,6 +46,7 @@
 \hyphenpenalty=10000
 \hbadness=10000
 \setlength{\itemsep}{0em}
+\forestset{nice nodes/.style={for tree={inner sep=0pt,s sep=.2in,align=center, anchor=north}},default preamble=nice nodes, }
 
 \title{%
 	CS 161: Artificial Intelligence\\

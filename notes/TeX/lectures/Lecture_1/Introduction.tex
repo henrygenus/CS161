@@ -3,18 +3,15 @@
 \begin{document}
 
 \noindent Artificial Intelligence is actually one of the oldest fields of computer science.\\
-It seeks to understand and build intelligent agents that can:
-\begin{enumerate}
+It seeks to understand and build intelligent agents that can: \begin{enumerate} [itemsep=0mm]
 	\item Perceive
 	\item Understand
 	\item Predict
 	\item Manipulate
 	\item Learn
 \end{enumerate}
-
 \noindent These broad goals are shared with philosophy, psychology, neuroscience, etc.\\
 \indent BUT we build rational systems, where they seek to understand human ones.\\
-
 \noindent Each specific goal, however, is shared with more computational disciplines:
 	\begin{enumerate} [itemsep=0mm]
 		\item Perception? Linguistics
@@ -52,12 +49,29 @@ It seeks to understand and build intelligent agents that can:
 \noindent This avoids physical interaction, so robotics and vision are unneeded.\\
 Since we tend to avoid monolithic approaches, this test is not applied nearly as often in the modern day.\\
 
-\noindent \hl{Overview of an AI agent:}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{AI_Overview}
-	\caption{a course-grain view of an AI agent}
-\end{figure}
+\subsection*{Agents}
+\begin{center}\begin{tikzpicture}
+	\draw (0, 0) -- ++(0, 10) -- ++(3, 0) -- ++(0, -10) -- cycle;
+	\node [align=center] at (1.5, 5) {Embedded\\Environments};
+	\draw (5, 0) -- ++(0, 10) -- ++(8, 0) -- ++(0, -10) -- cycle;
+	\draw (6, 1) -- ++(0, 3) -- ++(2, 0) -- ++(0, -3) -- cycle;
+	\draw (6, 6) -- ++(0, 3) -- ++(2, 0) -- ++(0, -3) -- cycle;
+	\node [align=center] at (7, 2.5) {\textbf{\underline{Action}}\\Writing\\Speech\\Display\\...};
+	\node [align=center] at (7, 7.5) {\textbf{\underline{Perception}}\\Writing\\Speech\\Vision\\Touch\\Clicks\\...};
+	\draw (10, 1) -- ++(0, 2) -- ++(2, 0) -- ++(0, -2) -- cycle;
+	\draw (10, 4) -- ++(0, 2) -- ++(2, 0) -- ++(0, -2) -- cycle;
+	\draw (10, 7) -- ++(0, 2) -- ++(2, 0) -- ++(0, -2) -- cycle;
+	\node [align=center] at (11, 2) {Reasoning};
+	\node [align=center] at (11, 5) {Knowledge};
+	\node [align=center] at (11, 8) {Learning};
+	\draw [<-] (3, 2.5) -- (6, 2.5);
+	\draw [->] (3, 7.5) -- (6, 7.5);
+	\draw [->] (8, 8) -- (10, 8);
+	\draw (9, 8) -- (9, 2.5);
+	\draw [<-] (10, 2.5) -- (9, 2.5);
+	\draw [<-] (10, 5) -- (9, 5);
+	\draw [->] (10, 1.5)  -- (8, 1.5);
+\end{tikzpicture}\end{center}
 
 \noindent How can we acquire knowledge?
 	\begin{enumerate} [itemsep=0mm]
@@ -152,11 +166,11 @@ How can we formalize the reasoning process?
 			\end{enumerate}
 	\end{enumerate} \medskip
 	
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{Deep_Learning}
-	\caption{An example deep learning process}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=\textwidth]{Deep_Learning}
+%	\caption{An example deep learning process}
+%\end{figure}
 
 \noindent In implementing AI, an important part is \textbf{\underline{planning}}:
 	$\equiv$ finding a sequence of actions that will achieve a goal.\\

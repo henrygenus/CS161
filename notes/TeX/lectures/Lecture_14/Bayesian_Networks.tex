@@ -67,9 +67,51 @@ Marcov(G) = \{ I(C, A, BE), I(R, E, ABC), I(A, BE, R), I(B, $\phi$, ER), I(E, $\
 \\
 We can parametrize the structure by assigning weight to the connections.\\
 
-\hl{
-$![](https://paper-attachments.dropbox.com/s_13F2D47E7D3DCA10BE34C69E62E331D2224F9C5F91BEA8639D242F2792B86517_1590117208298_Screen+Shot+2020-05-21+at+8.13.19+PM.png)$
-}
+\begin{center}\begin{tikzpicture}
+	\node [ellipse, draw, align=center] (A) {Winter?\\(A)};
+	\node [ellipse, draw, align=center, below left =of A] (B) {Sprinkler?\\(B)};
+	\node [ellipse, draw, align=center, below right =of A] (C) {Rain?\\(C)};
+	\node [ellipse, draw, align=center, below right =of B] (D) {Wet Grass?\\(D)};
+	\node [ellipse, draw, align=center, below right =of C] (E) {Slippery Road?\\(E)};
+	\draw [->] (A.south west) -- (B.north east);
+	\draw [->] (A.south east) -- (C.north west);
+	\draw [->] (B.south east) -- (D.north west);
+	\draw [->] (C.south west) -- (D.north east);
+	\draw [->] (C.south east) -- (E.north west);
+\end{tikzpicture}\end{center}\begin{center}
+\begin{tabular} { | c | c | } \hline A & $\theta_A$ \\\hline 1 & 0.6 \\ 0 & 0.4 \\\hline\end{tabular}
+\begin{tabular} { | c c | c | } \hline
+	A & B & $\theta_{B|A}$ \\\hline 
+	1 & 1 & 0.2 \\
+	1 & 0 & 0.8 \\
+	0 & 1 & 0.75 \\
+	0 & 0 & 0.25
+\\\hline\end{tabular}
+\begin{tabular} { | c c | c | } \hline
+	A & C & $\theta_{C|A}$ \\\hline 
+	1 & 1 & 0.8 \\
+	1 & 0 & 0.2 \\
+	0 & 1 & 0.1 \\
+	0 & 0 & 0.9
+\\\hline\end{tabular}
+\begin{tabular} { | c c c | c | } \hline
+	B & C & D & $\theta_{D|B,C}$ \\\hline 
+	1 & 1 & 1 & 0.95 \\
+	1 & 1 & 0 & 0.05 \\
+	1 & 0 & 1 & 0.9 \\
+	1 & 0 & 0 & 0.1 \\
+	0 & 1 & 1 & 0.8 \\
+	0 & 1 & 0 & 0.2 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1
+\\\hline\end{tabular}
+\begin{tabular} { | c c | c | } \hline
+	C & E & $\theta_{E|C}$ \\\hline 
+	1 & 1 & 0.7 \\
+	1 & 0 & 0.3 \\
+	0 & 1 & 0 \\
+	0 & 0 & 1
+\\\hline\end{tabular}\end{center}
 
 \noindent Note that $Pr(\neg d, b, \neg c) = \theta_\{\neg d | b, \neg c\}$\\
 \\

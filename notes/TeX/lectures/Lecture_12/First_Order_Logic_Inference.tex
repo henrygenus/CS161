@@ -56,11 +56,11 @@ This formed a subsumption lattice where children are formed by substitution on a
 In this lattice, the highest common descendent of two nodes comes from their MGU.\\
 Since this is $O(2^n)$, it requires a small n; thankfully, most AI problems meet this.\\
 \\
-First order resolution goes as in the following example:\\
-	\indent (($\forall$ x Rich(x) $\implies$ Unhappy(x)), Rich(Ken))\\
-	\indent \{$\neg$ Rich(x) $\lor$ Unhappy(x), Rich(Ken)\}\\
-	\indent $\neg$Rich(x) $\lor$ $\frac{\text{Unhappy}(x), \text{Rich(Ken)}} {\text{Unhappy}(Ken)}$ with \{x/Ken\}\\
-\\
+First order resolution goes as in the following example:\begin{align*}
+	((\forall x Rich(x) \implies Unhappy(x))&, Rich(Ken))\\
+	\{\neg \text{Rich(x) } \lor \text{Unhappy(x)}, &\text{Rich(Ken)}\}\\
+	\frac{\neg\text{Rich(x)} \lor \text{Unhappy}(x), \text{Rich(Ken)}} {\text{Unhappy(Ken)}}& \text{ with \{x/Ken\}}
+\end{align*}
 We use this to walk through the following proof:\\
 	\indent Statements:
 		\begin{itemize} [itemsep=0mm]
@@ -135,19 +135,17 @@ We will do this with the following example:
 \noindent Notice that to be operated on, all clauses must be universally quantified
 
 \subsubsection*{Forward Chaining}
-\hl{
-$![](https://paper-attachments.dropbox.com/s_37BC3BDDFB4E93FABD6C94C74D020C3CD8B25F78236483B019E726793416E36E_1589436072359_Untitled+drawing+20.jpg)$
-}
-
+\begin{center}\begin{figure}[H]
+	\includegraphics[scale=0.5]{forward_chain}
+\end{figure}\end{center}
 \noindent If there are no function symbols and all clauses are definite, the KB is a \textbf{\underline{data log}}\\
 \indent These are especially conducive to representing databases.\\
 If we preprocess as rules come in, we can handle many facts and even model a brain in real time.\\
 
 \subsubsection*{Backward Chaining}
-\hl{
-$![](https://paper-attachments.dropbox.com/s_37BC3BDDFB4E93FABD6C94C74D020C3CD8B25F78236483B019E726793416E36E_1589436972651_Untitled+drawing+21.jpg)$
-}
-
+\begin{center}\begin{figure}[H]
+	\includegraphics[scale=0.5]{backward_chain}
+\end{figure}\end{center}
 \noindent This is often used with improvements for logic programming (as in prolog)\\
 The system often caches subgoals (like Missile(y)) for efficiency’s sake
 

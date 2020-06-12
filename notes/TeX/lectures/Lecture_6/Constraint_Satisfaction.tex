@@ -63,42 +63,42 @@ This was the first and is now the prototypical NP-Complete problem!\\
 
 \begin{center} \begin{tikzpicture}
 	\node {}
-	child {node{}
+	child {node[ellipse, draw] {x=0}
 		child {node{}
 			edge from parent node {}}
 		child {node{}
 			edge from parent node {}}
 		child {node{}
 			edge from parent node {}}
-		child {node {}
+		child {node[ellipse, draw]  {z=1}
 			child {node {}
 				edge from parent node {}}
-		child{node [rectangle, draw] {x=0, y=1, z=1}
-				edge from parent node[right] {y=1}}
-			edge from parent node [right] {z=1}}
-		edge from parent node [left]{x=0}}
-	child {node{}
-		edge from parent node {}}
-	child {node{}
-		edge from parent node {}}
-	child {node{}
-		edge from parent node {}}
-	child {node{}
-		edge from parent node {}}
-	child {node{}
-		child {node{}
-			edge from parent node {}}
-		child {node{}
-			edge from parent node {}}
-		child {node{}
-			edge from parent node {}}
-		child {node {}
 			child{node [rectangle, draw] {x=0, y=1, z=1}
-				edge from parent node [left] {x=0}}
+					edge from parent node[right] {}}
+			edge from parent node [right] {}}
+		edge from parent node [left] {}}
+	child {node{}
+		edge from parent node {}}
+	child {node{}
+		edge from parent node {}}
+	child {node{}
+		edge from parent node {}}
+	child {node{}
+		edge from parent node {}}
+	child {node [ellipse, draw] {z=1}
+		child {node{}
+			edge from parent node {}}
+		child {node{}
+			edge from parent node {}}
+		child {node{}
+			edge from parent node {}}
+		child {node [ellipse, draw] {y=1}
+			child{node [rectangle, draw] {x=0, y=1, z=1}
+				edge from parent node [left] {}}
 			child {node {}
 				edge from parent node {}}
-			edge from parent node [right] {y=1}}
-		edge from parent node [right] {z=1}};
+			edge from parent node [right] {}}
+		edge from parent node [right] {}};
 \end{tikzpicture} \end{center}
 \noindent This is terrible and would be unfeasible; luckily we can note there are only 8 complete states!\\
 $\implies$ If we let nodes be variables and edges values with DFS, we get time $O(d^n)$ \& space $O(dn)$.\\
