@@ -67,7 +67,7 @@ ai = g( [$\sum w_{ij} a_j] + b$)
 \end{tikzpicture}\end{center}\end{minipage}%
 \begin{minipage}{0.5\linewidth}\begin{center}\begin{tikzpicture}
 	\node[text width=3cm, right =of g1] (text2) {
-		Step Function:\[g(x) = max(0, x)\]};
+		ReLU Function:\[g(x) = max(0, x)\]};
 	\node[below right=0cm of text2, text width=5cm] (g2) {\begin{axis} [width=5cm, height=5cm,
 	axis x line=center, axis y line=center, xmin=-1, xmax = 1, ymin=-1, ymax=1, xticklabels={}, yticklabels={}] 
 		\plot [domain=-1:0, ultra thick, <-] (x, 0);
