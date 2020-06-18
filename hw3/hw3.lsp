@@ -301,6 +301,18 @@
 ; The Lisp 'time' function can be used to measure the
 ; running time of a function call.
 ;
+ (defun h304965058 (s)
+  (let ((stars (get-stars s 0))
+        (boxes (get-boxes s 0))
+        (keeperPos (get-keeper-not-star s)))
+    (cond ((and (not (null keeperPos)) (not (null boxes)))
+           (let ((dBoxes (min-sum-distances boxes stars))
+                 (dKeeper (get-min-distance keeperPos boxes)))
+             (+ dKeeper dBoxes)))
+          ((not (null boxes)) (min-sum-distances boxes stars))
+          ((not (null keeperPos)) (get-min-distance keeperPos stars))
+          (t 0))))
+
 
 ; given a point PT and list L of points, return the max distance between pt
 ; and any point in L
@@ -312,7 +324,6 @@
 
 ; get the manhattan distance between the points PT1 & PT2
 ;
-
 (defun distance (pt1 pt2)
   (let ((dx (abs (- (first pt1) (first pt2))))
         (dy (abs (- (second pt1) (second pt2)))))
@@ -457,23 +468,6 @@
             ((= (length (first s)) keeperCol) (get-keeper-not-star (rest s)(+ 1 row-num)))
             (t (list row-num keeperCol))))))
 
-; three stage heuristic based on the state
-; 1. there are boxes and a keeper off of stars
-;       return (*) minimal sum of distance between stable matching of stars & boxes
-;       + minimal distance from keeper to nearest unmatched star
-; 2. the keeper is not on a star but all boxes are
-;       return the distance between the keeper and the closest star
-; 3. keeper on star but not boxes -- return (*)
-; 4. else return 0
-;
- (defun h304965058 (s)
-  (let ((stars (get-stars s 0))
-        (boxes (get-boxes s 0))
-        (keeperPos (get-keeper-not-star s)))
-    (if (null boxes) (get-min-distance keeperPos stars)
-      (let ((dBoxes (min-sum-distances boxes stars))
-            (dKeeper (get-min-distance keeperPos boxes)))
-        (+ dKeeper dBoxes)))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
